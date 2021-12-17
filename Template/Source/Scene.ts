@@ -59,11 +59,15 @@ namespace Template {
     //await ƒS.Character.animate (characters.ManySeeds, characters.ManySeeds.pose.neutral, Sway());
     //await ƒS.Character.animate (characters.alice, characters.alice.pose.neutral, jirkaAnimation());
     //await ƒS.Character.animate (characters.whiteRabbit, characters.whiteRabbit.pose.neutral, fromLefttoRight ()); // animation
-    //await ƒS.Character.animate(characters.Rain, characters.Rain.pose.neutral, Rain());
+    await ƒS.Character.animate(characters.Rain, characters.Rain.pose.neutral, Rain());
     //Input Feld
     dataForSave.nameProtagonist = await ƒS.Speech.getInput();
     console.log(dataForSave.nameProtagonist);
 
+
+    //Inventar
+    //ƒS.Inventory.add(items.pen);
+    //await ƒS.Inventory.open();
 
     //await ƒS.Speech.tell(chara)
     await ƒS.Speech.tell(characters.whiteRabbit, text.whiteRabbit.T0000 + " " + dataForSave.nameProtagonist + " restlicher Text."); // wartet auf Nutzereingabe, für Text
@@ -73,6 +77,10 @@ namespace Template {
 
     //await ƒS.Speech.tell(characters.snowWhite, "Hi2."); // für Auswahlmöglichkeiten
     //await ƒS.Character.hide(characters.seed);
+
+
+    // Text pace
+    ƒS.Speech.setTickerDelays(20,2) //die 2 ist delay zwei sekunden warten, bevor bei paragraf weitergeht. <p> </p> paragraph innerhalb der anführungszeichen von text oder <br> für neue Zeile
 
     let firstDialogueElementOptions = { // bitte sinnvoll benennen
       // iSayOk: "Okay.", // immer mit i anfangen weil perspektive des Spielers
@@ -94,7 +102,9 @@ namespace Template {
         await ƒS.Speech.tell (characters.alice, text.alice.T0002);
         await ƒS.Speech.tell (characters.snowWhite, text.snowWhite.T0002);
         break; //man kann aber auch in einer case eine case haben
+        //man könnte auch hier return "szene"; machen
       case  firstDialogueElementOptions.iSayNo:
+        //dataForSave.points += 10; //wenn Spieler so und so viele Punkte gesammelt hat, kommt x Szene
         await ƒS.Speech.tell (characters.whiteRabbit, text.whiteRabbit.T0001);
         await ƒS.Speech.tell (characters.alice, text.alice.T0002);
         await ƒS.Speech.tell (characters.snowWhite, text.snowWhite.T0002);
@@ -123,6 +133,14 @@ namespace Template {
 
      //Musik Ausblenden
      ƒS.Sound.fade(sound.adventure, 0, 2)
+
+     //if (dataForSave.points === 100) { //hier drei = weil noch number und string vertreten
+      // return End(); //--> zB. wenn so viele Punkte erreicht, dann die szene, das wäre aber kein Punkteverteilungssystem (nur wenn Zieler gezielt im Konzept Punkte sammelt)
+    // }
+
+     //return "Ende"; (um auf ende zu gehen)
+     //oder
+     // return End(); 
 
   }
 }

@@ -23,6 +23,13 @@ declare namespace Template {
         wind1: string;
         wind2: string;
     };
+    let items: {
+        pen: {
+            name: string;
+            description: string;
+            image: string;
+        };
+    };
     let locations: {
         TreeWithoutSeeds: {
             name: string;
@@ -164,8 +171,20 @@ declare namespace Template {
     function Rain(): ƒS.AnimationDefinition;
     let dataForSave: {
         nameProtagonist: string;
+        points: number;
     };
 }
 declare namespace Template {
     function Scene(): ƒS.SceneReturn;
+}
+declare module "Source/Transitions" {
+    export import ƒ = FudgeCore;
+    export import ƒS = FudgeStory;
+    export let transitions: {
+        clock: {
+            duration: number;
+            alpha: string;
+            edge: number;
+        };
+    };
 }

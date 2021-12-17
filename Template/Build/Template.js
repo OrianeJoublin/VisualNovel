@@ -29,6 +29,14 @@ var Template;
         wind1: "./SoundEffects/wind-breeze-01.mp3",
         wind2: "./SoundEffects/windy-forest-ambience-01.mp3"
     };
+    //Items, die man erhält und zum Inventar zugefügt werden
+    Template.items = {
+        pen: {
+            name: "Red Pen",
+            description: "A red pen",
+            image: "./Images/Items/redPen"
+        }
+    };
     // Hintergründe
     Template.locations = {
         TreeWithoutSeeds: {
@@ -159,7 +167,7 @@ var Template;
             name: "Rain",
             origin: Template.ƒS.ORIGIN.CENTER,
             pose: {
-                neutral: "./Characters/Rain.png",
+                neutral: "./Characters/Rain2.png",
             }
         }
     };
@@ -227,20 +235,82 @@ var Template;
     function Rain() {
         return {
             start: { translation: Template.ƒS.positions.topcenter },
-            end: { translation: Template.ƒS.positions.bottomcenter },
-            duration: 1,
+            end: { translation: Template.ƒS.positions.center },
+            duration: 0.5,
             playmode: Template.ƒS.ANIMATION_PLAYMODE.LOOP
         };
     }
     Template.Rain = Rain;
     ;
     Template.dataForSave = {
-        nameProtagonist: ""
+        nameProtagonist: "",
+        points: 0 //hier kann man neues Attribut anlegen, z.B. points
     };
+    //Menü
+    let menu = true; //true heißt Menü ist offen, false wäre geschlossen
+    let inGameMenu = {
+        save: "Save",
+        load: "Load",
+        close: "Close",
+        // open: "Open" //anschließend kann hier auch Credits rein
+    };
+    let gameMenu;
+    async function buttonFunctionalities(_option) {
+        console.log(_option); //auf Console ausgeben, ob gespeichetr oder geladen, hilfestellung zum debuggen
+        switch (_option) {
+            case inGameMenu.save:
+                await Template.ƒS.Progress.save();
+                break;
+            case inGameMenu.load:
+                await Template.ƒS.Progress.load();
+                break;
+            case inGameMenu.close:
+                gameMenu.close();
+                menu = false;
+                break;
+            //case inGameMenu.close:
+            // gameMenu.open();
+            // menu = true;
+            // break;
+        }
+    }
+    // Shortcuts für's Menü bzw. Shortcuts generell hier rein
+    document.addEventListener("keydown", hndKeyPress);
+    async function hndKeyPress(_event) {
+        switch (_event.code) {
+            case Template.ƒ.KEYBOARD_CODE.F8: //hier englische tastatur also z und y berpcksichtigen
+                console.log("Save");
+                await Template.ƒS.Progress.save();
+                break;
+            case Template.ƒ.KEYBOARD_CODE.F9:
+                console.log("Load");
+                await Template.ƒS.Progress.load();
+                break;
+            case Template.ƒ.KEYBOARD_CODE.M: //Buchstabe für Close Menü
+                if (menu) {
+                    console.log("Close");
+                    gameMenu.close();
+                    menu = false;
+                }
+                else {
+                    console.log("Open");
+                    gameMenu.open();
+                    menu = true;
+                }
+                break;
+        }
+    }
     window.addEventListener("load", start);
     function start(_event) {
+        //Menü
+        gameMenu = Template.ƒS.Menu.create(inGameMenu, buttonFunctionalities, "gameMenu"); //hier CSS Klasse angeben
         let scenes = [
-            { scene: Template.Scene, name: "Scene" }
+            //Linear
+            { scene: Template.Scene, name: "Scene" },
+            { id: "Einführung", scene: Template.Scene, name: "Scene", next: "Ende" },
+            //{ scene: Scene2, name: "Scene Two"},
+            //{ id: "Ende", scene: encodeURI, name: "The End"},
+            { id: "Einführung2", scene: Template.Scene, name: "Scene" } //selbe Szene kann mehrere IDs haben
         ];
         // Interface elemente abspeichern
         let uiElement = document.querySelector("[type=interface]");
@@ -307,10 +377,13 @@ var Template;
         //await ƒS.Character.animate (characters.ManySeeds, characters.ManySeeds.pose.neutral, Sway());
         //await ƒS.Character.animate (characters.alice, characters.alice.pose.neutral, jirkaAnimation());
         //await ƒS.Character.animate (characters.whiteRabbit, characters.whiteRabbit.pose.neutral, fromLefttoRight ()); // animation
-        //await ƒS.Character.animate(characters.Rain, characters.Rain.pose.neutral, Rain());
+        await Template.ƒS.Character.animate(Template.characters.Rain, Template.characters.Rain.pose.neutral, Template.Rain());
         //Input Feld
         Template.dataForSave.nameProtagonist = await Template.ƒS.Speech.getInput();
         console.log(Template.dataForSave.nameProtagonist);
+        //Inventar
+        //ƒS.Inventory.add(items.pen);
+        //await ƒS.Inventory.open();
         //await ƒS.Speech.tell(chara)
         await Template.ƒS.Speech.tell(Template.characters.whiteRabbit, text.whiteRabbit.T0000 + " " + Template.dataForSave.nameProtagonist + " restlicher Text."); // wartet auf Nutzereingabe, für Text
         await Template.ƒS.Speech.tell(Template.characters.snowWhite, text.snowWhite.T0000);
@@ -318,6 +391,8 @@ var Template;
         await Template.ƒS.Speech.tell(Template.dataForSave.nameProtagonist, "Quatsch", true, "protagonist"); //letztes = css Klasse
         //await ƒS.Speech.tell(characters.snowWhite, "Hi2."); // für Auswahlmöglichkeiten
         //await ƒS.Character.hide(characters.seed);
+        // Text pace
+        Template.ƒS.Speech.setTickerDelays(20, 2); //die 2 ist delay zwei sekunden warten, bevor bei paragraf weitergeht. <p> </p> paragraph innerhalb der anführungszeichen von text oder <br> für neue Zeile
         let firstDialogueElementOptions = {
             // iSayOk: "Okay.", // immer mit i anfangen weil perspektive des Spielers
             iSayYes: "Yes, please!",
@@ -336,7 +411,9 @@ var Template;
                 await Template.ƒS.Speech.tell(Template.characters.alice, text.alice.T0002);
                 await Template.ƒS.Speech.tell(Template.characters.snowWhite, text.snowWhite.T0002);
                 break; //man kann aber auch in einer case eine case haben
+            //man könnte auch hier return "szene"; machen
             case firstDialogueElementOptions.iSayNo:
+                //dataForSave.points += 10; //wenn Spieler so und so viele Punkte gesammelt hat, kommt x Szene
                 await Template.ƒS.Speech.tell(Template.characters.whiteRabbit, text.whiteRabbit.T0001);
                 await Template.ƒS.Speech.tell(Template.characters.alice, text.alice.T0002);
                 await Template.ƒS.Speech.tell(Template.characters.snowWhite, text.snowWhite.T0002);
@@ -363,7 +440,35 @@ var Template;
         ;
         //Musik Ausblenden
         Template.ƒS.Sound.fade(Template.sound.adventure, 0, 2);
+        //if (dataForSave.points === 100) { //hier drei = weil noch number und string vertreten
+        // return End(); //--> zB. wenn so viele Punkte erreicht, dann die szene, das wäre aber kein Punkteverteilungssystem (nur wenn Zieler gezielt im Konzept Punkte sammelt)
+        // }
+        //return "Ende"; (um auf ende zu gehen)
+        //oder
+        // return End(); 
     }
     Template.Scene = Scene;
 })(Template || (Template = {}));
+System.register("Source/Transitions", [], function (exports_1, context_1) {
+    "use strict";
+    var ƒ, ƒS, transitions;
+    var __moduleName = context_1 && context_1.id;
+    return {
+        setters: [],
+        execute: function () {
+            //namespace Template {
+            exports_1("\u0192", ƒ = FudgeCore);
+            exports_1("\u0192S", ƒS = FudgeStory);
+            console.log("FudgeStory template starting");
+            // define transitions
+            exports_1("transitions", transitions = {
+                clock: {
+                    duration: 1,
+                    alpha: "./Transitions/jigsaw01.png",
+                    edge: 1 // harte Transition
+                },
+            });
+        }
+    };
+});
 //# sourceMappingURL=Template.js.map

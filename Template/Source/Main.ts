@@ -32,6 +32,14 @@ namespace Template {
     wind2: "./SoundEffects/windy-forest-ambience-01.mp3"
   };
 
+  //Items, die man erhält und zum Inventar zugefügt werden
+  export let items = {
+  pen: {
+      name: "Red Pen", 
+      description: "A red pen",
+      image: "./Images/Items/redPen"
+    }
+  };
 
   // Hintergründe
 
@@ -168,7 +176,7 @@ namespace Template {
       name: "Rain",
       origin: ƒS.ORIGIN.CENTER,
       pose: {
-        neutral: "./Characters/Rain.png",
+        neutral: "./Characters/Rain2.png",
       }
     }
   };
@@ -232,20 +240,96 @@ namespace Template {
   export function Rain(): ƒS.AnimationDefinition {
     return {
       start: { translation: ƒS.positions.topcenter },
-      end: { translation: ƒS.positions.bottomcenter },
-      duration: 1, // as long as you want
+      end: { translation: ƒS.positions.center },
+      duration: 0.5, // as long as you want
       playmode: ƒS.ANIMATION_PLAYMODE.LOOP
     }
   };
 
   export let dataForSave = {
-    nameProtagonist: ""
+    nameProtagonist: "",
+    points: 0 //hier kann man neues Attribut anlegen, z.B. points
   };
+
+
+  //Menü
+  let menu: boolean = true; //true heißt Menü ist offen, false wäre geschlossen
+
+  let inGameMenu = {
+    save: "Save", //hier kommen Buttons rein, die angezeigt werden sollen plus string um CSS zu gestalten mit jeweiliger ID
+    load: "Load",
+    close: "Close",
+    // open: "Open" //anschließend kann hier auch Credits rein
+  };
+
+  let gameMenu: ƒS.Menu;
+
+  async function buttonFunctionalities(_option: string): Promise<void> {
+    console.log(_option); //auf Console ausgeben, ob gespeichetr oder geladen, hilfestellung zum debuggen
+    switch (_option) {
+      case inGameMenu.save:
+        await ƒS.Progress.save();
+        break;
+      case inGameMenu.load:
+        await ƒS.Progress.load();
+        break;
+      case inGameMenu.close:
+        gameMenu.close();
+        menu = false;
+        break;
+      //case inGameMenu.close:
+       // gameMenu.open();
+       // menu = true;
+       // break;
+    }
+  }
+
+
+// Shortcuts für's Menü bzw. Shortcuts generell hier rein
+document.addEventListener("keydown", hndKeyPress);
+async function hndKeyPress(_event: KeyboardEvent): Promise <void> {
+  switch (_event.code) {
+    case ƒ.KEYBOARD_CODE.F8: //hier englische tastatur also z und y berpcksichtigen
+      console.log("Save");
+      await ƒS.Progress.save();
+      break;
+    case ƒ.KEYBOARD_CODE.F9:
+      console.log("Load");
+      await ƒS.Progress.load();
+      break;
+    case ƒ.KEYBOARD_CODE.M: //Buchstabe für Close Menü
+      if (menu) {
+        console.log("Close");
+        gameMenu.close();
+        menu = false;
+      }
+      else{
+        console.log("Open");
+        gameMenu.open();
+        menu = true;
+      }
+      break;
+  }
+}
+    
+
 
   window.addEventListener("load", start);
   function start(_event: Event): void {
+    //Menü
+    gameMenu = ƒS.Menu.create(inGameMenu, buttonFunctionalities, "gameMenu"); //hier CSS Klasse angeben
+
+
     let scenes: ƒS.Scenes = [
-      { scene: Scene, name: "Scene" }
+      //Linear
+      { scene: Scene, name: "Scene" },
+      { id: "Einführung", scene: Scene, name: "Scene", next: "Ende"},  //man kann direkt die nächste szene hier definieren statt return in der Szene
+      //{ scene: Scene2, name: "Scene Two"},
+      //{ id: "Ende", scene: encodeURI, name: "The End"},
+      { id: "Einführung2", scene: Scene, name: "Scene" } //selbe Szene kann mehrere IDs haben
+
+
+
     ];
 
 
