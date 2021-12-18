@@ -1,6 +1,6 @@
 namespace Template {
-  export async function IntroPart1(): ƒS.SceneReturn {
-    console.log("FudgeStory Template Scene starting");
+  export async function TestS1_IntroPart1(): ƒS.SceneReturn {
+    console.log("S1_IntroPart1 starting");
 
     let text = { // Charaktere Texte
       narrator: {

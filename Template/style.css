@@ -1,0 +1,43 @@
+html, body {
+  width: 100vw;
+  height: 100vh;
+  margin: 0px;
+  padding: 0px;
+  background-color: #000000;
+  overflow: hidden;
+  font-family: 'EB Garamond', Georgia, 'Times New Roman', Times, serif;
+  font-weight: normal;
+  font-size: 2.3vmin;
+  color: rgb(240, 18, 103);
+}
+
+
+scene {
+  width: 1920px;
+  height: 1080px; 
+  display: inline-block;
+}
+
+
+canvas {
+  width: 1920px;
+  height: 1080px;
+}
+
+
+/* Splashscreen 
+dialog {
+  background-image: url("./Backgrounds/WindRain.png");
+} */
+
+
+name {
+  font-size: 14pt;
+  display: block;
+  color: rgba(98, 113, 161, 0);
+  margin-bottom: 10px;
+}
+
+speech content {
+  color: rgb(230, 241, 255);
+}
