@@ -1,6 +1,136 @@
 "use strict";
 var Template;
 (function (Template) {
+    async function IntroPart1() {
+        console.log("FudgeStory Template Scene starting");
+        let text = {
+            narrator: {
+                T0000: "Somewhere far away <br> On a little hill in May <br> Stood a miracle tree <br> Spreading its branches gleefully",
+                T0001: ""
+            },
+            seed: {
+                T0000: "Hi",
+                T0001: ""
+            },
+            snowWhite: {
+                T0000: "Oh but our guest doesn't have any yet! Would you like some tea?",
+                T0001: "Here you go!",
+                T0002: "Because when the tea gets cold, the sun comes out. Do you want to wait for it or rather drink the tea?",
+                T0003: "Right? But the sun only comes out for a few seconds and then leaves us again."
+            },
+            whiteRabbit: {
+                T0000: "I wonder what time the tea will be cold.",
+                T0001: "Fine, then lets start the timer and count the seconds.",
+                T0002: "So, let's go home then, alright?"
+            },
+            alice: {
+                T0000: "Yes, please!",
+                T0001: "No, thanks.",
+                T0002: "Why are you waiting for the tea to be cold?",
+                T0003: "I'll wait.",
+                T0004: "I'm not waiting for the tea to be cold, no way!",
+                T0005: "That's so pretty!",
+                T0006: "Actually, I'd like some tea now, if that's okay?"
+            }
+        };
+        //Musik
+        //ƒS.Sound.play(sound.backgroundTheme, 0.1, true);
+        Template.ƒS.Sound.fade(Template.sound.adventure, 0.2, 2, true); // true = gelooped
+        //Delay
+        let signalDelay = Template.ƒS.Progress.defineSignal([() => Template.ƒS.Progress.delay(1)]);
+        //Text während Animation
+        let animationDone = Template.ƒS.Character.animate(Template.characters.ManySeeds, Template.characters.ManySeeds.pose.neutral, Template.Sway());
+        // Background and characters appear:
+        await Template.ƒS.Location.show(Template.locations.TreeWithoutSeeds);
+        //await ƒS.Location.show(locations.Teatime);
+        await Template.ƒS.update(Template.transitions.clock.duration, Template.transitions.clock.alpha, Template.transitions.clock.edge); // es gibt die Möglichkeit, transition Attribute zu kombinieren (also von anderen Transitions)
+        animationDone;
+        //await ƒS.Character.show(characters.snowWhite, characters.snowWhite.pose.neutral, ƒS.positions.centerleft); // oder positionPercent, wo ich x und y Koordinaten eingeben kann
+        //await ƒS.update(1); // transition Länge (hier eine Sekunde)
+        //await ƒS.Character.show(characters.whiteRabbit, characters.whiteRabbit.pose.neutral, ƒS.positionPercent (70,80)); // oder positionPercent, wo ich x und y Koordinaten eingeben kann
+        //await ƒS.update(1); // transition Länge (hier eine Sekunde)
+        //await ƒS.Character.show(characters.alice, characters.alice.pose.neutral, ƒS.positions.bottomright); // oder positionPercent, wo ich x und y Koordinaten eingeben kann
+        //await ƒS.update(1); // transition Länge (hier eine Sekunde)
+        //await ƒS.Character.show(characters.ManySeeds, characters.ManySeeds.pose.neutral,ƒS.positions.center)
+        //await ƒS.Character.animate(characters.ManySeeds, characters.ManySeeds.pose.neutral, Sway());
+        //await ƒS.Character.animate (characters.ManySeeds, characters.ManySeeds.pose.neutral, Sway());
+        //await ƒS.Character.animate (characters.alice, characters.alice.pose.neutral, jirkaAnimation());
+        //await ƒS.Character.animate (characters.whiteRabbit, characters.whiteRabbit.pose.neutral, fromLefttoRight ()); // animation
+        await Template.ƒS.Character.animate(Template.characters.Rain, Template.characters.Rain.pose.neutral, Template.Rain());
+        //Input Feld
+        Template.dataForSave.nameProtagonist = await Template.ƒS.Speech.getInput();
+        console.log(Template.dataForSave.nameProtagonist);
+        //Inventar
+        //ƒS.Inventory.add(items.pen);
+        //await ƒS.Inventory.open();
+        //await ƒS.Speech.tell(chara)
+        await Template.ƒS.Speech.tell(Template.characters.narrator, text.narrator.T0000, true, "introduction");
+        await Template.ƒS.Speech.tell(Template.characters.whiteRabbit, text.whiteRabbit.T0000 + " " + Template.dataForSave.nameProtagonist + " restlicher Text."); // wartet auf Nutzereingabe, für Text
+        await Template.ƒS.Speech.tell(Template.characters.snowWhite, text.snowWhite.T0000);
+        await signalDelay();
+        await Template.ƒS.Speech.tell(Template.dataForSave.nameProtagonist, "Quatsch", true, "protagonist"); //letztes = css Klasse
+        //await ƒS.Speech.tell(characters.snowWhite, "Hi2."); // für Auswahlmöglichkeiten
+        //await ƒS.Character.hide(characters.seed);
+        // Text pace
+        Template.ƒS.Speech.setTickerDelays(20, 2); //die 2 ist delay zwei sekunden warten, bevor bei paragraf weitergeht. <p> </p> paragraph innerhalb der anführungszeichen von text oder <br> für neue Zeile
+        let firstDialogueElementOptions = {
+            // iSayOk: "Okay.", // immer mit i anfangen weil perspektive des Spielers
+            iSayYes: "Yes, please!",
+            iSayNo: "No thanks."
+        };
+        let firstDialogueElement = await Template.ƒS.Menu.getInput(firstDialogueElementOptions, "individualCSSClass"); // Gestaltungsklassen mit CSS vergeben
+        switch (firstDialogueElement) { //switch case springt zum jeweiligen case und breaked es/ springt raus
+            // case firstDialogueElementOptions.iSayOk:
+            //await ƒS.Speech.tell(characters.seed, "Hi2.");
+            //break;
+            case firstDialogueElementOptions.iSayYes:
+                await Template.ƒS.Character.animate(Template.characters.teaCup, Template.characters.teaCup.pose.neutral, Template.fromToptoCenter());
+                //await ƒS.Character.show(characters.teaCup, characters.teaCup.pose.neutral, ƒS.positions.center); //angenommen anderere charkter wäre deklariert dann was anderes als seed
+                await Template.ƒS.Speech.tell(Template.characters.snowWhite, text.snowWhite.T0001);
+                await Template.ƒS.Speech.tell(Template.characters.whiteRabbit, text.whiteRabbit.T0001);
+                await Template.ƒS.Speech.tell(Template.characters.alice, text.alice.T0002);
+                await Template.ƒS.Speech.tell(Template.characters.snowWhite, text.snowWhite.T0002);
+                break; //man kann aber auch in einer case eine case haben
+            //man könnte auch hier return "szene"; machen
+            case firstDialogueElementOptions.iSayNo:
+                //dataForSave.points += 10; //wenn Spieler so und so viele Punkte gesammelt hat, kommt x Szene
+                await Template.ƒS.Speech.tell(Template.characters.whiteRabbit, text.whiteRabbit.T0001);
+                await Template.ƒS.Speech.tell(Template.characters.alice, text.alice.T0002);
+                await Template.ƒS.Speech.tell(Template.characters.snowWhite, text.snowWhite.T0002);
+                break;
+        }
+        ;
+        let secondDialogueElementOptions = {
+            iSayWait: "I'll wait",
+            iSayNotWait: "I'm not waiting for the tea to be cold, no way!"
+        };
+        let secondDialogueElement = await Template.ƒS.Menu.getInput(secondDialogueElementOptions, "individualCSSClass");
+        switch (secondDialogueElement) {
+            case secondDialogueElementOptions.iSayWait:
+                await Template.ƒS.Character.animate(Template.characters.sun, Template.characters.sun.pose.neutral, Template.fromToplefttoTopcenter());
+                //await ƒS.Character.show(characters.sun, characters.sun.pose.neutral, ƒS.positions.center); 
+                await Template.ƒS.Speech.tell(Template.characters.alice, text.alice.T0005);
+                await Template.ƒS.Speech.tell(Template.characters.snowWhite, text.snowWhite.T0003);
+                await Template.ƒS.Speech.tell(Template.characters.whiteRabbit, text.whiteRabbit.T0002);
+                break;
+            case secondDialogueElementOptions.iSayNotWait:
+                await Template.ƒS.Speech.tell(Template.characters.whiteRabbit, text.whiteRabbit.T0002);
+                break;
+        }
+        ;
+        //Musik Ausblenden
+        Template.ƒS.Sound.fade(Template.sound.adventure, 0, 2);
+        //if (dataForSave.points === 100) { //hier drei = weil noch number und string vertreten
+        // return End(); //--> zB. wenn so viele Punkte erreicht, dann die szene, das wäre aber kein Punkteverteilungssystem (nur wenn Zieler gezielt im Konzept Punkte sammelt)
+        // }
+        //return "Ende"; (um auf ende zu gehen)
+        //oder
+        // return End(); 
+    }
+    Template.IntroPart1 = IntroPart1;
+})(Template || (Template = {}));
+var Template;
+(function (Template) {
     Template.ƒ = FudgeCore;
     Template.ƒS = FudgeStory;
     console.log("FudgeStory template starting");
@@ -119,7 +249,7 @@ var Template;
     // Charaktere
     Template.characters = {
         narrator: {
-            name: "" // Komma?
+            name: "Narrator" // Komma?
         },
         alice: {
             name: "Alice",
@@ -306,11 +436,11 @@ var Template;
         gameMenu = Template.ƒS.Menu.create(inGameMenu, buttonFunctionalities, "gameMenu"); //hier CSS Klasse angeben
         let scenes = [
             //Linear
-            { scene: Template.Scene, name: "Scene" },
-            { id: "Einführung", scene: Template.Scene, name: "Scene", next: "Ende" },
+            { scene: Template.IntroPart1, name: "IntroPart1" },
+            //{ id: "Einführung", scene: Scene, name: "Scene", next: "Ende"},  //man kann direkt die nächste szene hier definieren statt return in der Szene
             //{ scene: Scene2, name: "Scene Two"},
             //{ id: "Ende", scene: encodeURI, name: "The End"},
-            { id: "Einführung2", scene: Template.Scene, name: "Scene" } //selbe Szene kann mehrere IDs haben
+            //{ id: "Einführung2", scene: Scene, name: "Scene" } //selbe Szene kann mehrere IDs haben
         ];
         // Interface elemente abspeichern
         let uiElement = document.querySelector("[type=interface]");
@@ -319,135 +449,6 @@ var Template;
         Template.ƒS.Progress.go(scenes);
     }
     ;
-})(Template || (Template = {}));
-var Template;
-(function (Template) {
-    async function Scene() {
-        console.log("FudgeStory Template Scene starting");
-        let text = {
-            narrator: {
-                T0000: "",
-                T0001: ""
-            },
-            seed: {
-                T0000: "Hi",
-                T0001: ""
-            },
-            snowWhite: {
-                T0000: "Oh but our guest doesn't have any yet! Would you like some tea?",
-                T0001: "Here you go!",
-                T0002: "Because when the tea gets cold, the sun comes out. Do you want to wait for it or rather drink the tea?",
-                T0003: "Right? But the sun only comes out for a few seconds and then leaves us again."
-            },
-            whiteRabbit: {
-                T0000: "I wonder what time the tea will be cold.",
-                T0001: "Fine, then lets start the timer and count the seconds.",
-                T0002: "So, let's go home then, alright?"
-            },
-            alice: {
-                T0000: "Yes, please!",
-                T0001: "No, thanks.",
-                T0002: "Why are you waiting for the tea to be cold?",
-                T0003: "I'll wait.",
-                T0004: "I'm not waiting for the tea to be cold, no way!",
-                T0005: "That's so pretty!",
-                T0006: "Actually, I'd like some tea now, if that's okay?"
-            }
-        };
-        //Musik
-        //ƒS.Sound.play(sound.backgroundTheme, 0.1, true);
-        Template.ƒS.Sound.fade(Template.sound.adventure, 0.2, 2, true); // true = gelooped
-        //Delay
-        let signalDelay = Template.ƒS.Progress.defineSignal([() => Template.ƒS.Progress.delay(1)]);
-        //Text während Animation
-        let animationDone = Template.ƒS.Character.animate(Template.characters.ManySeeds, Template.characters.ManySeeds.pose.neutral, Template.Sway());
-        // Background and characters appear:
-        await Template.ƒS.Location.show(Template.locations.TreeWithoutSeeds);
-        //await ƒS.Location.show(locations.Teatime);
-        await Template.ƒS.update(Template.transitions.clock.duration, Template.transitions.clock.alpha, Template.transitions.clock.edge); // es gibt die Möglichkeit, transition Attribute zu kombinieren (also von anderen Transitions)
-        animationDone;
-        //await ƒS.Character.show(characters.snowWhite, characters.snowWhite.pose.neutral, ƒS.positions.centerleft); // oder positionPercent, wo ich x und y Koordinaten eingeben kann
-        //await ƒS.update(1); // transition Länge (hier eine Sekunde)
-        //await ƒS.Character.show(characters.whiteRabbit, characters.whiteRabbit.pose.neutral, ƒS.positionPercent (70,80)); // oder positionPercent, wo ich x und y Koordinaten eingeben kann
-        //await ƒS.update(1); // transition Länge (hier eine Sekunde)
-        //await ƒS.Character.show(characters.alice, characters.alice.pose.neutral, ƒS.positions.bottomright); // oder positionPercent, wo ich x und y Koordinaten eingeben kann
-        //await ƒS.update(1); // transition Länge (hier eine Sekunde)
-        //await ƒS.Character.show(characters.ManySeeds, characters.ManySeeds.pose.neutral,ƒS.positions.center)
-        //await ƒS.Character.animate(characters.ManySeeds, characters.ManySeeds.pose.neutral, Sway());
-        //await ƒS.Character.animate (characters.ManySeeds, characters.ManySeeds.pose.neutral, Sway());
-        //await ƒS.Character.animate (characters.alice, characters.alice.pose.neutral, jirkaAnimation());
-        //await ƒS.Character.animate (characters.whiteRabbit, characters.whiteRabbit.pose.neutral, fromLefttoRight ()); // animation
-        await Template.ƒS.Character.animate(Template.characters.Rain, Template.characters.Rain.pose.neutral, Template.Rain());
-        //Input Feld
-        Template.dataForSave.nameProtagonist = await Template.ƒS.Speech.getInput();
-        console.log(Template.dataForSave.nameProtagonist);
-        //Inventar
-        //ƒS.Inventory.add(items.pen);
-        //await ƒS.Inventory.open();
-        //await ƒS.Speech.tell(chara)
-        await Template.ƒS.Speech.tell(Template.characters.whiteRabbit, text.whiteRabbit.T0000 + " " + Template.dataForSave.nameProtagonist + " restlicher Text."); // wartet auf Nutzereingabe, für Text
-        await Template.ƒS.Speech.tell(Template.characters.snowWhite, text.snowWhite.T0000);
-        await signalDelay();
-        await Template.ƒS.Speech.tell(Template.dataForSave.nameProtagonist, "Quatsch", true, "protagonist"); //letztes = css Klasse
-        //await ƒS.Speech.tell(characters.snowWhite, "Hi2."); // für Auswahlmöglichkeiten
-        //await ƒS.Character.hide(characters.seed);
-        // Text pace
-        Template.ƒS.Speech.setTickerDelays(20, 2); //die 2 ist delay zwei sekunden warten, bevor bei paragraf weitergeht. <p> </p> paragraph innerhalb der anführungszeichen von text oder <br> für neue Zeile
-        let firstDialogueElementOptions = {
-            // iSayOk: "Okay.", // immer mit i anfangen weil perspektive des Spielers
-            iSayYes: "Yes, please!",
-            iSayNo: "No thanks."
-        };
-        let firstDialogueElement = await Template.ƒS.Menu.getInput(firstDialogueElementOptions, "individualCSSClass"); // Gestaltungsklassen mit CSS vergeben
-        switch (firstDialogueElement) { //switch case springt zum jeweiligen case und breaked es/ springt raus
-            // case firstDialogueElementOptions.iSayOk:
-            //await ƒS.Speech.tell(characters.seed, "Hi2.");
-            //break;
-            case firstDialogueElementOptions.iSayYes:
-                await Template.ƒS.Character.animate(Template.characters.teaCup, Template.characters.teaCup.pose.neutral, Template.fromToptoCenter());
-                //await ƒS.Character.show(characters.teaCup, characters.teaCup.pose.neutral, ƒS.positions.center); //angenommen anderere charkter wäre deklariert dann was anderes als seed
-                await Template.ƒS.Speech.tell(Template.characters.snowWhite, text.snowWhite.T0001);
-                await Template.ƒS.Speech.tell(Template.characters.whiteRabbit, text.whiteRabbit.T0001);
-                await Template.ƒS.Speech.tell(Template.characters.alice, text.alice.T0002);
-                await Template.ƒS.Speech.tell(Template.characters.snowWhite, text.snowWhite.T0002);
-                break; //man kann aber auch in einer case eine case haben
-            //man könnte auch hier return "szene"; machen
-            case firstDialogueElementOptions.iSayNo:
-                //dataForSave.points += 10; //wenn Spieler so und so viele Punkte gesammelt hat, kommt x Szene
-                await Template.ƒS.Speech.tell(Template.characters.whiteRabbit, text.whiteRabbit.T0001);
-                await Template.ƒS.Speech.tell(Template.characters.alice, text.alice.T0002);
-                await Template.ƒS.Speech.tell(Template.characters.snowWhite, text.snowWhite.T0002);
-                break;
-        }
-        ;
-        let secondDialogueElementOptions = {
-            iSayWait: "I'll wait",
-            iSayNotWait: "I'm not waiting for the tea to be cold, no way!"
-        };
-        let secondDialogueElement = await Template.ƒS.Menu.getInput(secondDialogueElementOptions, "individualCSSClass");
-        switch (secondDialogueElement) {
-            case secondDialogueElementOptions.iSayWait:
-                await Template.ƒS.Character.animate(Template.characters.sun, Template.characters.sun.pose.neutral, Template.fromToplefttoTopcenter());
-                //await ƒS.Character.show(characters.sun, characters.sun.pose.neutral, ƒS.positions.center); 
-                await Template.ƒS.Speech.tell(Template.characters.alice, text.alice.T0005);
-                await Template.ƒS.Speech.tell(Template.characters.snowWhite, text.snowWhite.T0003);
-                await Template.ƒS.Speech.tell(Template.characters.whiteRabbit, text.whiteRabbit.T0002);
-                break;
-            case secondDialogueElementOptions.iSayNotWait:
-                await Template.ƒS.Speech.tell(Template.characters.whiteRabbit, text.whiteRabbit.T0002);
-                break;
-        }
-        ;
-        //Musik Ausblenden
-        Template.ƒS.Sound.fade(Template.sound.adventure, 0, 2);
-        //if (dataForSave.points === 100) { //hier drei = weil noch number und string vertreten
-        // return End(); //--> zB. wenn so viele Punkte erreicht, dann die szene, das wäre aber kein Punkteverteilungssystem (nur wenn Zieler gezielt im Konzept Punkte sammelt)
-        // }
-        //return "Ende"; (um auf ende zu gehen)
-        //oder
-        // return End(); 
-    }
-    Template.Scene = Scene;
 })(Template || (Template = {}));
 System.register("Source/Transitions", [], function (exports_1, context_1) {
     "use strict";

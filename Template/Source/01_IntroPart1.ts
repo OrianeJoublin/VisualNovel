@@ -1,10 +1,10 @@
 namespace Template {
-  export async function Scene(): ƒS.SceneReturn {
+  export async function IntroPart1(): ƒS.SceneReturn {
     console.log("FudgeStory Template Scene starting");
 
     let text = { // Charaktere Texte
       narrator: {
-        T0000: "",
+        T0000: "Somewhere far away <br> On a little hill in May <br> Stood a miracle tree <br> Spreading its branches gleefully",
         T0001: ""
       },
       seed: {
@@ -70,6 +70,7 @@ namespace Template {
     //await ƒS.Inventory.open();
 
     //await ƒS.Speech.tell(chara)
+    await ƒS.Speech.tell(characters.narrator, text.narrator.T0000, true, "introduction");
     await ƒS.Speech.tell(characters.whiteRabbit, text.whiteRabbit.T0000 + " " + dataForSave.nameProtagonist + " restlicher Text."); // wartet auf Nutzereingabe, für Text
     await ƒS.Speech.tell(characters.snowWhite, text.snowWhite.T0000);
     await signalDelay();

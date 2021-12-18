@@ -1,4 +1,7 @@
 declare namespace Template {
+    function IntroPart1(): ƒS.SceneReturn;
+}
+declare namespace Template {
     export import ƒ = FudgeCore;
     export import ƒS = FudgeStory;
     let transitions: {
@@ -173,9 +176,6 @@ declare namespace Template {
         nameProtagonist: string;
         points: number;
     };
-}
-declare namespace Template {
-    function Scene(): ƒS.SceneReturn;
 }
 declare module "Source/Transitions" {
     export import ƒ = FudgeCore;

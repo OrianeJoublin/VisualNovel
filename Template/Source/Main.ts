@@ -127,7 +127,7 @@ namespace Template {
 
   export let characters = {
     narrator: {
-      name: "" // Komma?
+      name: "Narrator" // Komma?
     },
     alice: {
       name: "Alice",
@@ -322,11 +322,11 @@ async function hndKeyPress(_event: KeyboardEvent): Promise <void> {
 
     let scenes: ƒS.Scenes = [
       //Linear
-      { scene: Scene, name: "Scene" },
-      { id: "Einführung", scene: Scene, name: "Scene", next: "Ende"},  //man kann direkt die nächste szene hier definieren statt return in der Szene
+      { scene: IntroPart1, name: "IntroPart1" },
+      //{ id: "Einführung", scene: Scene, name: "Scene", next: "Ende"},  //man kann direkt die nächste szene hier definieren statt return in der Szene
       //{ scene: Scene2, name: "Scene Two"},
       //{ id: "Ende", scene: encodeURI, name: "The End"},
-      { id: "Einführung2", scene: Scene, name: "Scene" } //selbe Szene kann mehrere IDs haben
+      //{ id: "Einführung2", scene: Scene, name: "Scene" } //selbe Szene kann mehrere IDs haben
 
 
 
