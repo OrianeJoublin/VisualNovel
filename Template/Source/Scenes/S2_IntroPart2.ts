@@ -5,31 +5,18 @@ namespace Template {
 
         let text = { // Charaktere Texte
             narrator: {
-                T0000: "<p> New Scene </p>",
-                T0001: "<p> During this happy spring event. <br> All the tree's seeds flew around <br> For it was time they were sent <br> To grow on the ground. </p>",
-                T0002: "For days the wind blew <br> And all the seeds flew <br> Up in the air and down to the earth <br> Where to brand new trees <br> they would give birth."
+                T0000: "<p> But one little seed hung on tightly <br> It was swearing impolitely <br> So scared of falling <br> For help it was calling. </p>",
+                T0001: "<p> “Don’t go, my friends. <br> Don’t leave me alone!” <br> But no one came back. <br> The seed cried on its own. </p>",
+                T0002: "Then spoke the wind <br> as she sheepishly grinned: <br> “Don’t be so scared little one, <br> The journey might be fun!” </p>"
             }
         };
 
         //Musik
         ƒS.Sound.fade(sound.adventure, 0.2, 2, true)
 
-        //Text während Animation
-        //let animationDone: Promise<void> = ƒS.Character.animate(characters.ManySeeds, characters.ManySeeds.pose.neutral, Sway());
-
         // Background and characters appear:
         await ƒS.Location.show(locations.SeedGrippingBranch);
-        await ƒS.update(transitions.new.duration, transitions.new.alpha, transitions.new.edge); // es gibt die Möglichkeit, transition Attribute zu kombinieren (also von anderen Transitions)
-        //animationDone;
-
-        //Input Feld
-        // dataForSave.nameProtagonist = await ƒS.Speech.getInput();
-        // console.log(dataForSave.nameProtagonist);
-
-
-        //Inventar
-        //ƒS.Inventory.add(items.pen);
-        //await ƒS.Inventory.open();
+        await ƒS.update(transitions.new.duration, transitions.new.alpha, transitions.new.edge); 
 
         //await ƒS.Speech.tell(chara)
         await ƒS.Speech.tell(characters.narrator, text.narrator.T0000 + text.narrator.T0001 + text.narrator.T0002, true, "introduction");
