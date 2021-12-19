@@ -5,9 +5,9 @@ namespace Template {
 
         let text = { // Charaktere Texte
             narrator: {
-                T0000: "<p> New Scene </p>",
-                T0001: "<p> During this happy spring event. <br> All the tree's seeds flew around <br> For it was time they were sent <br> To grow on the ground. </p>",
-                T0002: "For days the wind blew <br> And all the seeds flew <br> Up in the air and down to the earth <br> Where to brand new trees <br> they would give birth."
+                T0000: "<p> And there came a gust <br> The seed had no chance <br> Against the force of its thrust. <br> Like in a dance <br> It soared up in the air <br> Hating the affair. </p>",
+                T0001: "<p> Its screams and its crying <br> Where muffled by the whistling <br> Sound of the storm. <br> The seed felt forlorn. </p>",
+                T0002: "“Don’t be scared”, said the wind, <br> And still she grinned. <br> “I’m Anni, what’s your name?”, she asked. <br> The seed fulfilled the task."
             }
         };
 
