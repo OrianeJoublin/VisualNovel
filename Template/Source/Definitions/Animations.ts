@@ -38,11 +38,20 @@ namespace Template {
         }
     };
 
+    //export function SwayDown(): ƒS.AnimationDefinition {
+        //return {
+            //start: { translation: ƒS.positionPercent(40, 45) },
+            //end: { translation: ƒS.positionPercent(50, 50) },
+            //duration: 30, // as long as you want
+            //playmode: ƒS.ANIMATION_PLAYMODE.LOOP
+       // }
+   // };
+
     export function SwayDown(): ƒS.AnimationDefinition {
         return {
             start: { translation: ƒS.positionPercent(40, 45) },
-            end: { translation: ƒS.positionPercent(50, 50) },
-            duration: 30, // as long as you want
+            end: { translation: ƒS.positionPercent(80, 150) },
+            duration: 110, // as long as you want
             playmode: ƒS.ANIMATION_PLAYMODE.LOOP
         }
     };

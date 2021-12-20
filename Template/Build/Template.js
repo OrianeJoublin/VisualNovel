@@ -16,6 +16,7 @@ var Template;
             //Linear
             { scene: Template.S1_IntroPart1, name: "S1_IntroPart1" },
             { scene: Template.S2_IntroPart2, name: "S2_IntroPart2" },
+            { scene: Template.S3_SceneWind1, name: "S3_SceneWind1" },
             //{ id: "Einführung", scene: Scene, name: "Scene", next: "Ende"},  //man kann direkt die nächste szene hier definieren statt return in der Szene
             //{ scene: Scene2, name: "Scene Two"},
             //{ id: "Ende", scene: encodeURI, name: "The End"},
@@ -72,11 +73,19 @@ var Template;
     }
     Template.fromToplefttoTopcenter = fromToplefttoTopcenter;
     ;
+    //export function SwayDown(): ƒS.AnimationDefinition {
+    //return {
+    //start: { translation: ƒS.positionPercent(40, 45) },
+    //end: { translation: ƒS.positionPercent(50, 50) },
+    //duration: 30, // as long as you want
+    //playmode: ƒS.ANIMATION_PLAYMODE.LOOP
+    // }
+    // };
     function SwayDown() {
         return {
             start: { translation: Template.ƒS.positionPercent(40, 45) },
-            end: { translation: Template.ƒS.positionPercent(50, 50) },
-            duration: 30,
+            end: { translation: Template.ƒS.positionPercent(80, 150) },
+            duration: 110,
             playmode: Template.ƒS.ANIMATION_PLAYMODE.LOOP
         };
     }
@@ -488,28 +497,28 @@ var Template;
         console.log("S1_IntroPart1 starting");
         let text = {
             narrator: {
-                T0000: "<p> Somewhere far away <br> On a little hill in May <br> Stood a miracle tree <br> Spreading its branches gleefully </p>",
+                T0000: "<p> Somewhere far away <br> On a little hill in May <br> Stood a miracle tree <br> Spreading its branches gleefully. </p>",
                 T0001: "<p> During this happy spring event. <br> All the tree's seeds flew around <br> For it was time they were sent <br> To grow on the ground. </p>",
                 T0002: "For days the wind blew <br> And all the seeds flew <br> Up in the air and down to the earth <br> Where to brand new trees <br> they would give birth."
             }
         };
         //Musik
-        Template.ƒS.Sound.fade(Template.sound.adventure, 0.2, 2, true);
-        //Text während Animation
+        Template.ƒS.Sound.fade(Template.sound.wakeUp, 0.4, 2, true);
+        //Animation auch während Text möglich
         let animationDone = Template.ƒS.Character.animate(Template.characters.ManySeeds, Template.characters.ManySeeds.pose.neutral, Template.SwayDown());
-        // Background and characters appear:
+        // Background, transitions and characters appear:
         await Template.ƒS.Location.show(Template.locations.TreeWithoutSeeds);
         await Template.ƒS.update(Template.transitions.new.duration, Template.transitions.new.alpha, Template.transitions.new.edge); // es gibt die Möglichkeit, transition Attribute zu kombinieren (also von anderen Transitions)
         animationDone;
         //Inventar
         //ƒS.Inventory.add(items.pen);
         //await ƒS.Inventory.open();
-        //await ƒS.Speech.tell(chara)
-        await Template.ƒS.Speech.tell(Template.characters.narrator, text.narrator.T0000 + text.narrator.T0001 + text.narrator.T0002, true, "introduction");
         // Text pace
-        Template.ƒS.Speech.setTickerDelays(20, 2); //die 2 ist delay zwei sekunden warten, bevor bei paragraf weitergeht. <p> </p> paragraph innerhalb der anführungszeichen von text oder <br> für neue Zeile
-        // hier soll die animation eigentlich enden
-        return Template.S2_IntroPart2();
+        Template.ƒS.Speech.setTickerDelays(80, 500); //die 2 ist delay zwei sekunden warten, bevor bei paragraf weitergeht.
+        //Text
+        await Template.ƒS.Speech.tell(Template.characters.narrator, text.narrator.T0000 + text.narrator.T0001 + text.narrator.T0002, true, "introduction");
+        // Animation endet
+        Template.ƒS.Character.hide(Template.characters.ManySeeds);
     }
     Template.S1_IntroPart1 = S1_IntroPart1;
 })(Template || (Template = {}));
@@ -524,16 +533,11 @@ var Template;
                 T0002: "Then spoke the wind <br> as she sheepishly grinned: <br> “Don’t be so scared little one, <br> The journey might be fun!” </p>"
             }
         };
-        //Musik
-        Template.ƒS.Sound.fade(Template.sound.adventure, 0.2, 2, true);
-        // Background and characters appear:
+        //Background with transition and characters appear:
         await Template.ƒS.Location.show(Template.locations.SeedGrippingBranch);
         await Template.ƒS.update(Template.transitions.new.duration, Template.transitions.new.alpha, Template.transitions.new.edge);
-        //await ƒS.Speech.tell(chara)
+        //Text
         await Template.ƒS.Speech.tell(Template.characters.narrator, text.narrator.T0000 + text.narrator.T0001 + text.narrator.T0002, true, "introduction");
-        // Text pace
-        Template.ƒS.Speech.setTickerDelays(20, 2); //die 2 ist delay zwei sekunden warten, bevor bei paragraf weitergeht. <p> </p> paragraph innerhalb der anführungszeichen von text oder <br> für neue Zeile
-        //return S2_IntroPart2();
     }
     Template.S2_IntroPart2 = S2_IntroPart2;
 })(Template || (Template = {}));
@@ -545,29 +549,241 @@ var Template;
             narrator: {
                 T0000: "<p> And there came a gust <br> The seed had no chance <br> Against the force of its thrust. <br> Like in a dance <br> It soared up in the air <br> Hating the affair. </p>",
                 T0001: "<p> Its screams and its crying <br> Where muffled by the whistling <br> Sound of the storm. <br> The seed felt forlorn. </p>",
-                T0002: "“Don’t be scared”, said the wind, <br> And still she grinned. <br> “I’m Anni, what’s your name?”, she asked. <br> The seed fulfilled the task."
+                T0002: "<p> “Don’t be scared”, said the wind, <br> And still she grinned. <br> “I’m Anni, what’s your name?”, she asked. <br> The seed fulfilled the task. </p>",
+                T0003: "Then, name X frowned a little <br> And opened its mouth:",
+                TD101: "<p> “Please, help me, I don’t want, <br> To end on the ground!” </p>",
+                TD102: "<p> “If that is you wish, <br> I won’t drop you, I promise. <br> I’ll get you to town <br> Where you can look around.” </p>",
+                TD201: "<p> “You killed all my friends, you stupid wind!” </p>",
+                TD202: "Thunder growled as Anni got angry: <br> “Is that so? <br> Well here you go! <br> See what I did to them, <br> And then thank me later!”",
+                TD203: " by its stem <br> And with no restraint, <br> Anni thrust the seed down <br> Down down down <br> Towards the ground."
             }
         };
-        //Musik
-        Template.ƒS.Sound.fade(Template.sound.adventure, 0.2, 2, true);
-        //Text während Animation
-        //let animationDone: Promise<void> = ƒS.Character.animate(characters.ManySeeds, characters.ManySeeds.pose.neutral, Sway());
+        //Sound
+        Template.ƒS.Sound.fade(Template.sound.wind1, 0.2, 2, true);
         // Background and characters appear:
-        await Template.ƒS.Location.show(Template.locations.SeedGrippingBranch);
-        await Template.ƒS.update(Template.transitions.new.duration, Template.transitions.new.alpha, Template.transitions.new.edge); // es gibt die Möglichkeit, transition Attribute zu kombinieren (also von anderen Transitions)
-        //animationDone;
-        //Input Feld
-        // dataForSave.nameProtagonist = await ƒS.Speech.getInput();
-        // console.log(dataForSave.nameProtagonist);
+        await Template.ƒS.Location.show(Template.locations.WindGust);
+        await Template.ƒS.update(Template.transitions.new.duration, Template.transitions.new.alpha, Template.transitions.new.edge);
         //Inventar
         //ƒS.Inventory.add(items.pen);
         //await ƒS.Inventory.open();
         //await ƒS.Speech.tell(chara)
-        await Template.ƒS.Speech.tell(Template.characters.narrator, text.narrator.T0000 + text.narrator.T0001 + text.narrator.T0002, true, "introduction");
-        // Text pace
-        Template.ƒS.Speech.setTickerDelays(20, 2); //die 2 ist delay zwei sekunden warten, bevor bei paragraf weitergeht. <p> </p> paragraph innerhalb der anführungszeichen von text oder <br> für neue Zeile
-        //return S2_IntroPart2();
+        await Template.ƒS.Speech.tell(Template.characters.narrator, text.narrator.T0000 + text.narrator.T0001, true, "S3T1");
+        //Input Feld (Müsste aber eigentlich innerhalb des Texts erscheinen)
+        Template.dataForSave.nameProtagonist = await Template.ƒS.Speech.getInput();
+        console.log(Template.dataForSave.nameProtagonist);
+        await Template.ƒS.Speech.tell(Template.characters.narrator, text.narrator.T0002 + "<p> “I'm " + Template.dataForSave.nameProtagonist + "”</p>" + "Then, " + Template.dataForSave.nameProtagonist + " frowned a little <br> And opened its mouth:", true, "S3T1");
+        let decisionS3ElementOptions = {
+            iSayHelp: "Ask for help",
+            iInsult: "Insult"
+        };
+        let decisionS3Element = await Template.ƒS.Menu.getInput(decisionS3ElementOptions, "individualCSSClass");
+        switch (decisionS3Element) {
+            case decisionS3ElementOptions.iSayHelp:
+                await Template.ƒS.Speech.tell(Template.characters.narrator, text.narrator.TD101 + text.narrator.TD102, true, "S3T1");
+                return Template.S4A_SceneWindCity();
+            case decisionS3ElementOptions.iInsult:
+                await Template.ƒS.Speech.tell(Template.characters.narrator, text.narrator.TD201 + text.narrator.TD202, true, "S3T1");
+                await Template.ƒS.Speech.tell(Template.characters.narrator, "A new gust of wind grabbed " + Template.dataForSave.nameProtagonist + text.narrator.TD203, true, "S3T1");
+                Template.ƒS.Sound.fade(Template.sound.wind1, 0, 2);
+                return Template.S4B_SceneDogSit();
+        }
+        ;
     }
     Template.S3_SceneWind1 = S3_SceneWind1;
+})(Template || (Template = {}));
+var Template;
+(function (Template) {
+    async function S4A_SceneWindCity() {
+        console.log("S4A_SceneWindCity starting");
+        let text = {
+            narrator: {
+                T0000: "<p> And so the wind blew <br> And together they flew <br> To the next city <br> And arrived in a jiffy. </p>",
+                T0001: " was excited <br> It had never seen anything so far from its tree. <br> The wind felt its glee <br> And said farsighted: <br> “I have to warn you, so let it be said <br> That if you keep your wish, <br> you’re destined to be sad!”",
+                TD101: "“I hope you are wrong <br> And we can move along <br> With your help I’m sure <br> I will find my own path.”",
+                TD201: "“Of course I can, you liar! <br> I will fly higher! <br> Than all those friends <br> Who left me behind.”"
+            }
+        };
+        //Background with transition and characters appear:
+        await Template.ƒS.Location.show(Template.locations.WindtoCity);
+        await Template.ƒS.update(Template.transitions.new.duration, Template.transitions.new.alpha, Template.transitions.new.edge);
+        //Text
+        await Template.ƒS.Speech.tell(Template.characters.narrator, text.narrator.T0000, true, "S3T1");
+        await Template.ƒS.Speech.tell(Template.characters.narrator, Template.dataForSave.nameProtagonist + text.narrator.T0001, true, "S3T1");
+        await Template.ƒS.Speech.tell(Template.characters.narrator, Template.dataForSave.nameProtagonist + " answered, slightly on edge:", true, "S3T1");
+        let decisionS4AElementOptions = {
+            iBeNice: "Be nice",
+            iBeAngry: "Get angry"
+        };
+        let decisionS4AElement = await Template.ƒS.Menu.getInput(decisionS4AElementOptions, "individualCSSClass");
+        switch (decisionS4AElement) {
+            case decisionS4AElementOptions.iBeNice:
+                await Template.ƒS.Speech.tell(Template.characters.narrator, text.narrator.TD101, true, "S3T1");
+                break;
+            case decisionS4AElementOptions.iBeAngry:
+                await Template.ƒS.Speech.tell(Template.characters.narrator, text.narrator.TD201, true, "S3T1");
+                break;
+        }
+        ;
+        Template.ƒS.Sound.fade(Template.sound.wind1, 0, 2);
+        return Template.S6A_SceneWindRain();
+    }
+    Template.S4A_SceneWindCity = S4A_SceneWindCity;
+})(Template || (Template = {}));
+var Template;
+(function (Template) {
+    async function S4B_SceneDogSit() {
+        console.log("S4B_SceneDogSit starting");
+        let text = {
+            narrator: {
+                T0000: "<p> With a sudden twirl <br>" + Template.dataForSave.nameProtagonist + " crashed upon the muzzle of a girl <br> It was Mabel the dog <br> Who was sitting in the fog. </p>",
+                T0001: "The dog’s body trembled <br> Just as " + Template.dataForSave.nameProtagonist + " had settled <br> With a loud “Jeeez” <br> Mable sneezed.",
+                T0002: "<p> “I almost died there”, <br> Said " + Template.dataForSave.nameProtagonist + " with prodruding hair. <br> “I’m sorry”, the dog said, “you tickled my nose!” <br> “You’re Mable, right? The dog in the shadows?”</p>",
+                T0003: "Mable nodded and, taking the lead, <br> Asked “what is your name, little seed?” <br> " + Template.dataForSave.nameProtagonist + " replied and told its tale of woe: <br> “I lost my home, everything I've ever known!”",
+                T0004: "The dog looked around at " + Template.dataForSave.nameProtagonist + ", her new friend <br> And assured it: “this won't be the end!” <br> Say, will you let me help you, <br> Get to where you want to?”",
+                TD101: "<p> “No thanks, I don’t need another friend <br> Who will leave me in the end.” </p>",
+                TD102: Template.dataForSave.nameProtagonist + " said goodbye <br> And jumped into the sky <br> Leaving Mable behind <br> Even though she’d been kind.",
+            }
+        };
+        //Background with transition and characters appear:
+        await Template.ƒS.Location.show(Template.locations.MeetMable);
+        await Template.ƒS.update(Template.transitions.new.duration, Template.transitions.new.alpha, Template.transitions.new.edge);
+        //Text
+        await Template.ƒS.Speech.tell(Template.characters.narrator, text.narrator.T0000 + text.narrator.T0001, true, "S3T1");
+        await Template.ƒS.Speech.tell(Template.characters.narrator, text.narrator.T0002 + text.narrator.T0003, true, "S3T1");
+        await Template.ƒS.Speech.tell(Template.characters.narrator, text.narrator.T0004 + "<p>" + Template.dataForSave.nameProtagonist + " said: </p>", true, "S3T1");
+        let decisionS4BElementOptions = {
+            iSayYes: "Yes, Please!",
+            iSayNo: "No thanks!"
+        };
+        let decisionS4BElement = await Template.ƒS.Menu.getInput(decisionS4BElementOptions, "individualCSSClass");
+        switch (decisionS4BElement) {
+            case decisionS4BElementOptions.iSayNo:
+                await Template.ƒS.Speech.tell(Template.characters.narrator, text.narrator.TD101 + text.narrator.TD102, true, "S3T1");
+                return Template.S5B_SceneWindCity();
+            case decisionS4BElementOptions.iSayYes:
+                return Template.S5C_SceneDogRun();
+        }
+        ;
+    }
+    Template.S4B_SceneDogSit = S4B_SceneDogSit;
+})(Template || (Template = {}));
+var Template;
+(function (Template) {
+    async function S5B_SceneWindCity() {
+        console.log("S5B_SceneWindCity starting");
+        let text = {
+            narrator: {
+                T0000: "<p> Up and higher " + Template.dataForSave.nameProtagonist + " flew <br> Carried by the wind it knew <br> Anni was her name <br> And she wasn’t that tame. </p>",
+                T0001: "“Back so soon? <br>  It’s not even noon! <br> I though you hated me! <br> Are you at least sorry?”",
+                T0002: "<p> Together they travelled <br> As time unravelled <br> To the next city <br> Which was quite pretty <br> And so arrived dawn <br> as the morning yawned.</p>",
+                T0003: Template.dataForSave.nameProtagonist + " finally responded <br> To the wind’s inquiery:",
+                TD101: "<p> “You’re right to be offended <br> And yes I am sorry. <br> Does that mean you will help me?” </p>",
+                TD201: "“I don’t want to be helped <br> and no I’m not sorry.”",
+            }
+        };
+        //Sound
+        Template.ƒS.Sound.fade(Template.sound.wind1, 0.2, 2, true);
+        //Background with transition and characters appear:
+        await Template.ƒS.Location.show(Template.locations.WindtoCity);
+        await Template.ƒS.update(Template.transitions.new.duration, Template.transitions.new.alpha, Template.transitions.new.edge);
+        //Text
+        await Template.ƒS.Speech.tell(Template.characters.narrator, text.narrator.T0000 + text.narrator.T0001, true, "S3T1");
+        await Template.ƒS.Speech.tell(Template.characters.narrator, text.narrator.T0002 + text.narrator.T0003, true, "S3T1");
+        let decisionS4BElementOptions = {
+            iSaySorry: "Sorry",
+            iSayNotSorry: "Not sorry"
+        };
+        let decisionS4BElement = await Template.ƒS.Menu.getInput(decisionS4BElementOptions, "individualCSSClass");
+        switch (decisionS4BElement) {
+            case decisionS4BElementOptions.iSaySorry:
+                await Template.ƒS.Speech.tell(Template.characters.narrator, text.narrator.TD101, true, "S3T1");
+                Template.ƒS.Sound.fade(Template.sound.wind1, 0, 2);
+                return Template.S6A_SceneWindRain();
+            case decisionS4BElementOptions.iSayNotSorry:
+                await Template.ƒS.Speech.tell(Template.characters.narrator, text.narrator.TD201, true, "S3T1");
+                Template.ƒS.Sound.fade(Template.sound.wind1, 0, 2);
+                return Template.S6A_SceneWindRain();
+        }
+        ;
+    }
+    Template.S5B_SceneWindCity = S5B_SceneWindCity;
+})(Template || (Template = {}));
+var Template;
+(function (Template) {
+    async function S5C_SceneDogRun() {
+        console.log("S5C_SceneDogRun starting");
+        // To Do!
+        let text = {
+            narrator: {
+                T0000: "<p> With a sudden twirl <br>" + Template.dataForSave.nameProtagonist + " crashed upon the muzzle of girl <br> It was Mabel the dog <br> Who was sitting in the fog. </p>",
+                T0001: "The dog’s body trembled <br> Just as " + Template.dataForSave.nameProtagonist + " had settled <br> With a loud “Jeeez” <br> Mable sneezed.",
+                T0002: "<p> “I almost died there”, <br> Said " + Template.dataForSave.nameProtagonist + " with prodruding hair. <br> “I’m sorry”, the dog said, “you tickled my nose!” <br> “You’re Mable, right? The dog in the shadows?”</p>",
+                T0003: "Mable nodded and, taking the lead, <br> Asked “what is your name, little seed?” <br> " + Template.dataForSave.nameProtagonist + " replied and told its tale of woe: <br> “I lost my home, everything I've ever known!”",
+                T0004: "The dog looked around at " + Template.dataForSave.nameProtagonist + ", her new friend <br> And assured it: “this won't be the end!” <br> Say, will you let me help you, <br> Get to where you want to?”",
+                TD101: "<p> “No thanks, I don’t need another friend <br> Who will leave me in the end.” </p>",
+                TD102: Template.dataForSave.nameProtagonist + " said goodbye <br> And jumped into the sky <br> Leaving Mable behind <br> Even though she’d been kind.",
+            }
+        };
+        //Background with transition and characters appear:
+        await Template.ƒS.Location.show(Template.locations.MeetMable);
+        await Template.ƒS.update(Template.transitions.new.duration, Template.transitions.new.alpha, Template.transitions.new.edge);
+        //Text
+        await Template.ƒS.Speech.tell(Template.characters.narrator, text.narrator.T0000 + text.narrator.T0001, true, "S3T1");
+        await Template.ƒS.Speech.tell(Template.characters.narrator, text.narrator.T0002 + text.narrator.T0003, true, "S3T1");
+        await Template.ƒS.Speech.tell(Template.characters.narrator, text.narrator.T0004 + "<p>" + Template.dataForSave.nameProtagonist + "said: </p>", true, "S3T1");
+        let decisionS4BElementOptions = {
+            iSayHelp: "Ask for help",
+            iInsult: "Insult"
+        };
+        let decisionS4BElement = await Template.ƒS.Menu.getInput(decisionS4BElementOptions, "individualCSSClass");
+        switch (decisionS4BElement) {
+            case decisionS4BElementOptions.iSayHelp:
+                await Template.ƒS.Speech.tell(Template.characters.narrator, text.narrator.TD101 + text.narrator.TD102, true, "S3T1");
+                return Template.S5B_SceneWindCity();
+            case decisionS4BElementOptions.iInsult:
+                return S5C_SceneDogRun();
+        }
+        ;
+    }
+    Template.S5C_SceneDogRun = S5C_SceneDogRun;
+})(Template || (Template = {}));
+var Template;
+(function (Template) {
+    async function S6A_SceneWindRain() {
+        console.log("S6A_SceneWindRain starting");
+        //TO DO!
+        let text = {
+            narrator: {
+                T0000: "<p> And so the wind blew <br> And together they flew <br> To the next city <br> And arrived in a jiffy. </p>",
+                T0001: " was excited <br> It had never seen anything so far from its tree. <br> The wind felt its glee <br> And said farsighted: <br> “I have to warn you, so let it be said <br> That if you keep your wish, <br> you’re destined to be sad!”",
+                TD101: "“I hope you are wrong <br> And we can move along <br> With your help I’m sure <br> I will find my own path.”",
+                TD201: "“Of course I can, you liar! <br> I will fly higher! <br> Than all those friends <br> Who left me behind.”"
+            }
+        };
+        //Background with transition and characters appear:
+        await Template.ƒS.Location.show(Template.locations.WindtoCity);
+        await Template.ƒS.update(Template.transitions.new.duration, Template.transitions.new.alpha, Template.transitions.new.edge);
+        //Text
+        await Template.ƒS.Speech.tell(Template.characters.narrator, text.narrator.T0000, true, "S3T1");
+        await Template.ƒS.Speech.tell(Template.characters.narrator, Template.dataForSave.nameProtagonist + text.narrator.T0001, true, "S3T1");
+        await Template.ƒS.Speech.tell(Template.characters.narrator, Template.dataForSave.nameProtagonist + " answered, slightly on edge:", true, "S3T1");
+        let decisionS4AElementOptions = {
+            iBeNice: "Be nice",
+            iBeAngry: "Get angry"
+        };
+        let decisionS4AElement = await Template.ƒS.Menu.getInput(decisionS4AElementOptions, "individualCSSClass");
+        switch (decisionS4AElement) {
+            case decisionS4AElementOptions.iBeNice:
+                await Template.ƒS.Speech.tell(Template.characters.narrator, text.narrator.TD101, true, "S3T1");
+                break;
+            case decisionS4AElementOptions.iBeAngry:
+                await Template.ƒS.Speech.tell(Template.characters.narrator, text.narrator.TD201, true, "S3T1");
+                break;
+        }
+        ;
+        Template.ƒS.Sound.fade(Template.sound.wind1, 0, 2);
+        return S6A_SceneWindRain();
+    }
+    Template.S6A_SceneWindRain = S6A_SceneWindRain;
 })(Template || (Template = {}));
 //# sourceMappingURL=Template.js.map

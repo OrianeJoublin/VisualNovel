@@ -218,3 +218,18 @@ declare namespace Template {
 declare namespace Template {
     function S3_SceneWind1(): ƒS.SceneReturn;
 }
+declare namespace Template {
+    function S4A_SceneWindCity(): ƒS.SceneReturn;
+}
+declare namespace Template {
+    function S4B_SceneDogSit(): ƒS.SceneReturn;
+}
+declare namespace Template {
+    function S5B_SceneWindCity(): ƒS.SceneReturn;
+}
+declare namespace Template {
+    function S5C_SceneDogRun(): ƒS.SceneReturn;
+}
+declare namespace Template {
+    function S6A_SceneWindRain(): ƒS.SceneReturn;
+}

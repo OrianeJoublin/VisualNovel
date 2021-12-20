@@ -20,6 +20,8 @@ namespace Template {
       //Linear
       { scene: S1_IntroPart1, name: "S1_IntroPart1" },
       { scene: S2_IntroPart2, name: "S2_IntroPart2" },
+      { scene: S3_SceneWind1, name: "S3_SceneWind1" },
+
       //{ id: "Einführung", scene: Scene, name: "Scene", next: "Ende"},  //man kann direkt die nächste szene hier definieren statt return in der Szene
       //{ scene: Scene2, name: "Scene Two"},
       //{ id: "Ende", scene: encodeURI, name: "The End"},
