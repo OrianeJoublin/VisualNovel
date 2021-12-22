@@ -568,10 +568,11 @@ var Template;
         //await ƒS.Inventory.open();
         //await ƒS.Speech.tell(chara)
         await Template.ƒS.Speech.tell(Template.characters.narrator, text.narrator.T0000 + text.narrator.T0001, true, "S3T1");
+        await Template.ƒS.Speech.tell(Template.characters.narrator, text.narrator.T0002 + "“I'm ", false, "S3T1");
         //Input Feld (Müsste aber eigentlich innerhalb des Texts erscheinen)
         Template.dataForSave.nameProtagonist = await Template.ƒS.Speech.getInput();
         console.log(Template.dataForSave.nameProtagonist);
-        await Template.ƒS.Speech.tell(Template.characters.narrator, text.narrator.T0002 + "<p> “I'm " + Template.dataForSave.nameProtagonist + "”</p>" + "Then, " + Template.dataForSave.nameProtagonist + " frowned a little <br> And opened its mouth:", true, "S3T1");
+        Template.ƒS.Speech.tell(Template.characters.narrator, "”</p>" + "Then, " + Template.dataForSave.nameProtagonist + " frowned a little <br> And opened its mouth:", false, "S3T1");
         let decisionS3ElementOptions = {
             iSayHelp: "Ask for help",
             iInsult: "Insult"
@@ -786,4 +787,4 @@ var Template;
     }
     Template.S6A_SceneWindRain = S6A_SceneWindRain;
 })(Template || (Template = {}));
-//# sourceMappingURL=Template.js.map
+//# sourceMappingURL=TheLittleSeedWhoWasScaredOfGrowingUp.js.map
