@@ -74,5 +74,32 @@ namespace Template {
         }
     };
 
+    export function dogEnter(): ƒS.AnimationDefinition {
+        return {
+            start: { translation: ƒS.positionPercent(10,50) },
+            end: { translation: ƒS.positionPercent(50,50) },
+            duration: 2, // as long as you want
+            playmode: ƒS.ANIMATION_PLAYMODE.PLAYONCE
+        }
+    };
+
+    export function dogExit(): ƒS.AnimationDefinition {
+        return {
+            start: { translation: ƒS.positionPercent(50,50) },
+            end: { translation: ƒS.positionPercent(180,50) },
+            duration: 4, // as long as you want
+            playmode: ƒS.ANIMATION_PLAYMODE.PLAYONCE
+        }
+    };
+
+    export function flyDown(): ƒS.AnimationDefinition {
+        return {
+            start: { translation: ƒS.positionPercent(10,30) },
+            end: { translation: ƒS.positionPercent(50,50) },
+            duration: 2, // as long as you want
+            playmode: ƒS.ANIMATION_PLAYMODE.PLAYONCE
+        }
+    };
+
 
 }

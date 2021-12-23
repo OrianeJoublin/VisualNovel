@@ -1,0 +1,54 @@
+namespace Template {
+
+    export async function S7A_SceneDogCityRain(): ƒS.SceneReturn {
+        console.log("S7A_SceneDogCityRain starting");
+
+        let text = { // Charaktere Texte
+            narrator: {
+                T0000: "<p> And with nerve-wracking speed, <br> pulled to the ground was the poor little seed <br> Until it arrived, lost and shaken <br> on top of a bin smelling of bacon. </p>",
+                T0001: "The city was loud <br> Though there was no crowd <br> For at this time of day <br> In bed most people lay.",
+                T0002: dataForSave.nameProtagonist + " looked around <br> And was surprised that it found <br> On the pavement the dog Mable <br> who was chewing on a cable!",
+                T0003: "<p> “Hello Mable!”, " + dataForSave.nameProtagonist + " said. <br> But the timing was bad <br> Before the dog could reply <br> A bird dived out of the sky. </p>",
+                T0004: "<p> As its claws snapped <br> The seed almost wept. <br> Why was the world so unkind? <br> The question popped in its mind. </p>",
+                T0005: "And Mable barked and shushed <br> But the bird had rushed <br> Back into the air <br> Leaving behind the town square.",
+                T0006: "The air rushed by " + dataForSave.nameProtagonist + "'s cheeks <br> and the little seed shrieked. <br> It fought hard against the claws <br> as the bird cawed."
+            }
+        };
+        //City Sound
+        ƒS.Sound.fade(sound.city, 0.3, 2, true)
+
+        //Background with transition and characters appear:
+        await ƒS.Location.show(locations.CityWithMable);
+        await ƒS.update(transitions.new.duration, transitions.new.alpha, transitions.new.edge);
+        await ƒS.Character.animate(characters.Rain, characters.Rain.pose.neutral, Rain());
+
+
+        //Text before bird
+        await ƒS.Speech.tell(characters.narrator, text.narrator.T0000 + text.narrator.T0001, true, "S7AT1");
+        await ƒS.Speech.tell(characters.narrator, text.narrator.T0002, true, "S7AT1");
+
+        //Bird flys in
+        await ƒS.Character.animate(characters.Crow, characters.Crow.pose.flight, flyDown());
+
+        // Text after bird
+        await ƒS.Speech.tell(characters.narrator, text.narrator.T0003 + text.narrator.T0004, true, "S7AT1")
+
+        //Barking
+        ƒS.Sound.fade(sound.dogBark1, 1, 2, true)
+
+        //Text while Barking
+        await ƒS.Speech.tell(characters.narrator, text.narrator.T0005 + text.narrator.T0006, true, "S7AT1")
+
+        //Fade Out Sound + City quieter
+        ƒS.Sound.fade(sound.wind1, 0, 3)
+        ƒS.Sound.fade(sound.thunderStorm2, 0, 3)
+        ƒS.Sound.fade(sound.rain3, 0, 3)
+        ƒS.Sound.fade(sound.city, 0, 3)
+        ƒS.Sound.fade(sound.dogBark1, 0, 2, true)
+
+        ƒS.Character.hide (characters.Crow)
+        ƒS.Character.hide (characters.Rain)
+
+        return S8_SceneBirdRoof1();
+    }
+}

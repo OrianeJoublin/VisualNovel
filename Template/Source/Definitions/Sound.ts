@@ -16,7 +16,10 @@ namespace Template {
         crow: "./SoundEffects/Blastwave_FX_BirdCrowCawMultiple_SFXB.17.mp3",
         storm: "./SoundEffects/zapsplat_nature_ambience_approaching_thunderstorm_rain_wind_intensifies_blustery_rumbles_thunder_74166.mp3",
         wind1: "./SoundEffects/wind-breeze-01.mp3",
-        wind2: "./SoundEffects/windy-forest-ambience-01.mp3"
+        wind2: "./SoundEffects/windy-forest-ambience-01.mp3",
+        thunderStorm1: ".SoundEffects/zapsplat_nature_thunderstorm_approaching_distant_rumbles_rain_then_rain_heavier_at_2m50s_57911.mp3",
+        thunderStorm2: "./SoundEffects/zapsplat_nature_rain_thunderstorm_close_rain_drips_yard_57904.mp3",
+        dogBark1: "./SoundEffects/zapsplat_animals_dog_labrador_bark_slight_distance_echo_neighbourhood_11751.mp3"
     };
 
 

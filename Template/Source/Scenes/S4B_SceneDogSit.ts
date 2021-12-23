@@ -20,9 +20,9 @@ namespace Template {
         await ƒS.update(transitions.new.duration, transitions.new.alpha, transitions.new.edge); 
 
         //Text
-        await ƒS.Speech.tell(characters.narrator, text.narrator.T0000 + text.narrator.T0001, true, "S3T1");
-        await ƒS.Speech.tell(characters.narrator, text.narrator.T0002 + text.narrator.T0003, true, "S3T1");
-        await ƒS.Speech.tell(characters.narrator, text.narrator.T0004 + "<p>" + dataForSave.nameProtagonist + " said: </p>", true, "S3T1");
+        await ƒS.Speech.tell(characters.narrator, text.narrator.T0000 + text.narrator.T0001, true, "S4BT1");
+        await ƒS.Speech.tell(characters.narrator, text.narrator.T0002 + text.narrator.T0003, true, "S4BT1");
+        await ƒS.Speech.tell(characters.narrator, text.narrator.T0004 + "<p>" + dataForSave.nameProtagonist + " said: </p>", true, "S4BT1");
 
         let decisionS4BElementOptions = {
             iSayYes: "Yes, Please!",

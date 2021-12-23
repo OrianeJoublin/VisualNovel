@@ -31,10 +31,8 @@ namespace Template {
     //Text
     await ƒS.Speech.tell(characters.narrator, text.narrator.T0000 + text.narrator.T0001 + text.narrator.T0002, true, "introduction");
 
-    
-    
-
     // Animation endet
-    ƒS.Character.hide (characters.ManySeeds)
+    ƒS.Character.hide (characters.ManySeeds);
+    ƒS.Speech.clear();
   }
 }

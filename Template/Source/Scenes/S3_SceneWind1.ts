@@ -28,18 +28,15 @@ namespace Template {
         //ƒS.Inventory.add(items.pen);
         //await ƒS.Inventory.open();
 
-        //await ƒS.Speech.tell(chara)
+        //Narrator Speech
         await ƒS.Speech.tell(characters.narrator, text.narrator.T0000 + text.narrator.T0001, true, "S3T1");
-
-
-
         await ƒS.Speech.tell(characters.narrator, text.narrator.T0002 + "“I'm ", false, "S3T1");
 
         //Input Feld (Müsste aber eigentlich innerhalb des Texts erscheinen)
         dataForSave.nameProtagonist = await ƒS.Speech.getInput();
         console.log(dataForSave.nameProtagonist);
 
-        ƒS.Speech.tell(characters. narrator, "”</p>" + "Then, "+ dataForSave.nameProtagonist + " frowned a little <br> And opened its mouth:", false, "S3T1");
+        await ƒS.Speech.tell(characters.narrator, "”</p>" + "Then, " + dataForSave.nameProtagonist + " frowned a little <br> And opened its mouth:", false, "S3T1");
 
         let decisionS3ElementOptions = {
             iSayHelp: "Ask for help",

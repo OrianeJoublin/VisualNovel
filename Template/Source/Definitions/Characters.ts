@@ -4,7 +4,7 @@ namespace Template {
 
     export let characters = {
         narrator: {
-            name: "Narrator" // Komma?
+            name: "Narrator" 
         },
         alice: {
             name: "Alice",
@@ -55,7 +55,23 @@ namespace Template {
             pose: {
                 neutral: "./Characters/Rain2.png",
             }
+        },
+        Dog: {
+            name: "Dog",
+            origin: ƒS.ORIGIN.CENTER,
+            pose: {
+                walk: "./Characters/Dog.png",
+            }
+        },
+
+        Crow: {
+            name: "Crow",
+            origin: ƒS.ORIGIN.CENTER,
+            pose: {
+                flight: "./Characters/Crow.png",
+            }
         }
+        
     };
 
 

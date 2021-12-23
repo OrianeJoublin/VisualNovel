@@ -33,7 +33,7 @@ namespace Template {
         },
         CityWithMable: {
             name: "6B City With Mable",
-            background: "./Backgrounds/6BCityWithMable.png"
+            background: "./Backgrounds/6ACityWithMable.png"
         },
         CityWithMableRain: {
             name: "6B City With Mable Rain",

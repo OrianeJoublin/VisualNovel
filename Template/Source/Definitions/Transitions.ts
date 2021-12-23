@@ -12,10 +12,15 @@ namespace Template {
             alpha: "./Transitions/001.jpg",
             edge: 1 // harte Transition
         },
-        test: {
+        black: {
             duration: 1,
             alpha: "./Transitions/black.png",
-            edge: 5 // harte Transition
+            edge: 0.5 
+        },
+        Splash: {
+            duration: 1,
+            alpha: "./Images/Splash.png",
+            edge: 2 
         },
     };
 

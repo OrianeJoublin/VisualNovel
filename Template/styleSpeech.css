@@ -7,20 +7,43 @@ speech {
   left: 0px;
   color: rgb(231, 241, 255);
   background-color: rgba(11, 14, 19, 0);
-  width: 25vw;
+  width: 50vw;
   height: 10vh; 
-} 
-
-
+}
 
 /*Introduction*/
 speech.introduction {
-  bottom: 73%;
-  left: 70%;
+  bottom: 36vw;
+  left: 115vh;
 }
 
 /*Scene 3, Text 1*/
 speech.S3T1 {
-  bottom: 73%;
-  left: 10%;
+  bottom: 36vw;
+  left: 10vh;
+}
+
+/*Scene 4B, Text 1*/
+
+speech.S4BT1 {
+  bottom: 25vw;
+  left: -10vh;
+}
+
+/*Scene 5C, Text 1*/
+speech.S5CT1 {
+  bottom: 22vw;
+  left: 90vh;
+}
+
+/*Scene 6A, Text 1*/
+speech.S6AT1 {
+  bottom: 30vw;
+  left: 100vh;
+}
+
+/*Scene 6A, Text 1*/
+speech.S7AT1 {
+  bottom: 40vw;
+  left: 110vh;
 }

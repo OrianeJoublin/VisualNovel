@@ -25,17 +25,24 @@ canvas {
 }
 
 
-/* Splashscreen 
+/* SPLASH SCREEN BACKGROUND */
+
 dialog {
-  background-image: url("./Backgrounds/WindRain.png");
-} */
+  background-image: url("./Backgrounds/Neutral.png");
+}
+
+/* Startseite Titel und eigentlich auch Hintergrund vom Kasten oder? */
+
+div {
+  background-color: #1c1c1c;
+  color: black;
+  font-family: 'Gill Sans MT', sans-serif;
+  font-size: 3.3vmin;
+}
 
 
 name {
-  font-size: 14pt;
-  display: block;
-  color: rgba(98, 113, 161, 0);
-  margin-bottom: 10px;
+  display: none;
 }
 
 speech content {

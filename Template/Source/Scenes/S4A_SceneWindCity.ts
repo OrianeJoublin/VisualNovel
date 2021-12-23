@@ -37,7 +37,6 @@ namespace Template {
                 break;
         };
 
-        ƒS.Sound.fade(sound.wind1, 0, 2)
         return S6A_SceneWindRain();
     }
 }

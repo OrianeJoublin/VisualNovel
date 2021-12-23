@@ -35,11 +35,11 @@ namespace Template {
         switch (decisionS4BElement) {
             case decisionS4BElementOptions.iSaySorry:
                 await ƒS.Speech.tell(characters.narrator, text.narrator.TD101, true, "S3T1");
-                ƒS.Sound.fade(sound.wind1, 0, 2)
+                ƒS.Sound.fade(sound.wind1, 0, 2);
                 return S6A_SceneWindRain();
             case decisionS4BElementOptions.iSayNotSorry:
                 await ƒS.Speech.tell(characters.narrator, text.narrator.TD201, true, "S3T1");
-                ƒS.Sound.fade(sound.wind1, 0, 2)
+                ƒS.Sound.fade(sound.wind1, 0, 2);
                 return S6A_SceneWindRain();
         };
     }

@@ -14,6 +14,9 @@ declare namespace Template {
     function SwayDown(): ƒS.AnimationDefinition;
     function Sway(): ƒS.AnimationDefinition;
     function Rain(): ƒS.AnimationDefinition;
+    function dogEnter(): ƒS.AnimationDefinition;
+    function dogExit(): ƒS.AnimationDefinition;
+    function flyDown(): ƒS.AnimationDefinition;
 }
 declare namespace Template {
     let characters: {
@@ -67,6 +70,20 @@ declare namespace Template {
             origin: ƒ.ORIGIN2D;
             pose: {
                 neutral: string;
+            };
+        };
+        Dog: {
+            name: string;
+            origin: ƒ.ORIGIN2D;
+            pose: {
+                walk: string;
+            };
+        };
+        Crow: {
+            name: string;
+            origin: ƒ.ORIGIN2D;
+            pose: {
+                flight: string;
             };
         };
     };
@@ -185,6 +202,9 @@ declare namespace Template {
         storm: string;
         wind1: string;
         wind2: string;
+        thunderStorm1: string;
+        thunderStorm2: string;
+        dogBark1: string;
     };
 }
 declare namespace Template {
@@ -199,7 +219,12 @@ declare namespace Template {
             alpha: string;
             edge: number;
         };
-        test: {
+        black: {
+            duration: number;
+            alpha: string;
+            edge: number;
+        };
+        Splash: {
             duration: number;
             alpha: string;
             edge: number;
@@ -208,6 +233,12 @@ declare namespace Template {
 }
 declare namespace Template {
     function TestS1_IntroPart1(): ƒS.SceneReturn;
+}
+declare namespace Template {
+    function S10A_GoodEnding(): ƒS.SceneReturn;
+}
+declare namespace Template {
+    function S10B_BadEnding2(): ƒS.SceneReturn;
 }
 declare namespace Template {
     function S1_IntroPart1(): ƒS.SceneReturn;
@@ -232,4 +263,19 @@ declare namespace Template {
 }
 declare namespace Template {
     function S6A_SceneWindRain(): ƒS.SceneReturn;
+}
+declare namespace Template {
+    function S7A_SceneDogCityRain(): ƒS.SceneReturn;
+}
+declare namespace Template {
+    function S7C_SceneDogCity(): ƒS.SceneReturn;
+}
+declare namespace Template {
+    function S8_SceneBirdRoof1(): ƒS.SceneReturn;
+}
+declare namespace Template {
+    function S9A_SceneBirdRoof2(): ƒS.SceneReturn;
+}
+declare namespace Template {
+    function S9B_BadEnding1(): ƒS.SceneReturn;
 }
