@@ -13,9 +13,9 @@ declare namespace Template {
     function fromToplefttoTopcenter(): ƒS.AnimationDefinition;
     function SwayDown(): ƒS.AnimationDefinition;
     function Sway(): ƒS.AnimationDefinition;
-    function Rain(): ƒS.AnimationDefinition;
     function dogEnter(): ƒS.AnimationDefinition;
     function dogExit(): ƒS.AnimationDefinition;
+    function Rain(): ƒS.AnimationDefinition;
     function flyDown(): ƒS.AnimationDefinition;
 }
 declare namespace Template {

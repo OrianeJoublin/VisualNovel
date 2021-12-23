@@ -14,9 +14,11 @@ var Template;
         Template.gameMenu = Template.ƒS.Menu.create(Template.inGameMenu, Template.buttonFunctionalities, "gameMenu"); //hier CSS Klasse angeben
         let scenes = [
             //Linear
-            { scene: Template.S1_IntroPart1, name: "S1_IntroPart1" },
-            { scene: Template.S2_IntroPart2, name: "S2_IntroPart2" },
             { scene: Template.S3_SceneWind1, name: "S3_SceneWind1" },
+            { scene: Template.S7A_SceneDogCityRain, name: "S7A_SceneDogCityRain" },
+            //{ scene: S1_IntroPart1, name: "S1_IntroPart1" },
+            //{ scene: S2_IntroPart2, name: "S2_IntroPart2" },
+            //{ scene: S3_SceneWind1, name: "S3_SceneWind1" }, 
             //{ scene: S5C_SceneDogRun, name: "S5C_SceneDogRun" },
             //{ scene: S6A_SceneWindRain, name: "S6A_SceneWindRain" },
             //{ scene: S7A_SceneDogCityRain, name: "S7A_SceneDogCityRain" },
@@ -104,16 +106,6 @@ var Template;
     }
     Template.Sway = Sway;
     ;
-    function Rain() {
-        return {
-            start: { translation: Template.ƒS.positions.topcenter },
-            end: { translation: Template.ƒS.positions.center },
-            duration: 0.5,
-            playmode: Template.ƒS.ANIMATION_PLAYMODE.LOOP
-        };
-    }
-    Template.Rain = Rain;
-    ;
     function dogEnter() {
         return {
             start: { translation: Template.ƒS.positionPercent(10, 50) },
@@ -133,6 +125,16 @@ var Template;
         };
     }
     Template.dogExit = dogExit;
+    ;
+    function Rain() {
+        return {
+            start: { translation: Template.ƒS.positions.topcenter },
+            end: { translation: Template.ƒS.positions.center },
+            duration: 0.5,
+            playmode: Template.ƒS.ANIMATION_PLAYMODE.LOOP
+        };
+    }
+    Template.Rain = Rain;
     ;
     function flyDown() {
         return {
@@ -703,22 +705,21 @@ var Template;
         Template.dataForSave.nameProtagonist = await Template.ƒS.Speech.getInput();
         console.log(Template.dataForSave.nameProtagonist);
         await Template.ƒS.Speech.tell(Template.characters.narrator, "”</p>" + "Then, " + Template.dataForSave.nameProtagonist + " frowned a little <br> And opened its mouth:", false, "S3T1");
-        let decisionS3ElementOptions = {
-            iSayHelp: "Ask for help",
-            iInsult: "Insult"
-        };
-        let decisionS3Element = await Template.ƒS.Menu.getInput(decisionS3ElementOptions, "individualCSSClass");
-        switch (decisionS3Element) {
-            case decisionS3ElementOptions.iSayHelp:
-                await Template.ƒS.Speech.tell(Template.characters.narrator, text.narrator.TD101 + text.narrator.TD102, true, "S3T1");
-                return Template.S4A_SceneWindCity();
-            case decisionS3ElementOptions.iInsult:
-                await Template.ƒS.Speech.tell(Template.characters.narrator, text.narrator.TD201 + text.narrator.TD202, true, "S3T1");
-                await Template.ƒS.Speech.tell(Template.characters.narrator, "A new gust of wind grabbed " + Template.dataForSave.nameProtagonist + text.narrator.TD203, true, "S3T1");
-                Template.ƒS.Sound.fade(Template.sound.wind1, 0, 2);
-                return Template.S4B_SceneDogSit();
-        }
-        ;
+        //let decisionS3ElementOptions = {
+        //iSayHelp: "Ask for help",
+        //iInsult: "Insult"
+        //};
+        //let decisionS3Element = await ƒS.Menu.getInput(decisionS3ElementOptions, "individualCSSClass");
+        //switch (decisionS3Element) {
+        //case decisionS3ElementOptions.iSayHelp:
+        //await ƒS.Speech.tell(characters.narrator, text.narrator.TD101 + text.narrator.TD102, true, "S3T1");
+        //return S4A_SceneWindCity();
+        //case decisionS3ElementOptions.iInsult:
+        // await ƒS.Speech.tell(characters.narrator, text.narrator.TD201 + text.narrator.TD202, true, "S3T1");
+        // await ƒS.Speech.tell(characters.narrator, "A new gust of wind grabbed " + dataForSave.nameProtagonist + text.narrator.TD203, true, "S3T1");
+        // ƒS.Sound.fade(sound.wind1, 0, 2)
+        // return S4B_SceneDogSit();
+        // };
     }
     Template.S3_SceneWind1 = S3_SceneWind1;
 })(Template || (Template = {}));
@@ -910,7 +911,7 @@ var Template;
         //Text before bird
         await Template.ƒS.Speech.tell(Template.characters.narrator, text.narrator.T0000 + text.narrator.T0001, true, "S7AT1");
         await Template.ƒS.Speech.tell(Template.characters.narrator, text.narrator.T0002, true, "S7AT1");
-        //Bird flys in
+        //Bird flys in (hier wird der Vogel zum Teil durchsichtig)
         await Template.ƒS.Character.animate(Template.characters.Crow, Template.characters.Crow.pose.flight, Template.flyDown());
         // Text after bird
         await Template.ƒS.Speech.tell(Template.characters.narrator, text.narrator.T0003 + text.narrator.T0004, true, "S7AT1");
@@ -926,7 +927,7 @@ var Template;
         Template.ƒS.Sound.fade(Template.sound.dogBark1, 0, 2, true);
         Template.ƒS.Character.hide(Template.characters.Crow);
         Template.ƒS.Character.hide(Template.characters.Rain);
-        return Template.S8_SceneBirdRoof1();
+        //return S8_SceneBirdRoof1();
     }
     Template.S7A_SceneDogCityRain = S7A_SceneDogCityRain;
 })(Template || (Template = {}));

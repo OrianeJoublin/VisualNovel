@@ -65,15 +65,6 @@ namespace Template {
         }
     };
 
-    export function Rain(): ƒS.AnimationDefinition {
-        return {
-            start: { translation: ƒS.positions.topcenter },
-            end: { translation: ƒS.positions.center },
-            duration: 0.5, // as long as you want
-            playmode: ƒS.ANIMATION_PLAYMODE.LOOP
-        }
-    };
-
     export function dogEnter(): ƒS.AnimationDefinition {
         return {
             start: { translation: ƒS.positionPercent(10,50) },
@@ -89,6 +80,15 @@ namespace Template {
             end: { translation: ƒS.positionPercent(180,50) },
             duration: 4, // as long as you want
             playmode: ƒS.ANIMATION_PLAYMODE.PLAYONCE
+        }
+    };
+
+    export function Rain(): ƒS.AnimationDefinition {
+        return {
+            start: { translation: ƒS.positions.topcenter },
+            end: { translation: ƒS.positions.center },
+            duration: 0.5, // as long as you want
+            playmode: ƒS.ANIMATION_PLAYMODE.LOOP
         }
     };
 

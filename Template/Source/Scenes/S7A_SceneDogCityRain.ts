@@ -27,7 +27,7 @@ namespace Template {
         await ƒS.Speech.tell(characters.narrator, text.narrator.T0000 + text.narrator.T0001, true, "S7AT1");
         await ƒS.Speech.tell(characters.narrator, text.narrator.T0002, true, "S7AT1");
 
-        //Bird flys in
+        //Bird flys in (hier wird der Vogel zum Teil durchsichtig)
         await ƒS.Character.animate(characters.Crow, characters.Crow.pose.flight, flyDown());
 
         // Text after bird
@@ -49,6 +49,6 @@ namespace Template {
         ƒS.Character.hide (characters.Crow)
         ƒS.Character.hide (characters.Rain)
 
-        return S8_SceneBirdRoof1();
+        //return S8_SceneBirdRoof1();
     }
 }
