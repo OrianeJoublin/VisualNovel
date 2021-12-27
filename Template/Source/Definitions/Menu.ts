@@ -1,7 +1,7 @@
-namespace Template {
+/*namespace Template {
 
     //Menü
-    export let menu: boolean = true; //true heißt Menü ist offen, false wäre geschlossen
+    export let menu: boolean = false; //true heißt Menü ist offen, false wäre geschlossen
 
     export let inGameMenu = {
         save: "Save", //hier kommen Buttons rein, die angezeigt werden sollen plus string um CSS zu gestalten mit jeweiliger ID
@@ -60,4 +60,4 @@ namespace Template {
         }
     }
 
-}
+}*/

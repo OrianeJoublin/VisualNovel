@@ -11,7 +11,7 @@ var Template;
     window.addEventListener("load", start);
     function start(_event) {
         //Menü
-        Template.gameMenu = Template.ƒS.Menu.create(Template.inGameMenu, Template.buttonFunctionalities, "gameMenu"); //hier CSS Klasse angeben
+        //gameMenu = ƒS.Menu.create(inGameMenu, buttonFunctionalities, "gameMenu"); //hier CSS Klasse angeben
         let scenes = [
             //Linear
             { scene: Template.S3_SceneWind1, name: "S3_SceneWind1" },
@@ -312,28 +312,32 @@ var Template;
         },
     };
 })(Template || (Template = {}));
-var Template;
-(function (Template) {
+/*namespace Template {
+
     //Menü
-    Template.menu = true; //true heißt Menü ist offen, false wäre geschlossen
-    Template.inGameMenu = {
-        save: "Save",
+    export let menu: boolean = false; //true heißt Menü ist offen, false wäre geschlossen
+
+    export let inGameMenu = {
+        save: "Save", //hier kommen Buttons rein, die angezeigt werden sollen plus string um CSS zu gestalten mit jeweiliger ID
         load: "Load",
         close: "Close",
         // open: "Open" //anschließend kann hier auch Credits rein
     };
-    async function buttonFunctionalities(_option) {
+
+    export let gameMenu: ƒS.Menu;
+
+    export async function buttonFunctionalities(_option: string): Promise<void> {
         console.log(_option); //auf Console ausgeben, ob gespeichetr oder geladen, hilfestellung zum debuggen
         switch (_option) {
-            case Template.inGameMenu.save:
-                await Template.ƒS.Progress.save();
+            case inGameMenu.save:
+                await ƒS.Progress.save();
                 break;
-            case Template.inGameMenu.load:
-                await Template.ƒS.Progress.load();
+            case inGameMenu.load:
+                await ƒS.Progress.load();
                 break;
-            case Template.inGameMenu.close:
-                Template.gameMenu.close();
-                Template.menu = false;
+            case inGameMenu.close:
+                gameMenu.close();
+                menu = false;
                 break;
             //case inGameMenu.close:
             // gameMenu.open();
@@ -341,34 +345,36 @@ var Template;
             // break;
         }
     }
-    Template.buttonFunctionalities = buttonFunctionalities;
+
+
     // Shortcuts für's Menü bzw. Shortcuts generell hier rein
     document.addEventListener("keydown", hndKeyPress);
-    async function hndKeyPress(_event) {
+    async function hndKeyPress(_event: KeyboardEvent): Promise<void> {
         switch (_event.code) {
-            case Template.ƒ.KEYBOARD_CODE.F8: //hier englische tastatur also z und y berpcksichtigen
+            case ƒ.KEYBOARD_CODE.F8: //hier englische tastatur also z und y berpcksichtigen
                 console.log("Save");
-                await Template.ƒS.Progress.save();
+                await ƒS.Progress.save();
                 break;
-            case Template.ƒ.KEYBOARD_CODE.F9:
+            case ƒ.KEYBOARD_CODE.F9:
                 console.log("Load");
-                await Template.ƒS.Progress.load();
+                await ƒS.Progress.load();
                 break;
-            case Template.ƒ.KEYBOARD_CODE.M: //Buchstabe für Close Menü
-                if (Template.menu) {
+            case ƒ.KEYBOARD_CODE.M: //Buchstabe für Close Menü
+                if (menu) {
                     console.log("Close");
-                    Template.gameMenu.close();
-                    Template.menu = false;
+                    gameMenu.close();
+                    menu = false;
                 }
                 else {
                     console.log("Open");
-                    Template.gameMenu.open();
-                    Template.menu = true;
+                    gameMenu.open();
+                    menu = true;
                 }
                 break;
         }
     }
-})(Template || (Template = {}));
+
+}*/ 
 var Template;
 (function (Template) {
     Template.sound = {
@@ -898,8 +904,8 @@ var Template;
                 T0002: Template.dataForSave.nameProtagonist + " looked around <br> And was surprised that it found <br> On the pavement the dog Mable <br> who was chewing on a cable!",
                 T0003: "<p> “Hello Mable!”, " + Template.dataForSave.nameProtagonist + " said. <br> But the timing was bad <br> Before the dog could reply <br> A bird dived out of the sky. </p>",
                 T0004: "<p> As its claws snapped <br> The seed almost wept. <br> Why was the world so unkind? <br> The question popped in its mind. </p>",
-                T0005: "And Mable barked and shushed <br> But the bird had rushed <br> Back into the air <br> Leaving behind the town square.",
-                T0006: "The air rushed by " + Template.dataForSave.nameProtagonist + "'s cheeks <br> and the little seed shrieked. <br> It fought hard against the claws <br> as the bird cawed."
+                T0005: "<p> And Mable barked and shushed <br> But the bird had rushed <br> Back into the air <br> Leaving behind the town square. </p>",
+                T0006: "<p> The air rushed by " + Template.dataForSave.nameProtagonist + "'s cheeks <br> and the little seed shrieked. <br> It fought hard against the claws <br> as the bird cawed. </p>"
             }
         };
         //City Sound

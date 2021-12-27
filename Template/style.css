@@ -7,21 +7,29 @@ html, body {
   overflow: hidden;
   font-family: 'EB Garamond', Georgia, 'Times New Roman', Times, serif;
   font-weight: normal;
-  font-size: 3.3vmin;
+  /*font-size: 120%;*/
+  font-size: calc(10% * var(--w));
   color: rgb(240, 18, 103);
 }
 
+:root {
+  --w: min(100vw,calc(1920/1080*100vh));
+  --h: min(calc(100vw*1080/1920,100vh));
+}
 
 scene {
   width: 1920px;
   height: 1080px; 
   display: inline-block;
+  position: absolute;
 }
 
 
 canvas {
-  width: 1920px;
-  height: 1080px;
+  /*width: 1920px;
+  height: 1080px;*/
+  width: 100%;
+  height: 100%;
 }
 
 

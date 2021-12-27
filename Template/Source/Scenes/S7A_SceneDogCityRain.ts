@@ -10,8 +10,8 @@ namespace Template {
                 T0002: dataForSave.nameProtagonist + " looked around <br> And was surprised that it found <br> On the pavement the dog Mable <br> who was chewing on a cable!",
                 T0003: "<p> “Hello Mable!”, " + dataForSave.nameProtagonist + " said. <br> But the timing was bad <br> Before the dog could reply <br> A bird dived out of the sky. </p>",
                 T0004: "<p> As its claws snapped <br> The seed almost wept. <br> Why was the world so unkind? <br> The question popped in its mind. </p>",
-                T0005: "And Mable barked and shushed <br> But the bird had rushed <br> Back into the air <br> Leaving behind the town square.",
-                T0006: "The air rushed by " + dataForSave.nameProtagonist + "'s cheeks <br> and the little seed shrieked. <br> It fought hard against the claws <br> as the bird cawed."
+                T0005: "<p> And Mable barked and shushed <br> But the bird had rushed <br> Back into the air <br> Leaving behind the town square. </p>",
+                T0006: "<p> The air rushed by " + dataForSave.nameProtagonist + "'s cheeks <br> and the little seed shrieked. <br> It fought hard against the claws <br> as the bird cawed. </p>"
             }
         };
         //City Sound
