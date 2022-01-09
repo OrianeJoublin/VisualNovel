@@ -11,7 +11,7 @@ var Template;
     window.addEventListener("load", start);
     function start(_event) {
         //Menü
-        //gameMenu = ƒS.Menu.create(inGameMenu, buttonFunctionalities, "gameMenu"); //hier CSS Klasse angeben
+        Template.gameMenu = Template.ƒS.Menu.create(Template.inGameMenu, Template.buttonFunctionalities, "gameMenu"); //hier CSS Klasse angeben
         let scenes = [
             //Linear
             { scene: Template.S3_SceneWind1, name: "S3_SceneWind1" },
@@ -312,69 +312,64 @@ var Template;
         },
     };
 })(Template || (Template = {}));
-/*namespace Template {
-
-    //Menü
-    export let menu: boolean = false; //true heißt Menü ist offen, false wäre geschlossen
-
-    export let inGameMenu = {
-        save: "Save", //hier kommen Buttons rein, die angezeigt werden sollen plus string um CSS zu gestalten mit jeweiliger ID
-        load: "Load",
-        close: "Close",
-        // open: "Open" //anschließend kann hier auch Credits rein
+var Template;
+(function (Template) {
+    Template.inGameMenu = {
+        save: "Speichern",
+        load: "Laden",
+        close: "Schließen"
+        // open: "Open"
     };
-
-    export let gameMenu: ƒS.Menu;
-
-    export async function buttonFunctionalities(_option: string): Promise<void> {
-        console.log(_option); //auf Console ausgeben, ob gespeichetr oder geladen, hilfestellung zum debuggen
+    // true = offen; false = geschlossen
+    Template.menu = true;
+    async function buttonFunctionalities(_option) {
+        console.log(_option);
         switch (_option) {
-            case inGameMenu.save:
-                await ƒS.Progress.save();
+            case Template.inGameMenu.save:
+                await Template.ƒS.Progress.save();
                 break;
-            case inGameMenu.load:
-                await ƒS.Progress.load();
+            case Template.inGameMenu.load:
+                await Template.ƒS.Progress.load();
                 break;
-            case inGameMenu.close:
-                gameMenu.close();
-                menu = false;
+            case Template.inGameMenu.close:
+                Template.gameMenu.close();
+                Template.menu = false;
                 break;
-            //case inGameMenu.close:
-            // gameMenu.open();
-            // menu = true;
-            // break;
+            // case inGameMenu.open:
+            //   gameMenu.open();
+            //   menu = true;
+            //   break;
         }
     }
-
-
-    // Shortcuts für's Menü bzw. Shortcuts generell hier rein
+    Template.buttonFunctionalities = buttonFunctionalities;
+    // Shortcuts
     document.addEventListener("keydown", hndKeyPress);
-    async function hndKeyPress(_event: KeyboardEvent): Promise<void> {
+    async function hndKeyPress(_event) {
         switch (_event.code) {
-            case ƒ.KEYBOARD_CODE.F8: //hier englische tastatur also z und y berpcksichtigen
+            case Template.ƒ.KEYBOARD_CODE.F8:
                 console.log("Save");
-                await ƒS.Progress.save();
+                await Template.ƒS.Progress.save();
                 break;
-            case ƒ.KEYBOARD_CODE.F9:
+            case Template.ƒ.KEYBOARD_CODE.F9:
                 console.log("Load");
-                await ƒS.Progress.load();
+                await Template.ƒS.Progress.load();
                 break;
-            case ƒ.KEYBOARD_CODE.M: //Buchstabe für Close Menü
-                if (menu) {
-                    console.log("Close");
-                    gameMenu.close();
-                    menu = false;
+            case Template.ƒ.KEYBOARD_CODE.M:
+                if (Template.menu) {
+                    console.log("Schließen");
+                    Template.gameMenu.close();
+                    Template.menu = false;
                 }
                 else {
-                    console.log("Open");
-                    gameMenu.open();
-                    menu = true;
+                    console.log("Öffnen");
+                    Template.gameMenu.open();
+                    Template.menu = true;
                 }
                 break;
         }
     }
-
-}*/ 
+    Template.hndKeyPress = hndKeyPress;
+})(Template || (Template = {}));
 var Template;
 (function (Template) {
     Template.sound = {
@@ -706,11 +701,11 @@ var Template;
         //await ƒS.Inventory.open();
         //Narrator Speech
         await Template.ƒS.Speech.tell(Template.characters.narrator, text.narrator.T0000 + text.narrator.T0001, true, "S3T1");
-        await Template.ƒS.Speech.tell(Template.characters.narrator, text.narrator.T0002 + "“I'm ", false, "S3T1");
+        await Template.ƒS.Speech.tell(Template.characters.narrator, text.narrator.T0002 + "“I'm ", false, "S3T2");
         //Input Feld (Müsste aber eigentlich innerhalb des Texts erscheinen)
         Template.dataForSave.nameProtagonist = await Template.ƒS.Speech.getInput();
         console.log(Template.dataForSave.nameProtagonist);
-        await Template.ƒS.Speech.tell(Template.characters.narrator, "”</p>" + "Then, " + Template.dataForSave.nameProtagonist + " frowned a little <br> And opened its mouth:", false, "S3T1");
+        Template.ƒS.Speech.tell(Template.characters.narrator, "”</p>" + "Then, " + Template.dataForSave.nameProtagonist + " frowned a little <br> And opened its mouth:", false, "S3T3");
         //let decisionS3ElementOptions = {
         //iSayHelp: "Ask for help",
         //iInsult: "Insult"

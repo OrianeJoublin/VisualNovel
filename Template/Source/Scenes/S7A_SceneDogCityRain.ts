@@ -32,7 +32,7 @@ namespace Template {
 
         // Text after bird
         await ƒS.Speech.tell(characters.narrator, text.narrator.T0003 + text.narrator.T0004, true, "S7AT1")
-
+       
         //Barking
         ƒS.Sound.fade(sound.dogBark1, 1, 2, true)
 

@@ -13,8 +13,7 @@ namespace Template {
   window.addEventListener("load", start);
   function start(_event: Event): void {
     //Menü
-    //gameMenu = ƒS.Menu.create(inGameMenu, buttonFunctionalities, "gameMenu"); //hier CSS Klasse angeben
-
+    gameMenu = ƒS.Menu.create(inGameMenu, buttonFunctionalities, "gameMenu"); //hier CSS Klasse angeben
 
     let scenes: ƒS.Scenes = [
       //Linear

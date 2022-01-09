@@ -1,19 +1,20 @@
-/*namespace Template {
-
-    //Menü
-    export let menu: boolean = false; //true heißt Menü ist offen, false wäre geschlossen
+namespace Template {
 
     export let inGameMenu = {
-        save: "Save", //hier kommen Buttons rein, die angezeigt werden sollen plus string um CSS zu gestalten mit jeweiliger ID
-        load: "Load",
-        close: "Close",
-        // open: "Open" //anschließend kann hier auch Credits rein
+        save: "Speichern",
+        load: "Laden",
+        close: "Schließen"
+        // open: "Open"
     };
+
 
     export let gameMenu: ƒS.Menu;
 
+    // true = offen; false = geschlossen
+    export let menu: boolean = true;
+
     export async function buttonFunctionalities(_option: string): Promise<void> {
-        console.log(_option); //auf Console ausgeben, ob gespeichetr oder geladen, hilfestellung zum debuggen
+        console.log(_option);
         switch (_option) {
             case inGameMenu.save:
                 await ƒS.Progress.save();
@@ -25,19 +26,19 @@
                 gameMenu.close();
                 menu = false;
                 break;
-            //case inGameMenu.close:
-            // gameMenu.open();
-            // menu = true;
-            // break;
+            // case inGameMenu.open:
+            //   gameMenu.open();
+            //   menu = true;
+            //   break;
         }
     }
 
 
-    // Shortcuts für's Menü bzw. Shortcuts generell hier rein
+    // Shortcuts
     document.addEventListener("keydown", hndKeyPress);
-    async function hndKeyPress(_event: KeyboardEvent): Promise<void> {
+    export async function hndKeyPress(_event: KeyboardEvent): Promise<void> {
         switch (_event.code) {
-            case ƒ.KEYBOARD_CODE.F8: //hier englische tastatur also z und y berpcksichtigen
+            case ƒ.KEYBOARD_CODE.F8:
                 console.log("Save");
                 await ƒS.Progress.save();
                 break;
@@ -45,14 +46,14 @@
                 console.log("Load");
                 await ƒS.Progress.load();
                 break;
-            case ƒ.KEYBOARD_CODE.M: //Buchstabe für Close Menü
+            case ƒ.KEYBOARD_CODE.M:
                 if (menu) {
-                    console.log("Close");
+                    console.log("Schließen");
                     gameMenu.close();
                     menu = false;
                 }
                 else {
-                    console.log("Open");
+                    console.log("Öffnen");
                     gameMenu.open();
                     menu = true;
                 }
@@ -60,4 +61,5 @@
         }
     }
 
-}*/
+
+}

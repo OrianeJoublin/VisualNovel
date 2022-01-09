@@ -178,6 +178,17 @@ declare namespace Template {
     };
 }
 declare namespace Template {
+    let inGameMenu: {
+        save: string;
+        load: string;
+        close: string;
+    };
+    let gameMenu: ƒS.Menu;
+    let menu: boolean;
+    function buttonFunctionalities(_option: string): Promise<void>;
+    function hndKeyPress(_event: KeyboardEvent): Promise<void>;
+}
+declare namespace Template {
     let sound: {
         wakeUp: string;
         adventure: string;
