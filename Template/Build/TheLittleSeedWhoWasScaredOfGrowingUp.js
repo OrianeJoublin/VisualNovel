@@ -701,26 +701,26 @@ var Template;
         //await ƒS.Inventory.open();
         //Narrator Speech
         await Template.ƒS.Speech.tell(Template.characters.narrator, text.narrator.T0000 + text.narrator.T0001, true, "S3T1");
-        await Template.ƒS.Speech.tell(Template.characters.narrator, text.narrator.T0002 + "“I'm ", false, "S3T2");
+        await Template.ƒS.Speech.tell(Template.characters.narrator, text.narrator.T0002 + "“I'm ", true, "S3T2");
         //Input Feld (Müsste aber eigentlich innerhalb des Texts erscheinen)
         Template.dataForSave.nameProtagonist = await Template.ƒS.Speech.getInput();
         console.log(Template.dataForSave.nameProtagonist);
-        Template.ƒS.Speech.tell(Template.characters.narrator, "”</p>" + "Then, " + Template.dataForSave.nameProtagonist + " frowned a little <br> And opened its mouth:", false, "S3T3");
-        //let decisionS3ElementOptions = {
-        //iSayHelp: "Ask for help",
-        //iInsult: "Insult"
-        //};
-        //let decisionS3Element = await ƒS.Menu.getInput(decisionS3ElementOptions, "individualCSSClass");
-        //switch (decisionS3Element) {
-        //case decisionS3ElementOptions.iSayHelp:
-        //await ƒS.Speech.tell(characters.narrator, text.narrator.TD101 + text.narrator.TD102, true, "S3T1");
-        //return S4A_SceneWindCity();
-        //case decisionS3ElementOptions.iInsult:
-        // await ƒS.Speech.tell(characters.narrator, text.narrator.TD201 + text.narrator.TD202, true, "S3T1");
-        // await ƒS.Speech.tell(characters.narrator, "A new gust of wind grabbed " + dataForSave.nameProtagonist + text.narrator.TD203, true, "S3T1");
-        // ƒS.Sound.fade(sound.wind1, 0, 2)
-        // return S4B_SceneDogSit();
-        // };
+        Template.ƒS.Speech.tell(Template.characters.narrator, "”</p>" + "Then, " + Template.dataForSave.nameProtagonist + " frowned a little <br> And opened its mouth:", true, "S3T2");
+        //     let decisionS3ElementOptions = {
+        //         iSayHelp: "Ask for help",
+        //         iInsult: "Insult"
+        //     };
+        //     let decisionS3Element = await ƒS.Menu.getInput(decisionS3ElementOptions, "individualCSSClass");
+        //     switch (decisionS3Element) {
+        //         case decisionS3ElementOptions.iSayHelp:
+        //             await ƒS.Speech.tell(characters.narrator, text.narrator.TD101 + text.narrator.TD102, true, "S3T1");
+        //             return S4A_SceneWindCity();
+        //         case decisionS3ElementOptions.iInsult:
+        //            await ƒS.Speech.tell(characters.narrator, text.narrator.TD201 + text.narrator.TD202, true, "S3T1");
+        //            await ƒS.Speech.tell(characters.narrator, "A new gust of wind grabbed " + dataForSave.nameProtagonist + text.narrator.TD203, true, "S3T1");
+        //            ƒS.Sound.fade(sound.wind1, 0, 2)
+        //            return S4B_SceneDogSit();
+        //    };
     }
     Template.S3_SceneWind1 = S3_SceneWind1;
 })(Template || (Template = {}));

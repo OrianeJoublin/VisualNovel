@@ -36,7 +36,7 @@ speech.S3T2 {
   left: 50px;*/
   top: 30%;
   left: -25%;
-  display: inline;
+  display: inline-block;
   
   /*bottom: 36vw;
   left: 10vh; */
