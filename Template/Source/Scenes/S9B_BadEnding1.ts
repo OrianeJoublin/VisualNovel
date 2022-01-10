@@ -19,8 +19,9 @@ namespace Template {
         await ƒS.update(transitions.new.duration, transitions.new.alpha, transitions.new.edge);
 
         //Text
-        await ƒS.Speech.tell(characters.narrator, text.narrator.T0000, true, "S6AT1");
-        await ƒS.Speech.tell(characters.narrator, text.narrator.T0001 + text.narrator.T0002, true, "S6AT1");
+        await ƒS.Speech.tell(characters.narrator, text.narrator.T0000, true, "S9BT1");
+        await ƒS.Speech.tell(characters.narrator, text.narrator.T0001 + text.narrator.T0002, true, "S9BT1");
+        ƒS.Speech.clear();
 
         //New Background Seed Alone in Rain
         await ƒS.Location.show(locations.SeedAlone);
@@ -31,18 +32,20 @@ namespace Template {
         ƒS.Sound.fade(sound.rain3, 1, 2, true)
 
         //Text
-        await ƒS.Speech.tell(characters.narrator, text.narrator.T0003 + text.narrator.T0004, true, "S6AT1");
+        await ƒS.Speech.tell(characters.narrator, text.narrator.T0003 + text.narrator.T0004, true, "S9BT2");
 
         //Rain Animation and Sound Stop
         ƒS.Sound.fade(sound.rain3, 0, 4, true)
         ƒS.Character.hide (characters.Rain)
+        ƒS.Speech.clear();
 
         //New Background Bad Ending
         await ƒS.Location.show(locations.BadEnding);
         await ƒS.update(transitions.new.duration, transitions.new.alpha, transitions.new.edge);
 
         // Text
-        await ƒS.Speech.tell(characters.narrator, text.narrator.T0005, true, "S6AT1");
+        await ƒS.Speech.tell(characters.narrator, text.narrator.T0005, true, "S9BT3");
+        ƒS.Speech.clear();
 
         //Return Start or Credits? + Novel Page: Do you want to start over?
         

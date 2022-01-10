@@ -22,8 +22,8 @@ namespace Template {
         await ƒS.update(transitions.new.duration, transitions.new.alpha, transitions.new.edge);
 
         //Text
-        await ƒS.Speech.tell(characters.narrator, text.narrator.T0000 + text.narrator.T0001, true, "S3T1");
-        await ƒS.Speech.tell(characters.narrator, text.narrator.T0002 + text.narrator.T0003, true, "S3T1");
+        await ƒS.Speech.tell(characters.narrator, text.narrator.T0000 + text.narrator.T0001, true, "S5BT1");
+        await ƒS.Speech.tell(characters.narrator, text.narrator.T0002 + text.narrator.T0003, true, "S5BT1");
 
         let decisionS4BElementOptions = {
             iSaySorry: "Sorry",
@@ -34,12 +34,14 @@ namespace Template {
 
         switch (decisionS4BElement) {
             case decisionS4BElementOptions.iSaySorry:
-                await ƒS.Speech.tell(characters.narrator, text.narrator.TD101, true, "S3T1");
+                await ƒS.Speech.tell(characters.narrator, text.narrator.TD101, true, "S5BT1");
                 ƒS.Sound.fade(sound.wind1, 0, 2);
+                ƒS.Speech.clear();
                 return S6A_SceneWindRain();
             case decisionS4BElementOptions.iSayNotSorry:
-                await ƒS.Speech.tell(characters.narrator, text.narrator.TD201, true, "S3T1");
+                await ƒS.Speech.tell(characters.narrator, text.narrator.TD201, true, "S5BT1");
                 ƒS.Sound.fade(sound.wind1, 0, 2);
+                ƒS.Speech.clear();
                 return S6A_SceneWindRain();
         };
     }

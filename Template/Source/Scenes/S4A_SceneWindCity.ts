@@ -37,6 +37,7 @@ namespace Template {
                 break;
         };
 
+        ƒS.Speech.clear();
         return S6A_SceneWindRain();
     }
 }

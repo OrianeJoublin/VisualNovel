@@ -7,7 +7,7 @@ html, body {
   overflow: hidden;
   font-family: 'EB Garamond', Georgia, 'Times New Roman', Times, serif;
   font-weight: normal;
-  font-size: 120%; 
+  font-size: 130%; 
   /*font-size: calc(10% * var(--w)); */
   color: rgb(240, 18, 103);
 } 
@@ -54,11 +54,34 @@ div {
   font-size: 3.3vmin;
 }
 
-
 name {
   display: none;
 }
 
 speech content {
   color: rgb(230, 241, 255);
+}
+
+
+.decisionClass{
+  padding: 0px;
+  border-style: solid;
+  border-radius: 5px;
+  border-width: 5px;
+  border-color: black;
+}
+
+.decisionClass button{
+  font-size: 22px;
+  font-family: 'Gill Sans MT', sans-serif;;
+  height: 60px;
+  width: 200px;
+  background-color: rgb(233, 233, 233);
+  border-top: none;
+  border-right: none;
+  border-bottom: none;
+}
+
+.decisionClass button:hover{
+  background-color: rgb(206, 216, 245);
 }

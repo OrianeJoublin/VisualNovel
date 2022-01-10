@@ -20,25 +20,26 @@ namespace Template {
         //Background with transition and characters appear:
         await ƒS.Location.show(locations.CityWithMable);
         await ƒS.update(transitions.new.duration, transitions.new.alpha, transitions.new.edge);
-        ƒS.Character.show(characters.Crow, characters.Crow.pose.flight, ƒS.positionPercent (0,30))
-        await ƒS.Character.animate(characters.Rain, characters.Rain.pose.neutral, Rain());
+        //await ƒS.Character.show(characters.Crow, characters.Crow.pose.flight, ƒS.positionPercent (0,70));
+        //await ƒS.Character.animate(characters.Rain, characters.Rain.pose.neutral, Rain());
 
 
         //Text before bird
         await ƒS.Speech.tell(characters.narrator, text.narrator.T0000 + text.narrator.T0001, true, "S7AT1");
         await ƒS.Speech.tell(characters.narrator, text.narrator.T0002, true, "S7AT1");
+        await ƒS.Speech.tell(characters.narrator, text.narrator.T0003, true, "S7AT1");
 
         //Bird flys in (hier wird der Vogel zum Teil durchsichtig)
         await ƒS.Character.animate(characters.Crow, characters.Crow.pose.flight, flyDown());
 
         // Text after bird
-        await ƒS.Speech.tell(characters.narrator, text.narrator.T0003 + text.narrator.T0004, true, "S7AT1")
+        await ƒS.Speech.tell(characters.narrator, text.narrator.T0004, true, "S7AT1");
        
         //Barking
-        ƒS.Sound.fade(sound.dogBark1, 1, 2, true)
+        ƒS.Sound.fade(sound.dogBark1, 1, 2, true);
 
         //Text while Barking
-        await ƒS.Speech.tell(characters.narrator, text.narrator.T0005 + text.narrator.T0006, true, "S7AT1")
+        await ƒS.Speech.tell(characters.narrator, text.narrator.T0005 + text.narrator.T0006, true, "S7AT1");
 
         //Fade Out Sound + City quieter
         ƒS.Sound.fade(sound.wind1, 0, 3)
@@ -50,6 +51,7 @@ namespace Template {
         ƒS.Character.hide (characters.Crow)
         ƒS.Character.hide (characters.Rain)
 
-        //return S8_SceneBirdRoof1();
+        ƒS.Speech.clear();
+        return S8_SceneBirdRoof1();
     }
 }

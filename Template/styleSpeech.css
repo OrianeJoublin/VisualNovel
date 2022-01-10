@@ -15,15 +15,17 @@ speech {
 
 /*Introduction*/
 speech.introduction {
-  bottom: 36vw;
-  left: 115vh;
+  /* bottom: 36vw;
+  left: 115vh; */
+  top: 20%;
+  left: 30%;
 }
 
 /*Scene 3, Text 1*/
 speech.S3T1 {
   /*top: 300px;
   left: 50px;*/
-  top: 30%;
+  top: 20%;
   left: -25%;
   
   /*bottom: 36vw;
@@ -55,28 +57,114 @@ speech.S3T3 {
 }
 
 /*Scene 4B, Text 1*/
-
 speech.S4BT1 {
-  bottom: 25vw;
-  left: -10vh;
+  /* bottom: 25vw;
+  left: -10vh; */
+  top: 20%;
+  left: -30%;
+}
+
+/*Scene 5B, Text 1*/
+speech.S5BT1 {
+  top: 10%;
+  left: -25%;
 }
 
 /*Scene 5C, Text 1*/
 speech.S5CT1 {
-  bottom: 22vw;
-  left: 90vh;
+  /* bottom: 22vw;
+  left: 90vh; */
+  top: 40%;
+  left: 20%;
 }
 
 /*Scene 6A, Text 1*/
 speech.S6AT1 {
-  bottom: 30vw;
-  left: 100vh;
+  /* bottom: 30vw;
+  left: 100vh; */
+  top: 20%;
+  left: 25%;
 }
 
-/*Scene 6A, Text 1*/
+/*Scene 7A, Text 1*/
 speech.S7AT1 {
   /*bottom: 40vw;
   left: 110vh;*/
-  top: 30%;
+  top: 5%;
   left: -25%;
+}
+
+/*Scene 8, Text 1*/
+speech.S8T1 {
+  top: 10%;
+  left: -25%;
+}
+
+/*Scene 9A, Text 1*/
+speech.S9AT1 {
+  top: 62%;
+  left: -3%;
+}
+
+/*Scene 9A, Text 2*/
+speech.S9AT2 {
+  top: 78%;
+  left: -20%;
+}
+
+/*Scene 9A, Text 3*/
+speech.S9AT3 {
+  top: 5%;
+  left: 0%;
+}
+
+/*Scene 9B, Text 1*/
+speech.S9BT1 {
+  top: 10%;
+  left: -18%;
+}
+
+/*Scene 9B, Text 2*/
+speech.S9BT2 {
+  top: 65%;
+  left: -3%;
+}
+
+/*Scene 9B, Text 3*/
+speech.S9BT3 {
+  top: 80%;
+  left: 0%;
+}
+
+/*Scene 10A, Text 1*/
+speech.S10AT1 {
+  top: 10%;
+  left: -23%;
+}
+
+/*Scene 10A, Text 1*/
+speech.S10AT2 {
+  top: 10%;
+  left: -23%;
+}
+
+/*Scene 10B, Text 1*/
+speech.S10BT1 {
+  top: 75%;
+  left: -35%;
+  /* oder: */
+  /*top: 20%;
+  left: 25%;*/
+}
+
+/*Scene 10B, Text 2*/
+speech.S10BT2 {
+  top: 70%;
+  left: -3%;
+}
+
+/*Scene 10B, Text 3*/
+speech.S10BT3 {
+  top: 10%;
+  left: 15%;
 }

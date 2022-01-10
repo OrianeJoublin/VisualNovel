@@ -40,6 +40,7 @@ namespace Template {
 
         ƒS.Character.hide(characters.Crow)
 
+        ƒS.Speech.clear();
         return S8_SceneBirdRoof1();
     }
 }

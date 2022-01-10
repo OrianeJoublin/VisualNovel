@@ -19,19 +19,21 @@ namespace Template {
         await ƒS.update(transitions.new.duration, transitions.new.alpha, transitions.new.edge);
 
         //Text
-        await ƒS.Speech.tell(characters.narrator, text.narrator.T0000, true, "S6AT1");
-        await ƒS.Speech.tell(characters.narrator, text.narrator.T0001, true, "S6AT1");
-        await ƒS.Speech.tell(characters.narrator, text.narrator.T0002, true, "S6AT1");
-        await ƒS.Speech.tell(characters.narrator, text.narrator.T0003, true, "S6AT1");
+        await ƒS.Speech.tell(characters.narrator, text.narrator.T0000, true, "S10AT1");
+        await ƒS.Speech.tell(characters.narrator, text.narrator.T0001, true, "S10AT1");
+        await ƒS.Speech.tell(characters.narrator, text.narrator.T0002, true, "S10AT1");
+        await ƒS.Speech.tell(characters.narrator, text.narrator.T0003, true, "S10AT1");
+        ƒS.Speech.clear();
 
         //New Background Healthy Tree
         await ƒS.Location.show(locations.GoodEnding);
         await ƒS.update(transitions.new.duration, transitions.new.alpha, transitions.new.edge);
 
         //Text
-        await ƒS.Speech.tell(characters.narrator, text.narrator.T0004, true, "S6AT1");
-        await ƒS.Speech.tell(characters.narrator, text.narrator.T0005, true, "S6AT1");
+        await ƒS.Speech.tell(characters.narrator, text.narrator.T0004, true, "S10AT2");
+        await ƒS.Speech.tell(characters.narrator, text.narrator.T0005, true, "S10AT2");
 
+        ƒS.Speech.clear();
         //Return Start or Credits? + Novel Page: Do you want to start over?
         
     }

@@ -18,9 +18,9 @@ namespace Template {
         await ƒS.update(transitions.new.duration, transitions.new.alpha, transitions.new.edge); 
 
         //Text
-        await ƒS.Speech.tell(characters.narrator, text.narrator.T0000 + text.narrator.T0001, true, "S3T1");
-        await ƒS.Speech.tell(characters.narrator, text.narrator.T0002 + text.narrator.T0003, true, "S3T1");
-        await ƒS.Speech.tell(characters.narrator, text.narrator.T0004, true, "S3T1")
+        await ƒS.Speech.tell(characters.narrator, text.narrator.T0000 + text.narrator.T0001, true, "S8T1");
+        await ƒS.Speech.tell(characters.narrator, text.narrator.T0002 + text.narrator.T0003, true, "S8T1");
+        await ƒS.Speech.tell(characters.narrator, text.narrator.T0004, true, "S8T1")
 
         let decisionS8ElementOptions = {
             iTrust: "Trust",
@@ -31,8 +31,10 @@ namespace Template {
 
         switch (decisionS8Element) {
             case decisionS8ElementOptions.iTrust:
+                ƒS.Speech.clear();
                 return S9A_SceneBirdRoof2();
             case decisionS8ElementOptions.iDontTrust:
+                ƒS.Speech.clear();
                 return S9B_BadEnding1();
         };
     }

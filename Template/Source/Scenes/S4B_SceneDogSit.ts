@@ -33,9 +33,11 @@ namespace Template {
 
         switch (decisionS4BElement) {
             case decisionS4BElementOptions.iSayNo:
-                await ƒS.Speech.tell(characters.narrator, text.narrator.TD101 + text.narrator.TD102, true, "S3T1");
+                await ƒS.Speech.tell(characters.narrator, text.narrator.TD101 + text.narrator.TD102, true, "S4BT1");
+                ƒS.Speech.clear();
                 return S5B_SceneWindCity();
             case decisionS4BElementOptions.iSayYes:
+                ƒS.Speech.clear();
                 return S5C_SceneDogRun();
         };
     }

@@ -18,13 +18,14 @@ namespace Template {
 
         //Background with transition and characters appear:
         await ƒS.Location.show(locations.WindRain);
-        await ƒS.update(transitions.new.duration, transitions.new.alpha, transitions.new.edge); 
-        await ƒS.Character.animate(characters.Rain, characters.Rain.pose.neutral, Rain());
+        await ƒS.update(transitions.new.duration, transitions.new.alpha, transitions.new.edge);
+        ƒS.Character.show(characters.Crow, characters.Crow.pose.flight, ƒS.positionPercent (0,0)); 
+        ƒS.Character.animate(characters.Rain, characters.Rain.pose.neutral, Rain());
 
         //Text
         await ƒS.Speech.tell(characters.narrator, text.narrator.T0000 + text.narrator.T0001, true, "S6AT1");
 
-        
+        ƒS.Speech.clear();
         return S7A_SceneDogCityRain();
     }
 }

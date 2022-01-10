@@ -24,6 +24,7 @@ namespace Template {
 
         await ƒS.Character.animate(characters.Dog, characters.Dog.pose.walk, dogExit());
 
+        ƒS.Speech.clear();
         return S7C_SceneDogCity();
     }
 }
