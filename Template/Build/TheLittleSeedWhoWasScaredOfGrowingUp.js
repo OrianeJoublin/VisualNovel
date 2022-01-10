@@ -695,7 +695,7 @@ var Template;
         Template.ƒS.Sound.fade(Template.sound.wind1, 0.2, 2, true);
         // Background and characters appear:
         await Template.ƒS.Location.show(Template.locations.WindGust);
-        await Template.ƒS.update(Template.transitions.black.duration, Template.transitions.black.alpha, Template.transitions.black.edge);
+        await Template.ƒS.update(Template.transitions.clock.duration, Template.transitions.clock.alpha, Template.transitions.clock.edge);
         //Inventar
         //ƒS.Inventory.add(items.pen);
         //await ƒS.Inventory.open();
@@ -703,9 +703,11 @@ var Template;
         await Template.ƒS.Speech.tell(Template.characters.narrator, text.narrator.T0000 + text.narrator.T0001, true, "S3T1");
         await Template.ƒS.Speech.tell(Template.characters.narrator, text.narrator.T0002 + "“I'm ", true, "S3T2");
         //Input Feld (Müsste aber eigentlich innerhalb des Texts erscheinen)
-        Template.dataForSave.nameProtagonist = await Template.ƒS.Speech.getInput();
-        console.log(Template.dataForSave.nameProtagonist);
+        // dataForSave.nameProtagonist = await ƒS.Speech.getInput();
+        // console.log(dataForSave.nameProtagonist);
+        let promiseName = Template.ƒS.Speech.getInput();
         Template.ƒS.Speech.tell(Template.characters.narrator, "”</p>" + "Then, " + Template.dataForSave.nameProtagonist + " frowned a little <br> And opened its mouth:", true, "S3T2");
+        Template.dataForSave.nameProtagonist = await promiseName;
         //     let decisionS3ElementOptions = {
         //         iSayHelp: "Ask for help",
         //         iInsult: "Insult"
@@ -908,6 +910,7 @@ var Template;
         //Background with transition and characters appear:
         await Template.ƒS.Location.show(Template.locations.CityWithMable);
         await Template.ƒS.update(Template.transitions.new.duration, Template.transitions.new.alpha, Template.transitions.new.edge);
+        Template.ƒS.Character.show(Template.characters.Crow, Template.characters.Crow.pose.flight, Template.ƒS.positionPercent(0, 30));
         await Template.ƒS.Character.animate(Template.characters.Rain, Template.characters.Rain.pose.neutral, Template.Rain());
         //Text before bird
         await Template.ƒS.Speech.tell(Template.characters.narrator, text.narrator.T0000 + text.narrator.T0001, true, "S7AT1");

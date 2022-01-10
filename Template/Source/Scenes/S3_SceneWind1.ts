@@ -22,7 +22,7 @@ namespace Template {
 
         // Background and characters appear:
         await ƒS.Location.show(locations.WindGust);
-        await ƒS.update(transitions.black.duration, transitions.black.alpha, transitions.black.edge);
+        await ƒS.update(transitions.clock.duration, transitions.clock.alpha, transitions.clock.edge);
 
         //Inventar
         //ƒS.Inventory.add(items.pen);
@@ -33,10 +33,13 @@ namespace Template {
         await ƒS.Speech.tell(characters.narrator, text.narrator.T0002 + "“I'm ", true, "S3T2");
 
         //Input Feld (Müsste aber eigentlich innerhalb des Texts erscheinen)
-        dataForSave.nameProtagonist = await ƒS.Speech.getInput();
-        console.log(dataForSave.nameProtagonist);
+        // dataForSave.nameProtagonist = await ƒS.Speech.getInput();
+        // console.log(dataForSave.nameProtagonist);
+        let promiseName: Promise<string> = ƒS.Speech.getInput();
 
         ƒS.Speech.tell(characters.narrator, "”</p>" + "Then, " + dataForSave.nameProtagonist + " frowned a little <br> And opened its mouth:", true, "S3T2");
+
+        dataForSave.nameProtagonist = await promiseName;
 
     //     let decisionS3ElementOptions = {
     //         iSayHelp: "Ask for help",

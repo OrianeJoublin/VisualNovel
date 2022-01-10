@@ -20,6 +20,7 @@ namespace Template {
         //Background with transition and characters appear:
         await ƒS.Location.show(locations.CityWithMable);
         await ƒS.update(transitions.new.duration, transitions.new.alpha, transitions.new.edge);
+        ƒS.Character.show(characters.Crow, characters.Crow.pose.flight, ƒS.positionPercent (0,30))
         await ƒS.Character.animate(characters.Rain, characters.Rain.pose.neutral, Rain());
 
 
