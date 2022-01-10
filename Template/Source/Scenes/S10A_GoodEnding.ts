@@ -5,7 +5,7 @@ namespace Template {
 
         let text = { // Charaktere Texte
             narrator: {
-                T0000: "<p> Name x jumped with a scream <br> As if in a dream <br> Over the roof top <br> Into the drop. </p>",
+                T0000: "<p> " + dataForSave.nameProtagonist + " jumped with a scream <br> As if in a dream <br> Over the roof's edge <br> Its body stretched. </p>",
                 T0001: "<p> The seed soared through the air <br> Living its greatest nightmare <br> Down there was the ant <br> Name x stretched out its hand <br> Annie, the wind picked them up lightly <br> Smiling widely. </p>",
                 T0002: "<p> “I will drop you both to the ground <br> Destiny always comes round. <br> But first I’ll make a confession <br> For you gave me a lesson. </p>",
                 T0003: "<p> You taught me that a detour <br> Can make you more mature! <br> So farewell my friend <br> I swear this is not the end!” </p>",

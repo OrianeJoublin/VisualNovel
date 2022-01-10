@@ -6,7 +6,7 @@ namespace Template {
         let text = { // Charaktere Texte
             narrator: {
                 T0000: "<p> “Thank you”, whispered the seed <br> and within a beat <br> next to the ant behind a rock <br> it hid in shock. </p>",
-                T0001: "<p> The Crow caught by surprise <br> Stuck its beak between the tiles to get her prize. <br> “Thank you for saving my life!” <br> “No worries, I’m Ralph.” </p>",
+                T0001: "<p> The Crow caught by surprise <br> Stuck its beak between the tiles to get her prize. <br>" + dataForSave.nameProtagonist + " whispered: “Thank you for saving my life!” <br> “No worries, I’m Ralph.” </p>",
                 T0002: "<p> “I’m " + dataForSave.nameProtagonist + "”, said the seed <br> “I’m glad you freed <br> me from this crow!” <br> Then, with a stroke <br> The tile broke </p>",
                 T0003: "<p> “Here here, an ant!” <br> Grinned the bird. <br> “On my land!” </p>",
                 T0004: "<p> But all the seed heard <br> Was the boisterous barking <br> Of Mable the dog who was charging <br> Towards the little group <br> In a swoop. </p>",

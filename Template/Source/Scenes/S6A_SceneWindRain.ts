@@ -11,7 +11,7 @@ namespace Template {
 
         let text = { // Charaktere Texte
             narrator: {
-                T0000: "<p> No sooner had it spoken <br> That the sky had broken. <br> Through heavy clouds poured the rain, <br> " + dataForSave.nameProtagonist + " cried in pain <br> As a huge drop caught it <br> And the sky was all lit. <br> The thunder growled <br> And the wind howled: </p>",
+                T0000: "<p> No sooner had it spoken <br> Than the sky had broken. <br> Through heavy clouds poured the rain, <br> " + dataForSave.nameProtagonist + " cried in pain <br> As a huge drop caught it <br> And the sky was all lit. <br> The thunder growled <br> And the wind howled: </p>",
                 T0001: "“I can’t carry you, I’m sorry! <br> You’re too wet and too heavy. <br> I hope you little seed <br> Find the end that you seek.”"
             }
         };

@@ -6,10 +6,10 @@ namespace Template {
         let text = { // Charaktere Texte
             narrator: {
                 T0000: "<p> And there came a gust <br> The seed had no chance <br> Against the force of its thrust. <br> Like in a dance <br> It soared up in the air <br> Hating the affair. </p>",
-                T0001: "<p> Its screams and its crying <br> Where muffled by the whistling <br> Sound of the storm. <br> The seed felt forlorn. </p>",
-                T0002: "<p> “Don’t be scared”, said the wind, <br> And still she grinned. <br> “I’m Anni, what’s your name?”, she asked. <br> The seed fulfilled the task. </p>",
+                T0001: "<p> The screams and the crying of the seed feeling forlorn. <br> Where muffled by the whistling sound of the storm.</p>",
+                T0002: "<p> “Don’t be scared”, repeated the wind, <br> And still she grinned. <br> “I’m Anni, what’s your name?”, she said. <br> The seed replied with a nod of its head: </p>",
                 T0003: "Then, name X frowned a little <br> And opened its mouth:",
-                TD101: "<p> “Please, help me, I don’t want, <br> To end on the ground!” </p>",
+                TD101: "<p> “Please, help me, I don’t want <br> To end on the ground!” </p>",
                 TD102: "<p> “If that is you wish, <br> I won’t drop you, I promise. <br> I’ll get you to town <br> Where you can look around.” </p>",
                 TD201: "<p> “You killed all my friends, you stupid wind!” </p>",
                 TD202: "Thunder growled as Anni got angry: <br> “Is that so? <br> Well here you go! <br> See what I did to them, <br> And then thank me later!”",
@@ -30,7 +30,7 @@ namespace Template {
 
         //Narrator Speech
         await ƒS.Speech.tell(characters.narrator, text.narrator.T0000 + text.narrator.T0001, true, "S3T1");
-        await ƒS.Speech.tell(characters.narrator, text.narrator.T0002 + "“I'm ", true, "S3T2");
+        await ƒS.Speech.tell(characters.narrator, text.narrator.T0002 + "<br> “I'm ", true, "S3T2");
 
         //Input Feld (Müsste aber eigentlich innerhalb des Texts erscheinen)
         // dataForSave.nameProtagonist = await ƒS.Speech.getInput();

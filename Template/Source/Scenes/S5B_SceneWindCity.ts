@@ -5,7 +5,7 @@ namespace Template {
 
         let text = { // Charaktere Texte
             narrator: {
-                T0000: "<p> Up and higher " + dataForSave.nameProtagonist + " flew <br> Carried by the wind it knew <br> Anni was her name <br> And she wasn’t that tame. </p>",
+                T0000: "<p> Higher and higher " + dataForSave.nameProtagonist + " flew <br> Carried by the wind it knew <br> Anni was her name <br> And she wasn’t that tame. </p>",
                 T0001: "“Back so soon? <br>  It’s not even noon! <br> I though you hated me! <br> Are you at least sorry?”",
                 T0002: "<p> Together they travelled <br> As time unravelled <br> To the next city <br> Which was quite pretty <br> And so arrived dawn <br> as the morning yawned.</p>",
                 T0003: dataForSave.nameProtagonist + " finally responded <br> To the wind’s inquiery:",

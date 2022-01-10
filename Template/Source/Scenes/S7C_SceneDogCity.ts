@@ -5,7 +5,7 @@ namespace Template {
 
         let text = { // Charaktere Texte
             narrator: {
-                T0000: "<p> Annie trotted to a bin <br> And she stuck her nose in <br> While " + dataForSave.nameProtagonist + " climbed upon <br> The top of the bin.</p>",
+                T0000: "<p> Mable trotted to a bin <br> And she stuck her nose in <br> While " + dataForSave.nameProtagonist + " climbed upon <br> The top of the bin.</p>",
                 T0001: "<p> “What are you eating?”, " + dataForSave.nameProtagonist + " said. <br> But the timing was rather bad <br> Before the dog could reply <br> A bird dived out of the sky. </p>",
                 T0002: "<p> As its claws snapped <br> The seed almost wept. <br> Why was the world so unkind? <br> The question popped in its mind. </p>",
                 T0003: "<p> And Mable barked and shushed <br> But the bird had rushed <br> Back into the air <br> Leaving behind the town square. </p> ",
