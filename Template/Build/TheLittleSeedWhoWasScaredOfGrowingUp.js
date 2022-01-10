@@ -708,6 +708,7 @@ var Template;
         let promiseName = Template.ƒS.Speech.getInput();
         Template.ƒS.Speech.tell(Template.characters.narrator, "”</p>" + "Then, " + Template.dataForSave.nameProtagonist + " frowned a little <br> And opened its mouth:", true, "S3T2");
         Template.dataForSave.nameProtagonist = await promiseName;
+        //console.log(dataForSave.nameProtagonist);
         //     let decisionS3ElementOptions = {
         //         iSayHelp: "Ask for help",
         //         iInsult: "Insult"

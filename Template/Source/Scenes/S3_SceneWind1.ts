@@ -40,6 +40,7 @@ namespace Template {
         ƒS.Speech.tell(characters.narrator, "”</p>" + "Then, " + dataForSave.nameProtagonist + " frowned a little <br> And opened its mouth:", true, "S3T2");
 
         dataForSave.nameProtagonist = await promiseName;
+        //console.log(dataForSave.nameProtagonist);
 
     //     let decisionS3ElementOptions = {
     //         iSayHelp: "Ask for help",
