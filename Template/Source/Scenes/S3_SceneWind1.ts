@@ -22,7 +22,7 @@ namespace Template {
 
         // Background and characters appear:
         await ƒS.Location.show(locations.WindGust);
-        await ƒS.update(transitions.new.duration, transitions.new.alpha, transitions.new.edge);
+        await ƒS.update(transitions.black.duration, transitions.black.alpha, transitions.black.edge);
 
         //Inventar
         //ƒS.Inventory.add(items.pen);

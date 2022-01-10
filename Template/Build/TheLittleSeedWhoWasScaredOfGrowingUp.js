@@ -695,7 +695,7 @@ var Template;
         Template.ƒS.Sound.fade(Template.sound.wind1, 0.2, 2, true);
         // Background and characters appear:
         await Template.ƒS.Location.show(Template.locations.WindGust);
-        await Template.ƒS.update(Template.transitions.new.duration, Template.transitions.new.alpha, Template.transitions.new.edge);
+        await Template.ƒS.update(Template.transitions.black.duration, Template.transitions.black.alpha, Template.transitions.black.edge);
         //Inventar
         //ƒS.Inventory.add(items.pen);
         //await ƒS.Inventory.open();
