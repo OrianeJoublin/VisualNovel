@@ -206,6 +206,8 @@ declare namespace Template {
         thunderStorm1: string;
         thunderStorm2: string;
         dogBark1: string;
+        springWeather: string;
+        springBirds: string;
     };
 }
 declare namespace Template {

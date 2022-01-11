@@ -25,7 +25,7 @@ namespace Template {
         await ƒS.Speech.tell(characters.narrator, text.narrator.T0004 + "<p>" + dataForSave.nameProtagonist + " said: </p>", true, "S4BT1");
 
         let decisionS4BElementOptions = {
-            iSayYes: "Yes, Please!",
+            iSayYes: "Yes, please!",
             iSayNo: "No thanks!"
         };
 

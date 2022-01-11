@@ -30,6 +30,7 @@ namespace Template {
 
         //Animation Rain and Sound
         await ƒS.Character.animate(characters.Rain, characters.Rain.pose.neutral, Rain());
+        ƒS.Sound.fade(sound.wakeUp, 0.15, 2, true)
         ƒS.Sound.fade(sound.rain3, 1, 2, true)
 
         //Text

@@ -22,6 +22,7 @@ var Template;
             //{ scene: S5C_SceneDogRun, name: "S5C_SceneDogRun" },
             //{ scene: S6A_SceneWindRain, name: "S6A_SceneWindRain" },
             //{ scene: S7A_SceneDogCityRain, name: "S7A_SceneDogCityRain" },
+            { scene: Template.S10A_GoodEnding, name: "S10A_GoodEnding" },
             //{ id: "Einführung", scene: Scene, name: "Scene", next: "Ende"},  //man kann direkt die nächste szene hier definieren statt return in der Szene
             //{ scene: Scene2, name: "Scene Two"},
             //{ id: "Ende", scene: encodeURI, name: "The End"},
@@ -374,7 +375,8 @@ var Template;
 (function (Template) {
     Template.sound = {
         // music 
-        wakeUp: "./Music/WakeUp.mp3",
+        //wakeUp: "./Music/WakeUp.mp3",
+        wakeUp: "./Music/CombinedMusicMedium.wav",
         adventure: "./Music/Adventure.mp3",
         forestWalk: "./Music/ForestWalk.mp3",
         illusoryRealm: "./Music/IllusoryRealm.mp3",
@@ -390,7 +392,9 @@ var Template;
         wind2: "./SoundEffects/windy-forest-ambience-01.mp3",
         thunderStorm1: ".SoundEffects/zapsplat_nature_thunderstorm_approaching_distant_rumbles_rain_then_rain_heavier_at_2m50s_57911.mp3",
         thunderStorm2: "./SoundEffects/zapsplat_nature_rain_thunderstorm_close_rain_drips_yard_57904.mp3",
-        dogBark1: "./SoundEffects/zapsplat_animals_dog_labrador_bark_slight_distance_echo_neighbourhood_11751.mp3"
+        dogBark1: "./SoundEffects/zapsplat_animals_dog_labrador_bark_slight_distance_echo_neighbourhood_11751.mp3",
+        springWeather: "./spring-weather-1.wav",
+        springBirds: "./Blastwave_FX_NatureBirdsCrickets_BW.1500"
     };
 })(Template || (Template = {}));
 var Template;
@@ -556,7 +560,7 @@ var Template;
         let text = {
             narrator: {
                 T0000: "<p> " + Template.dataForSave.nameProtagonist + " jumped with a scream <br> As if in a dream <br> Over the roof's edge <br> Its body stretched. </p>",
-                T0001: "<p> The seed soared through the air <br> Living its greatest nightmare <br> Down there was the ant <br> Name x stretched out its hand <br> Annie, the wind picked them up lightly <br> Smiling widely. </p>",
+                T0001: "<p> The seed soared through the air <br> Living its greatest nightmare <br> Down there was the ant <br> " + Template.dataForSave.nameProtagonist + " stretched out its hand. <br> Annie, the wind picked them up lightly <br> Smiling widely. </p>",
                 T0002: "<p> “I will drop you both to the ground <br> Destiny always comes round. <br> But first I’ll make a confession <br> For you gave me a lesson. </p>",
                 T0003: "<p> You taught me that a detour <br> Can make you more mature! <br> So farewell my friend <br> I swear this is not the end!” </p>",
                 T0004: "<p> Many seasons came around <br> And out of the ground <br> Just at the spot <br> Where the seed had dropped <br> Had grown a mighty tree. </p>",
@@ -566,15 +570,20 @@ var Template;
         //Background with transition and characters appear:
         await Template.ƒS.Location.show(Template.locations.SeedSavesAnt);
         await Template.ƒS.update(Template.transitions.new.duration, Template.transitions.new.alpha, Template.transitions.new.edge);
+        Template.ƒS.Sound.fade(Template.sound.wind1, 0.2, 2, true);
+        Template.ƒS.Sound.fade(Template.sound.wakeUp, 0.4, 2, true);
         //Text
         await Template.ƒS.Speech.tell(Template.characters.narrator, text.narrator.T0000, true, "S10AT1");
         await Template.ƒS.Speech.tell(Template.characters.narrator, text.narrator.T0001, true, "S10AT1");
-        await Template.ƒS.Speech.tell(Template.characters.narrator, text.narrator.T0002, true, "S10AT1");
-        await Template.ƒS.Speech.tell(Template.characters.narrator, text.narrator.T0003, true, "S10AT1");
+        await Template.ƒS.Speech.tell(Template.characters.narrator, text.narrator.T0002 + text.narrator.T0003, true, "S10AT1");
+        Template.ƒS.Sound.fade(Template.sound.wind1, 0, 2, true);
         Template.ƒS.Speech.clear();
         //New Background Healthy Tree
         await Template.ƒS.Location.show(Template.locations.GoodEnding);
         await Template.ƒS.update(Template.transitions.new.duration, Template.transitions.new.alpha, Template.transitions.new.edge);
+        Template.ƒS.Sound.fade(Template.sound.wind2, 0.08, 2, true);
+        Template.ƒS.Sound.fade(Template.sound.springBirds, 1, 2, true);
+        Template.ƒS.Sound.fade(Template.sound.springWeather, 0.2, 2, true);
         //Text
         await Template.ƒS.Speech.tell(Template.characters.narrator, text.narrator.T0004, true, "S10AT2");
         await Template.ƒS.Speech.tell(Template.characters.narrator, text.narrator.T0005, true, "S10AT2");
@@ -610,6 +619,7 @@ var Template;
         await Template.ƒS.update(Template.transitions.new.duration, Template.transitions.new.alpha, Template.transitions.new.edge);
         //Animation Rain and Sound
         await Template.ƒS.Character.animate(Template.characters.Rain, Template.characters.Rain.pose.neutral, Template.Rain());
+        Template.ƒS.Sound.fade(Template.sound.wakeUp, 0.15, 2, true);
         Template.ƒS.Sound.fade(Template.sound.rain3, 1, 2, true);
         //Text
         await Template.ƒS.Speech.tell(Template.characters.narrator, text.narrator.T0003, true, "S10BT2");
@@ -796,7 +806,7 @@ var Template;
         await Template.ƒS.Speech.tell(Template.characters.narrator, text.narrator.T0002 + text.narrator.T0003, true, "S4BT1");
         await Template.ƒS.Speech.tell(Template.characters.narrator, text.narrator.T0004 + "<p>" + Template.dataForSave.nameProtagonist + " said: </p>", true, "S4BT1");
         let decisionS4BElementOptions = {
-            iSayYes: "Yes, Please!",
+            iSayYes: "Yes, please!",
             iSayNo: "No thanks!"
         };
         let decisionS4BElement = await Template.ƒS.Menu.getInput(decisionS4BElementOptions, "individualCSSClass");
@@ -1007,6 +1017,8 @@ var Template;
         //Background with transition and characters appear:
         await Template.ƒS.Location.show(Template.locations.ArriveRoofTop);
         await Template.ƒS.update(Template.transitions.new.duration, Template.transitions.new.alpha, Template.transitions.new.edge);
+        //Musik
+        Template.ƒS.Sound.fade(Template.sound.wakeUp, 0.4, 2, true);
         //Text
         await Template.ƒS.Speech.tell(Template.characters.narrator, text.narrator.T0000 + text.narrator.T0001, true, "S8T1");
         await Template.ƒS.Speech.tell(Template.characters.narrator, text.narrator.T0002 + text.narrator.T0003, true, "S8T1");
@@ -1035,7 +1047,7 @@ var Template;
         let text = {
             narrator: {
                 T0000: "<p> “Thank you”, whispered the seed <br> and within a beat <br> next to the ant behind a rock <br> it hid in shock. </p>",
-                T0001: "<p> The Crow caught by surprise <br> Stuck its beak between the tiles to get her prize. <br>" + Template.dataForSave.nameProtagonist + " whispered: “Thank you for saving my life!” <br> “No worries, I’m Ralph.” </p>",
+                T0001: "<p> The crow caught by surprise <br> Stuck its beak between the tiles to get her prize. <br>" + Template.dataForSave.nameProtagonist + " whispered: “Thank you for saving my life!” <br> “No worries, I’m Ralph.” </p>",
                 T0002: "<p> “I’m " + Template.dataForSave.nameProtagonist + "”, said the seed <br> “I’m glad you freed <br> me from this crow!” <br> Then, with a stroke <br> The tile broke </p>",
                 T0003: "<p> “Here here, an ant!” <br> Grinned the bird. <br> “On my land!” </p>",
                 T0004: "<p> But all the seed heard <br> Was the boisterous barking <br> Of Mable the dog who was charging <br> Towards the little group <br> In a swoop. </p>",
@@ -1060,6 +1072,11 @@ var Template;
         //New Background - Mable appears
         await Template.ƒS.Location.show(Template.locations.MableJoins);
         await Template.ƒS.update(Template.transitions.new.duration, Template.transitions.new.alpha, Template.transitions.new.edge);
+        //Sound
+        Template.ƒS.Sound.fade(Template.sound.dogBark1, 0.6, 2, true);
+        Template.ƒS.Sound.fade(Template.sound.crow, 0.5, 2, true);
+        Template.ƒS.Sound.fade(Template.sound.dogBark1, 0, 6, true);
+        Template.ƒS.Sound.fade(Template.sound.crow, 0, 6, true);
         //Text
         await Template.ƒS.Speech.tell(Template.characters.narrator, text.narrator.T0004 + text.narrator.T0005, true, "S9AT3");
         await Template.ƒS.Speech.tell(Template.characters.narrator, text.narrator.T0006 + text.narrator.T0007, true, "S9AT3");
@@ -1106,6 +1123,7 @@ var Template;
         await Template.ƒS.update(Template.transitions.new.duration, Template.transitions.new.alpha, Template.transitions.new.edge);
         //Animation Rain and Sound
         await Template.ƒS.Character.animate(Template.characters.Rain, Template.characters.Rain.pose.neutral, Template.Rain());
+        Template.ƒS.Sound.fade(Template.sound.wakeUp, 0.15, 2, true);
         Template.ƒS.Sound.fade(Template.sound.rain3, 1, 2, true);
         //Text
         await Template.ƒS.Speech.tell(Template.characters.narrator, text.narrator.T0003 + text.narrator.T0004, true, "S9BT2");
