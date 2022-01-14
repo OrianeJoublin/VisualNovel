@@ -50,5 +50,7 @@ namespace Template {
 
         //Return Start or Credits? + Novel Page: Do you want to start over?
         
+
+        
     }
 }

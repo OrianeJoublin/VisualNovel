@@ -16,6 +16,7 @@ var Template;
             //Linear
             // { scene: S3_SceneWind1, name: "S3_SceneWind1" },
             // { scene: S7A_SceneDogCityRain, name: "S7A_SceneDogCityRain" },
+            { scene: Template.NovelPages, name: "NovelPages" },
             { scene: Template.S1_IntroPart1, name: "S1_IntroPart1" },
             { scene: Template.S2_IntroPart2, name: "S2_IntroPart2" },
             { scene: Template.S3_SceneWind1, name: "S3_SceneWind1" },
@@ -316,11 +317,22 @@ var Template;
 var Template;
 (function (Template) {
     Template.inGameMenu = {
-        save: "Speichern",
-        load: "Laden",
-        close: "Schließen"
+        save: "Save",
+        load: "Load",
+        //close: "Close"
+        credits: "Credits",
         // open: "Open"
+        // shortcuts: "Shortcuts"
     };
+    function showCredits() {
+        Template.ƒS.Text.addClass("credits");
+        Template.ƒS.Text.print("<p> CREDITS </p> <p> Story by Oriane Joublin <br> Backgrounds and Characters by Oriane Joublin <br> Art by Oriane Joublin <br> Programming by Oriane Joublin </p> <p> MUSIC </p> <p> Adventure by Alexander Nakarada <br> Forest Walk by Alexander Nakarada <br> Wake Up by Scandinavianz </p> <p> SOUNDS </p> Sound effects from soundjay.com <br> Additional sound effects from zapsplat.com </p> <p> Made with FUDGEStory </p> <p> WITH SPECIAL THANKS <br> to Carina Spangenberger, Riem Yasin, Jirka Dell'Oro and <br> Frank Joublin for their support in programming questions and <br> to Iris Schnabel and Emily Pacey for improving the rhymes.</p>");
+    }
+    Template.showCredits = showCredits;
+    // export function showShortcuts(): void {
+    //     ƒS.Text.addClass("shortcuts");
+    //     ƒS.Text.print("SHORTCUTS HERE");
+    // }
     // true = offen; false = geschlossen
     Template.menu = true;
     async function buttonFunctionalities(_option) {
@@ -332,10 +344,14 @@ var Template;
             case Template.inGameMenu.load:
                 await Template.ƒS.Progress.load();
                 break;
-            case Template.inGameMenu.close:
-                Template.gameMenu.close();
-                Template.menu = false;
-                break;
+            case Template.inGameMenu.credits:
+                showCredits();
+            // case inGameMenu.shortcuts:
+            //     showShortcuts(); 
+            //case inGameMenu.close:
+            //    gameMenu.close();
+            //    menu = false;
+            //    break;
             // case inGameMenu.open:
             //   gameMenu.open();
             //   menu = true;
@@ -555,6 +571,72 @@ var Template;
 })(Template || (Template = {}));
 var Template;
 (function (Template) {
+    async function NovelPages() {
+        console.log("Novel Pages");
+        let text = {
+            Narrator: {
+                T0000: "",
+                T0001: ""
+            },
+            Protagonist: {
+                T0000: "",
+                T0001: ""
+            },
+            narrator: {
+                T0000: "Novel pages können ganz unterschiedlich verwendet werden.",
+                T0001: "Hier konntest du ein Beispiel sehen, bei dem man die Seiten, wie in einem Buch, umblättert."
+            }
+        };
+        document.getElementsByName("scoreRyu").forEach(meterStuff => meterStuff.hidden = true);
+        document.getElementsByName("scoreForRyu").forEach(meterStuff => meterStuff.hidden = true);
+        Template.gameMenu.close();
+        Template.menu = false;
+        Template.ƒS.Speech.hide();
+        await Template.ƒS.Location.show(Template.locations.AntFalls);
+        // await ƒS.update(transition.clock.duration, transition.clock.alpha, transition.clock.edge);
+        await Template.ƒS.Character.show(Template.characters.Crow, Template.characters.Crow.pose.flight, Template.ƒS.positionPercent(30, 100));
+        await Template.ƒS.update(1);
+        // await ƒS.Speech.tell(characters.Ryu, text.Ryu.T0000);
+        // if (!dataForSave.started) {
+        Template.ƒS.Text.addClass("contract");
+        Template.ƒS.Speech.hide();
+        let pages = ["<strong>Überschrift:</strong>blabla<br></br> \
+          <br>Seite 1</br>", "<strong>Überschrift</strong>\
+          <br>Seite 2</br>", "<strong>Überschrift</strong> \
+          <br>test text test</br> text test text <br>test text test</br> text<br></br> Seite 3", "Seite 4", "Seite 5", "Seite 6", "Seite 7", "Seite 8"];
+        let current = 0;
+        let flip = { back: "Back", next: "Next", done: "Close" };
+        let choice;
+        Template.ƒS.Text.addClass("flip");
+        do {
+            Template.ƒS.Text.print(pages[current]);
+            choice = await Template.ƒS.Menu.getInput(flip, "flip");
+            switch (choice) {
+                case flip.back:
+                    current = Math.max(0, current - 1);
+                    break;
+                case flip.next:
+                    current = Math.min(pages.length - 1, current + 1);
+                    break;
+                // case flip.back: current = Math.max(0, current - 1); break;
+                // case flip.next: current = Math.min(2, current + 1); break;
+            }
+        } while (choice != flip.done);
+        Template.ƒS.Text.close();
+        // }
+        // Delay reinmachen + testen
+        await Template.ƒS.Speech.tell(Template.characters.narrator, text.Narrator.T0000);
+        await Template.ƒS.Speech.tell(Template.characters.narrator, text.Narrator.T0001);
+        Template.ƒS.Text.print("Lies mich.");
+        Template.ƒS.Text.setClass("text");
+        await Template.ƒS.Speech.tell(Template.characters.narrator, "Probier' es doch einmal selbst aus.");
+        await Template.ƒS.Character.hide(Template.characters.Crow);
+        await Template.ƒS.update(1);
+    }
+    Template.NovelPages = NovelPages;
+})(Template || (Template = {}));
+var Template;
+(function (Template) {
     async function S10A_GoodEnding() {
         console.log("S10A_GoodEnding starting");
         let text = {
@@ -649,7 +731,7 @@ var Template;
             }
         };
         //Musik
-        Template.ƒS.Sound.fade(Template.sound.wakeUp, 0.4, 2, true);
+        Template.ƒS.Sound.fade(Template.sound.wakeUp, 0.4, 0, true);
         //Animation auch während Text möglich
         let animationDone = Template.ƒS.Character.animate(Template.characters.ManySeeds, Template.characters.ManySeeds.pose.neutral, Template.SwayDown());
         // Background, transitions and characters appear:

@@ -181,9 +181,10 @@ declare namespace Template {
     let inGameMenu: {
         save: string;
         load: string;
-        close: string;
+        credits: string;
     };
     let gameMenu: ƒS.Menu;
+    function showCredits(): void;
     let menu: boolean;
     function buttonFunctionalities(_option: string): Promise<void>;
     function hndKeyPress(_event: KeyboardEvent): Promise<void>;
@@ -236,6 +237,9 @@ declare namespace Template {
 }
 declare namespace Template {
     function TestS1_IntroPart1(): ƒS.SceneReturn;
+}
+declare namespace Template {
+    function NovelPages(): ƒS.SceneReturn;
 }
 declare namespace Template {
     function S10A_GoodEnding(): ƒS.SceneReturn;
