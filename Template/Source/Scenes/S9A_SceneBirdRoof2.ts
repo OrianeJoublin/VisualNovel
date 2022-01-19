@@ -38,10 +38,10 @@ namespace Template {
         await ƒS.update(transitions.new.duration, transitions.new.alpha, transitions.new.edge);
 
         //Sound
-        ƒS.Sound.fade(sound.dogBark1, 0.6, 2, true)
-        ƒS.Sound.fade(sound.crow, 0.5, 2, true)
-        ƒS.Sound.fade(sound.dogBark1, 0, 6, true)
-        ƒS.Sound.fade(sound.crow, 0, 6, true)
+        ƒS.Sound.fade(sound.dogBark1, 0.6, 2, true);
+        ƒS.Sound.fade(sound.crow, 0.5, 2, true);
+        ƒS.Sound.fade(sound.dogBark1, 0, 6, true);
+        ƒS.Sound.fade(sound.crow, 0, 6, true);
         
         //Text
         await ƒS.Speech.tell(characters.narrator, text.narrator.T0004 + text.narrator.T0005, true, "S9AT3");

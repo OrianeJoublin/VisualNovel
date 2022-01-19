@@ -17,12 +17,12 @@ namespace Template {
         await ƒS.Location.show(locations.ArriveRoofTop);
         await ƒS.update(transitions.new.duration, transitions.new.alpha, transitions.new.edge); 
          //Musik
-        ƒS.Sound.fade(sound.wakeUp, 0.4, 2, true)
+        ƒS.Sound.fade(sound.wakeUp, 0.4, 2, true);
 
         //Text
         await ƒS.Speech.tell(characters.narrator, text.narrator.T0000 + text.narrator.T0001, true, "S8T1");
         await ƒS.Speech.tell(characters.narrator, text.narrator.T0002 + text.narrator.T0003, true, "S8T1");
-        await ƒS.Speech.tell(characters.narrator, text.narrator.T0004, true, "S8T1")
+        await ƒS.Speech.tell(characters.narrator, text.narrator.T0004, true, "S8T1");
 
         let decisionS8ElementOptions = {
             iTrust: "Trust",

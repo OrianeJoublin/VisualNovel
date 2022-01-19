@@ -6,7 +6,8 @@ var Template;
     console.log("FudgeStory template starting");
     Template.dataForSave = {
         nameProtagonist: "",
-        points: 0 //hier kann man neues Attribut anlegen, z.B. points
+        points: 0,
+        scoreSeed: 0, //für Meterbar eines bestimmten Charakters
     };
     window.addEventListener("load", start);
     function start(_event) {
@@ -16,7 +17,7 @@ var Template;
             //Linear
             // { scene: S3_SceneWind1, name: "S3_SceneWind1" },
             // { scene: S7A_SceneDogCityRain, name: "S7A_SceneDogCityRain" },
-            { scene: Template.NovelPages, name: "NovelPages" },
+            //{ scene: NovelPages, name: "NovelPages" },
             { scene: Template.S1_IntroPart1, name: "S1_IntroPart1" },
             { scene: Template.S2_IntroPart2, name: "S2_IntroPart2" },
             { scene: Template.S3_SceneWind1, name: "S3_SceneWind1" },
@@ -30,7 +31,7 @@ var Template;
             //{ id: "Einführung2", scene: Scene, name: "Scene" } //selbe Szene kann mehrere IDs haben
         ];
         // Interface elemente abspeichern
-        let uiElement = document.querySelector("[type=interface]");
+        let uiElement = document.querySelector("[type=interface]"); //Meterbar CSS
         Template.dataForSave = Template.ƒS.Progress.setData(Template.dataForSave, uiElement);
         // start the sequence
         Template.ƒS.Progress.go(scenes);
@@ -322,17 +323,18 @@ var Template;
         //close: "Close"
         credits: "Credits",
         // open: "Open"
-        // shortcuts: "Shortcuts"
+        shortcuts: "Shortcuts"
     };
     function showCredits() {
-        Template.ƒS.Text.addClass("credits");
+        Template.ƒS.Text.setClass("credits");
         Template.ƒS.Text.print("<p> CREDITS </p> <p> Story by Oriane Joublin <br> Backgrounds and Characters by Oriane Joublin <br> Art by Oriane Joublin <br> Programming by Oriane Joublin </p> <p> MUSIC </p> <p> Adventure by Alexander Nakarada <br> Forest Walk by Alexander Nakarada <br> Wake Up by Scandinavianz </p> <p> SOUNDS </p> Sound effects from soundjay.com <br> Additional sound effects from zapsplat.com </p> <p> Made with FUDGEStory </p> <p> WITH SPECIAL THANKS <br> to Carina Spangenberger, Riem Yasin, Jirka Dell'Oro and <br> Frank Joublin for their support in programming questions and <br> to Iris Schnabel and Emily Pacey for improving the rhymes.</p>");
     }
     Template.showCredits = showCredits;
-    // export function showShortcuts(): void {
-    //     ƒS.Text.addClass("shortcuts");
-    //     ƒS.Text.print("SHORTCUTS HERE");
-    // }
+    function showShortcuts() {
+        Template.ƒS.Text.setClass("shortcuts");
+        Template.ƒS.Text.print("SHORTCUTS HERE");
+    }
+    Template.showShortcuts = showShortcuts;
     // true = offen; false = geschlossen
     Template.menu = true;
     async function buttonFunctionalities(_option) {
@@ -346,16 +348,18 @@ var Template;
                 break;
             case Template.inGameMenu.credits:
                 showCredits();
-            // case inGameMenu.shortcuts:
-            //     showShortcuts(); 
+                break;
+            case Template.inGameMenu.shortcuts:
+                showShortcuts();
+                break;
             //case inGameMenu.close:
-            //    gameMenu.close();
-            //    menu = false;
-            //    break;
-            // case inGameMenu.open:
-            //   gameMenu.open();
-            //   menu = true;
-            //   break;
+            //gameMenu.close();
+            //menu = false;
+            //break;
+            //case inGameMenu.open:
+            //gameMenu.open();
+            //menu = true;
+            //break;
         }
     }
     Template.buttonFunctionalities = buttonFunctionalities;
@@ -587,10 +591,10 @@ var Template;
                 T0001: "Hier konntest du ein Beispiel sehen, bei dem man die Seiten, wie in einem Buch, umblättert."
             }
         };
-        document.getElementsByName("scoreRyu").forEach(meterStuff => meterStuff.hidden = true);
-        document.getElementsByName("scoreForRyu").forEach(meterStuff => meterStuff.hidden = true);
-        Template.gameMenu.close();
-        Template.menu = false;
+        // document.getElementsByName("scoreRyu").forEach(meterStuff => meterStuff.hidden = true);
+        // document.getElementsByName("scoreForRyu").forEach(meterStuff => meterStuff.hidden = true);
+        // gameMenu.close();
+        // menu = false;
         Template.ƒS.Speech.hide();
         await Template.ƒS.Location.show(Template.locations.AntFalls);
         // await ƒS.update(transition.clock.duration, transition.clock.alpha, transition.clock.edge);
@@ -741,9 +745,13 @@ var Template;
         //Inventar
         //ƒS.Inventory.add(items.pen);
         //await ƒS.Inventory.open();
+        //Novel Page
+        Template.ƒS.Text.setClass("NovelPageKlassennameZumGestalten"); //addClass klasse hinzufügen vs. Set Class wo gestalterisches von alten Klass auch übernommen wird
+        Template.ƒS.Text.print("Willkommen zu dieser Visual Novel xyz");
         // Text pace
         Template.ƒS.Speech.setTickerDelays(80, 500); //die 2 ist delay zwei sekunden warten, bevor bei paragraf weitergeht.
         //Text
+        await Template.ƒS.Speech.tell(null, null, true); //nur damit text erst nach erstem klick kommt wegen Novel Page
         await Template.ƒS.Speech.tell(Template.characters.narrator, text.narrator.T0000 + text.narrator.T0001 + text.narrator.T0002, true, "introduction");
         // Animation endet
         Template.ƒS.Character.hide(Template.characters.ManySeeds);

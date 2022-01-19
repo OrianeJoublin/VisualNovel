@@ -15,7 +15,7 @@ namespace Template {
             }
         };
         //City Sound
-        ƒS.Sound.fade(sound.city, 0.3, 2, true)
+        ƒS.Sound.fade(sound.city, 0.3, 2, true);
 
         //Background with transition and characters appear:
         await ƒS.Location.show(locations.CityWithMable);
@@ -42,14 +42,14 @@ namespace Template {
         await ƒS.Speech.tell(characters.narrator, text.narrator.T0005 + text.narrator.T0006, true, "S7AT1");
 
         //Fade Out Sound + City quieter
-        ƒS.Sound.fade(sound.wind1, 0, 3)
-        ƒS.Sound.fade(sound.thunderStorm2, 0, 3)
-        ƒS.Sound.fade(sound.rain3, 0, 3)
-        ƒS.Sound.fade(sound.city, 0, 3)
-        ƒS.Sound.fade(sound.dogBark1, 0, 2, true)
+        ƒS.Sound.fade(sound.wind1, 0, 3);
+        ƒS.Sound.fade(sound.thunderStorm2, 0, 3);
+        ƒS.Sound.fade(sound.rain3, 0, 3);
+        ƒS.Sound.fade(sound.city, 0, 3);
+        ƒS.Sound.fade(sound.dogBark1, 0, 2, true);
 
-        ƒS.Character.hide (characters.Crow)
-        ƒS.Character.hide (characters.Rain)
+        ƒS.Character.hide (characters.Crow);
+        ƒS.Character.hide (characters.Rain);
 
         ƒS.Speech.clear();
         return S8_SceneBirdRoof1();

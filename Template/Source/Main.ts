@@ -7,7 +7,8 @@ namespace Template {
 
   export let dataForSave = {
     nameProtagonist: "",
-    points: 0 //hier kann man neues Attribut anlegen, z.B. points
+    points: 0, //hier kann man neues Attribut anlegen, z.B. points
+    scoreSeed: 0, //für Meterbar eines bestimmten Charakters
   };
 
   window.addEventListener("load", start);
@@ -19,7 +20,7 @@ namespace Template {
       //Linear
       // { scene: S3_SceneWind1, name: "S3_SceneWind1" },
       // { scene: S7A_SceneDogCityRain, name: "S7A_SceneDogCityRain" },
-      { scene: NovelPages, name: "NovelPages" },
+      //{ scene: NovelPages, name: "NovelPages" },
       { scene: S1_IntroPart1, name: "S1_IntroPart1" },
       { scene: S2_IntroPart2, name: "S2_IntroPart2" },
       { scene: S3_SceneWind1, name: "S3_SceneWind1" }, 
@@ -37,7 +38,7 @@ namespace Template {
     ];
 
     // Interface elemente abspeichern
-    let uiElement: HTMLElement = document.querySelector("[type=interface]");
+    let uiElement: HTMLElement = document.querySelector("[type=interface]"); //Meterbar CSS
     dataForSave = ƒS.Progress.setData(dataForSave, uiElement);
 
     // start the sequence

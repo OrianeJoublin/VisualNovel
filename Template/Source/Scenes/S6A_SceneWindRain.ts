@@ -3,10 +3,10 @@ namespace Template {
     export async function S6A_SceneWindRain(): ƒS.SceneReturn {
         console.log("S6A_SceneWindRain starting");
 
-        ƒS.Sound.fade(sound.wakeUp, 0.1, 3, true)
-        ƒS.Sound.fade(sound.wind1, 0.2, 0, true)
-        ƒS.Sound.fade(sound.thunderStorm2, 1, 2, true)
-        ƒS.Sound.fade(sound.rain3, 1, 2, true)
+        ƒS.Sound.fade(sound.wakeUp, 0.1, 3, true);
+        ƒS.Sound.fade(sound.wind1, 0.2, 0, true);
+        ƒS.Sound.fade(sound.thunderStorm2, 1, 2, true);
+        ƒS.Sound.fade(sound.rain3, 1, 2, true);
         
 
         let text = { // Charaktere Texte

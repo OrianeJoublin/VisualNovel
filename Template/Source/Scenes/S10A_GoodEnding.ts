@@ -17,22 +17,22 @@ namespace Template {
         //Background with transition and characters appear:
         await ƒS.Location.show(locations.SeedSavesAnt);
         await ƒS.update(transitions.new.duration, transitions.new.alpha, transitions.new.edge);
-        ƒS.Sound.fade(sound.wind1, 0.2, 2, true)
-        ƒS.Sound.fade(sound.wakeUp, 0.4, 2, true)
+        ƒS.Sound.fade(sound.wind1, 0.2, 2, true);
+        ƒS.Sound.fade(sound.wakeUp, 0.4, 2, true);
 
         //Text
         await ƒS.Speech.tell(characters.narrator, text.narrator.T0000, true, "S10AT1");
         await ƒS.Speech.tell(characters.narrator, text.narrator.T0001, true, "S10AT1");
         await ƒS.Speech.tell(characters.narrator, text.narrator.T0002 + text.narrator.T0003, true, "S10AT1");
-        ƒS.Sound.fade(sound.wind1, 0, 2, true)
+        ƒS.Sound.fade(sound.wind1, 0, 2, true);
         ƒS.Speech.clear();
 
         //New Background Healthy Tree
         await ƒS.Location.show(locations.GoodEnding);
         await ƒS.update(transitions.new.duration, transitions.new.alpha, transitions.new.edge);
-        ƒS.Sound.fade(sound.wind2, 0.08, 2, true)
-        ƒS.Sound.fade(sound.springBirds, 1, 2, true)
-        ƒS.Sound.fade(sound.springWeather, 0.2, 2, true)
+        ƒS.Sound.fade(sound.wind2, 0.08, 2, true);
+        ƒS.Sound.fade(sound.springBirds, 1, 2, true);
+        ƒS.Sound.fade(sound.springWeather, 0.2, 2, true);
 
         //Text
         await ƒS.Speech.tell(characters.narrator, text.narrator.T0004, true, "S10AT2");

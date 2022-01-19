@@ -30,15 +30,15 @@ namespace Template {
 
         //Animation Rain and Sound
         await ƒS.Character.animate(characters.Rain, characters.Rain.pose.neutral, Rain());
-        ƒS.Sound.fade(sound.wakeUp, 0.15, 2, true)
-        ƒS.Sound.fade(sound.rain3, 1, 2, true)
+        ƒS.Sound.fade(sound.wakeUp, 0.15, 2, true);
+        ƒS.Sound.fade(sound.rain3, 1, 2, true);
 
         //Text
         await ƒS.Speech.tell(characters.narrator, text.narrator.T0003, true, "S10BT2");
 
         //Rain Animation and Sound Stop
-        ƒS.Sound.fade(sound.rain3, 0, 4, true)
-        ƒS.Character.hide (characters.Rain)
+        ƒS.Sound.fade(sound.rain3, 0, 4, true);
+        ƒS.Character.hide (characters.Rain);
         ƒS.Speech.clear();
 
         //New Background Bad Ending

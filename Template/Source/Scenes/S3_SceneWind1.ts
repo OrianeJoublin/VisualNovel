@@ -18,7 +18,7 @@ namespace Template {
         };
 
         //Sound
-        ƒS.Sound.fade(sound.wind1, 0.2, 2, true)
+        ƒS.Sound.fade(sound.wind1, 0.2, 2, true);
 
         // Background and characters appear:
         await ƒS.Location.show(locations.WindGust);
@@ -57,7 +57,7 @@ namespace Template {
             case decisionS3ElementOptions.iInsult:
                 await ƒS.Speech.tell(characters.narrator, text.narrator.TD201 + text.narrator.TD202, true, "S3T2");
                 await ƒS.Speech.tell(characters.narrator, "A new gust of wind grabbed " + dataForSave.nameProtagonist + text.narrator.TD203, true, "S3T2");
-                ƒS.Sound.fade(sound.wind1, 0, 2)
+                ƒS.Sound.fade(sound.wind1, 0, 2);
                 ƒS.Speech.clear();
                 return S4B_SceneDogSit();
         };

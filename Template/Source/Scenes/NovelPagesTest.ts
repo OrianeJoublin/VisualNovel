@@ -20,10 +20,10 @@ namespace Template {
     
     
     
-        document.getElementsByName("scoreRyu").forEach(meterStuff => meterStuff.hidden = true);
-        document.getElementsByName("scoreForRyu").forEach(meterStuff => meterStuff.hidden = true);
-        gameMenu.close();
-        menu = false;
+        // document.getElementsByName("scoreRyu").forEach(meterStuff => meterStuff.hidden = true);
+        // document.getElementsByName("scoreForRyu").forEach(meterStuff => meterStuff.hidden = true);
+        // gameMenu.close();
+        // menu = false;
     
         ƒS.Speech.hide();
         await ƒS.Location.show(locations.AntFalls);

@@ -26,11 +26,7 @@ scene {
   /* width: 1200px;
   height: 720px; */
   display: inline-block;
-  position: absolute;
-  margin-left: auto;
-  margin-right: auto;
-  left: 0;
-  right: 0;
+  position: absolute !important;
 }
 
 canvas {
@@ -81,6 +77,18 @@ speech content {
   border-right: none;
   border-bottom: none;
 }
+
+#iSayHelp {
+position: fixed;
+  top: 60%;
+  left: 5%;
+}
+
+#iInsult {
+  position: fixed;
+    top: 60%;
+    left: 30%;
+  }
 
 .decisionClass button:hover{
   background-color: rgb(206, 216, 245);

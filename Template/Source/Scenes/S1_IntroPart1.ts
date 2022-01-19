@@ -11,7 +11,7 @@ namespace Template {
     };
 
     //Musik
-    ƒS.Sound.fade(sound.wakeUp, 0.4, 0, true)
+    ƒS.Sound.fade(sound.wakeUp, 0.4, 0, true);
 
     //Animation auch während Text möglich
     let animationDone: Promise<void> = ƒS.Character.animate(characters.ManySeeds, characters.ManySeeds.pose.neutral, SwayDown());
@@ -25,10 +25,16 @@ namespace Template {
     //ƒS.Inventory.add(items.pen);
     //await ƒS.Inventory.open();
 
+    //Novel Page
+
+    ƒS.Text.setClass("NovelPageKlassennameZumGestalten"); //addClass klasse hinzufügen vs. Set Class wo gestalterisches von alten Klass auch übernommen wird
+    ƒS.Text.print("Willkommen zu dieser Visual Novel xyz");
+
     // Text pace
-    ƒS.Speech.setTickerDelays(80, 500) //die 2 ist delay zwei sekunden warten, bevor bei paragraf weitergeht.
+    ƒS.Speech.setTickerDelays(80, 500); //die 2 ist delay zwei sekunden warten, bevor bei paragraf weitergeht.
 
     //Text
+    await ƒS.Speech.tell(null, null, true); //nur damit text erst nach erstem klick kommt wegen Novel Page
     await ƒS.Speech.tell(characters.narrator, text.narrator.T0000 + text.narrator.T0001 + text.narrator.T0002, true, "introduction");
 
     // Animation endet

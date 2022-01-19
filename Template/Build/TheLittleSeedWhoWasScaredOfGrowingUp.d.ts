@@ -4,6 +4,7 @@ declare namespace Template {
     let dataForSave: {
         nameProtagonist: string;
         points: number;
+        scoreSeed: number;
     };
 }
 declare namespace Template {
@@ -182,9 +183,11 @@ declare namespace Template {
         save: string;
         load: string;
         credits: string;
+        shortcuts: string;
     };
     let gameMenu: ƒS.Menu;
     function showCredits(): void;
+    function showShortcuts(): void;
     let menu: boolean;
     function buttonFunctionalities(_option: string): Promise<void>;
     function hndKeyPress(_event: KeyboardEvent): Promise<void>;

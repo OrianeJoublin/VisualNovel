@@ -15,7 +15,7 @@ namespace Template {
         };
 
         //Sound
-        ƒS.Sound.fade(sound.wind1, 0.2, 2, true)
+        ƒS.Sound.fade(sound.wind1, 0.2, 2, true);
 
         //Background with transition and characters appear:
         await ƒS.Location.show(locations.WindtoCity);

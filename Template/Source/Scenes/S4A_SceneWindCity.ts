@@ -19,7 +19,7 @@ namespace Template {
         //Text
         await ƒS.Speech.tell(characters.narrator, text.narrator.T0000, true, "S3T1");
         await ƒS.Speech.tell(characters.narrator, dataForSave.nameProtagonist + text.narrator.T0001, true, "S3T1");
-        await ƒS.Speech.tell(characters.narrator, dataForSave.nameProtagonist + " answered, slightly on edge:", true, "S3T1")
+        await ƒS.Speech.tell(characters.narrator, dataForSave.nameProtagonist + " answered, slightly on edge:", true, "S3T1");
 
         let decisionS4AElementOptions = {
             iBeNice: "Be nice",
