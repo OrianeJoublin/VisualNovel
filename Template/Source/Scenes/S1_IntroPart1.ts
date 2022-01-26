@@ -18,7 +18,7 @@ namespace Template {
 
     // Background, transitions and characters appear:
     await ƒS.Location.show(locations.TreeWithoutSeeds);
-    await ƒS.update(transitions.new.duration, transitions.new.alpha, transitions.new.edge); // es gibt die Möglichkeit, transition Attribute zu kombinieren (also von anderen Transitions)
+    await ƒS.update(transitions.Page.duration, transitions.Page.alpha, transitions.Page.edge); // es gibt die Möglichkeit, transition Attribute zu kombinieren (also von anderen Transitions)
     animationDone;
 
     //Inventar

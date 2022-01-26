@@ -22,6 +22,11 @@ namespace Template {
             alpha: "./Images/Splash.png",
             edge: 2 
         },
+        Page: {
+            duration: 5,
+            alpha: "./Transitions/Page1.png",
+            edge: 2 
+        }
     };
 
 

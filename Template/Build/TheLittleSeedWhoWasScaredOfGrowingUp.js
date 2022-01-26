@@ -330,11 +330,13 @@ var Template;
         Template.ƒS.Text.print("<p> CREDITS </p> <p> Story by Oriane Joublin <br> Backgrounds and Characters by Oriane Joublin <br> Art by Oriane Joublin <br> Programming by Oriane Joublin </p> <p> MUSIC </p> <p> Adventure by Alexander Nakarada <br> Forest Walk by Alexander Nakarada <br> Wake Up by Scandinavianz </p> <p> SOUNDS </p> Sound effects from soundjay.com <br> Additional sound effects from zapsplat.com </p> <p> Made with FUDGEStory </p> <p> WITH SPECIAL THANKS <br> to Carina Spangenberger, Riem Yasin, Jirka Dell'Oro and <br> Frank Joublin for their support in programming questions and <br> to Iris Schnabel and Emily Pacey for improving the rhymes.</p>");
     }
     Template.showCredits = showCredits;
+    ;
     function showShortcuts() {
         Template.ƒS.Text.setClass("shortcuts");
-        Template.ƒS.Text.print("SHORTCUTS HERE");
+        Template.ƒS.Text.print("SHORTCUTS Explanation HERE");
     }
     Template.showShortcuts = showShortcuts;
+    ;
     // true = offen; false = geschlossen
     Template.menu = true;
     async function buttonFunctionalities(_option) {
@@ -441,6 +443,11 @@ var Template;
             alpha: "./Images/Splash.png",
             edge: 2
         },
+        Page: {
+            duration: 5,
+            alpha: "./Transitions/Page1.png",
+            edge: 2
+        }
     };
 })(Template || (Template = {}));
 var Template;
@@ -740,7 +747,7 @@ var Template;
         let animationDone = Template.ƒS.Character.animate(Template.characters.ManySeeds, Template.characters.ManySeeds.pose.neutral, Template.SwayDown());
         // Background, transitions and characters appear:
         await Template.ƒS.Location.show(Template.locations.TreeWithoutSeeds);
-        await Template.ƒS.update(Template.transitions.new.duration, Template.transitions.new.alpha, Template.transitions.new.edge); // es gibt die Möglichkeit, transition Attribute zu kombinieren (also von anderen Transitions)
+        await Template.ƒS.update(Template.transitions.Page.duration, Template.transitions.Page.alpha, Template.transitions.Page.edge); // es gibt die Möglichkeit, transition Attribute zu kombinieren (also von anderen Transitions)
         animationDone;
         //Inventar
         //ƒS.Inventory.add(items.pen);

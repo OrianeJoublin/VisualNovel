@@ -236,6 +236,11 @@ declare namespace Template {
             alpha: string;
             edge: number;
         };
+        Page: {
+            duration: number;
+            alpha: string;
+            edge: number;
+        };
     };
 }
 declare namespace Template {

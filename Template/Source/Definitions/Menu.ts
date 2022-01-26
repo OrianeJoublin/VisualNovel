@@ -15,12 +15,12 @@ namespace Template {
     export function showCredits(): void {
         ƒS.Text.setClass("credits");
         ƒS.Text.print("<p> CREDITS </p> <p> Story by Oriane Joublin <br> Backgrounds and Characters by Oriane Joublin <br> Art by Oriane Joublin <br> Programming by Oriane Joublin </p> <p> MUSIC </p> <p> Adventure by Alexander Nakarada <br> Forest Walk by Alexander Nakarada <br> Wake Up by Scandinavianz </p> <p> SOUNDS </p> Sound effects from soundjay.com <br> Additional sound effects from zapsplat.com </p> <p> Made with FUDGEStory </p> <p> WITH SPECIAL THANKS <br> to Carina Spangenberger, Riem Yasin, Jirka Dell'Oro and <br> Frank Joublin for their support in programming questions and <br> to Iris Schnabel and Emily Pacey for improving the rhymes.</p>");
-    }
+    };
 
     export function showShortcuts(): void {
         ƒS.Text.setClass("shortcuts");
-        ƒS.Text.print("SHORTCUTS HERE");
-    }
+        ƒS.Text.print("SHORTCUTS Explanation HERE");
+    };
 
     // true = offen; false = geschlossen
     export let menu: boolean = true;

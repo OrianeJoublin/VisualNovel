@@ -60,11 +60,13 @@ speech content {
 
 
 .decisionClass{
-  padding: 0px;
+  padding: 200px;
+  background-color: rgb(255, 255, 255);
   border-style: solid;
   border-radius: 5px;
   border-width: 5px;
   border-color: black;
+  /*background-image: none;*/
 }
 
 .decisionClass button{
@@ -72,13 +74,17 @@ speech content {
   font-family: 'Gill Sans MT', sans-serif;;
   height: 60px;
   width: 200px;
-  background-color: rgb(233, 233, 233);
-  border-top: none;
+  background-color: rgb(255, 255, 255);
+  border-radius: 5px;
+  border-width: 2px; 
+  margin: 10px;
+  border-color: rgba(27, 19, 53, 0.849);
+  /*border-top: none;
   border-right: none;
-  border-bottom: none;
+  border-bottom: none; */
 }
 
-#iSayHelp {
+/* #iSayHelp {
 position: fixed;
   top: 60%;
   left: 5%;
@@ -88,7 +94,7 @@ position: fixed;
   position: fixed;
     top: 60%;
     left: 30%;
-  }
+  } */
 
 .decisionClass button:hover{
   background-color: rgb(206, 216, 245);
