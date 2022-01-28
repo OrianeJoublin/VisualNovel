@@ -135,7 +135,17 @@ color:#DAB0B1;
   color: rgb(230, 241, 255);
   font-size: 20px;
   background-image: none;
+}
 
+.startScreen {
+  text-align: center;
+  font-family: 'EB Garamond', Georgia, 'Times New Roman', Times, serif;
+  border: solid rgb(0, 0, 0);
+  border-radius: 10px;
+  background-color: rgb(0, 0, 0, 0.8);
+  color: rgb(230, 241, 255);
+  font-size: 20px;
+  background-image: none;
 }
 
 .shortcuts {
@@ -147,7 +157,6 @@ color:#DAB0B1;
   color: rgb(230, 241, 255);
   font-size: 20px;
   background-image: none;
-
 }
 
 dialog.flip {

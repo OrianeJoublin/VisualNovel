@@ -176,6 +176,10 @@ declare namespace Template {
             name: string;
             background: string;
         };
+        Black: {
+            name: string;
+            background: string;
+        };
     };
 }
 declare namespace Template {
@@ -248,6 +252,9 @@ declare namespace Template {
 }
 declare namespace Template {
     function NovelPages(): ƒS.SceneReturn;
+}
+declare namespace Template {
+    function StartPage(): ƒS.SceneReturn;
 }
 declare namespace Template {
     function S10A_GoodEnding(): ƒS.SceneReturn;

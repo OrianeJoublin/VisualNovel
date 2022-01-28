@@ -79,6 +79,10 @@ namespace Template {
             name: "13B Bad Ending",
             background: "./Backgrounds/13BBadEnding.png"
         },
+        Black: {
+            name: "Black",
+            background: "./Backgrounds/starry.png"
+        },
     }
 
 
