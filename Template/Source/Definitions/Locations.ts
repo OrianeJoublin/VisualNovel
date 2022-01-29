@@ -81,7 +81,7 @@ namespace Template {
         },
         Black: {
             name: "Black",
-            background: "./Backgrounds/starry.png"
+            background: "./Backgrounds/black.png"
         },
     }
 

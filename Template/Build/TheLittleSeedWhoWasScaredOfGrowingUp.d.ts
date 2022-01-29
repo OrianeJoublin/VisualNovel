@@ -183,11 +183,16 @@ declare namespace Template {
     };
 }
 declare namespace Template {
+    let volume: number;
+    function incrementSound(): void;
+    function decrementSound(): void;
     let inGameMenu: {
         save: string;
         load: string;
         credits: string;
         shortcuts: string;
+        turnUpVolume: string;
+        turnDownVolume: string;
     };
     let gameMenu: ƒS.Menu;
     function showCredits(): void;
@@ -261,6 +266,9 @@ declare namespace Template {
 }
 declare namespace Template {
     function S10B_BadEnding2(): ƒS.SceneReturn;
+}
+declare namespace Template {
+    function StartAgainScreen(): ƒS.SceneReturn;
 }
 declare namespace Template {
     function S1_IntroPart1(): ƒS.SceneReturn;

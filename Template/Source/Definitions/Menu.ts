@@ -1,12 +1,32 @@
 namespace Template {
 
+      //  MENU - Audio functions
+
+  export let volume: number = 1.0;
+
+  export function incrementSound(): void {
+    if (volume >= 100)
+      return;
+    volume += 0.2;
+    ƒS.Sound.setMasterVolume(volume);
+  }
+
+  export function decrementSound(): void {
+    if (volume <= 0)
+      return;
+    volume -= 0.2;
+    ƒS.Sound.setMasterVolume(volume);
+  }
+
     export let inGameMenu = {
         save: "Save",
         load: "Load",
         //close: "Close"
         credits: "Credits",
         // open: "Open"
-        shortcuts: "Shortcuts"
+        shortcuts: "Shortcuts",
+        turnUpVolume: "+",
+        turnDownVolume: "-"
     };
 
 
@@ -39,6 +59,12 @@ namespace Template {
                 break;
             case inGameMenu.shortcuts:
                 showShortcuts();
+                break;
+            case inGameMenu.turnUpVolume:
+                incrementSound();
+                break;
+            case inGameMenu.turnDownVolume:
+                decrementSound();
                 break;
             //case inGameMenu.close:
             //gameMenu.close();

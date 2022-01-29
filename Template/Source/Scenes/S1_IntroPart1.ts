@@ -11,7 +11,7 @@ namespace Template {
     };
 
     //Musik
-    ƒS.Sound.fade(sound.wakeUp, 0.4, 0, true);
+    ƒS.Sound.fade(sound.wakeUp, 0.4, 0.5, true);
 
     //Animation auch während Text möglich
     let animationDone: Promise<void> = ƒS.Character.animate(characters.ManySeeds, characters.ManySeeds.pose.neutral, SwayDown());

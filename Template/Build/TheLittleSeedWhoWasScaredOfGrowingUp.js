@@ -18,7 +18,7 @@ var Template;
             // { scene: S3_SceneWind1, name: "S3_SceneWind1" },
             // { scene: S7A_SceneDogCityRain, name: "S7A_SceneDogCityRain" },
             //{ scene: NovelPages, name: "NovelPages" },
-            //{ scene: StartPage, name: "Start Page" },
+            { scene: Template.StartAgainScreen, name: "StartAgainScreen" },
             { scene: Template.S1_IntroPart1, name: "S1_IntroPart1" },
             { scene: Template.S2_IntroPart2, name: "S2_IntroPart2" },
             { scene: Template.S3_SceneWind1, name: "S3_SceneWind1" },
@@ -316,19 +316,37 @@ var Template;
         },
         Black: {
             name: "Black",
-            background: "./Backgrounds/starry.png"
+            background: "./Backgrounds/black.png"
         },
     };
 })(Template || (Template = {}));
 var Template;
 (function (Template) {
+    //  MENU - Audio functions
+    Template.volume = 1.0;
+    function incrementSound() {
+        if (Template.volume >= 100)
+            return;
+        Template.volume += 0.2;
+        Template.ƒS.Sound.setMasterVolume(Template.volume);
+    }
+    Template.incrementSound = incrementSound;
+    function decrementSound() {
+        if (Template.volume <= 0)
+            return;
+        Template.volume -= 0.2;
+        Template.ƒS.Sound.setMasterVolume(Template.volume);
+    }
+    Template.decrementSound = decrementSound;
     Template.inGameMenu = {
         save: "Save",
         load: "Load",
         //close: "Close"
         credits: "Credits",
         // open: "Open"
-        shortcuts: "Shortcuts"
+        shortcuts: "Shortcuts",
+        turnUpVolume: "+",
+        turnDownVolume: "-"
     };
     function showCredits() {
         Template.ƒS.Text.setClass("credits");
@@ -358,6 +376,12 @@ var Template;
                 break;
             case Template.inGameMenu.shortcuts:
                 showShortcuts();
+                break;
+            case Template.inGameMenu.turnUpVolume:
+                incrementSound();
+                break;
+            case Template.inGameMenu.turnDownVolume:
+                decrementSound();
                 break;
             //case inGameMenu.close:
             //gameMenu.close();
@@ -750,6 +774,39 @@ var Template;
 })(Template || (Template = {}));
 var Template;
 (function (Template) {
+    async function StartAgainScreen() {
+        console.log("StartAgainScreen starting");
+        let text = {
+            narrator: {
+                T0000: "<p> Oh no! Would you like to start over again? </p>",
+            }
+        };
+        //Background with transition and characters appear:
+        await Template.ƒS.Location.show(Template.locations.Black);
+        //await ƒS.update(transitions.new.duration, transitions.new.alpha, transitions.new.edge);
+        //Text
+        await Template.ƒS.Speech.tell(Template.characters.narrator, text.narrator.T0000, true, "S11");
+        let decisionS11ElementOptions = {
+            iSayYes: "Start over",
+            iSayNo: "Quit"
+        };
+        let decisionS11Element = await Template.ƒS.Menu.getInput(decisionS11ElementOptions, "finalDecision");
+        switch (decisionS11Element) {
+            case decisionS11ElementOptions.iSayYes:
+                Template.ƒS.Speech.clear();
+                return Template.S1_IntroPart1();
+            case decisionS11ElementOptions.iSayNo:
+                Template.ƒS.Speech.clear();
+            //return S4B_SceneDogSit();
+        }
+        ;
+        //ƒS.Speech.clear();
+        //Return Start or Credits? + Novel Page: Do you want to start over?
+    }
+    Template.StartAgainScreen = StartAgainScreen;
+})(Template || (Template = {}));
+var Template;
+(function (Template) {
     async function S1_IntroPart1() {
         console.log("S1_IntroPart1 starting");
         let text = {
@@ -760,7 +817,7 @@ var Template;
             }
         };
         //Musik
-        Template.ƒS.Sound.fade(Template.sound.wakeUp, 0.4, 0, true);
+        Template.ƒS.Sound.fade(Template.sound.wakeUp, 0.4, 0.5, true);
         //Animation auch während Text möglich
         let animationDone = Template.ƒS.Character.animate(Template.characters.ManySeeds, Template.characters.ManySeeds.pose.neutral, Template.SwayDown());
         // Background, transitions and characters appear:
