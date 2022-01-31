@@ -21,7 +21,7 @@ namespace Template {
       // { scene: S3_SceneWind1, name: "S3_SceneWind1" },
       // { scene: S7A_SceneDogCityRain, name: "S7A_SceneDogCityRain" },
       //{ scene: NovelPages, name: "NovelPages" },
-      { scene: StartAgainScreen, name: "StartAgainScreen" },
+      //{ scene: StartAgainScreen, name: "StartAgainScreen" },
       { scene: S1_IntroPart1, name: "S1_IntroPart1" },
       { scene: S2_IntroPart2, name: "S2_IntroPart2" },
       { scene: S3_SceneWind1, name: "S3_SceneWind1" }, 

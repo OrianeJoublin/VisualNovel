@@ -18,7 +18,7 @@ var Template;
             // { scene: S3_SceneWind1, name: "S3_SceneWind1" },
             // { scene: S7A_SceneDogCityRain, name: "S7A_SceneDogCityRain" },
             //{ scene: NovelPages, name: "NovelPages" },
-            { scene: Template.StartAgainScreen, name: "StartAgainScreen" },
+            //{ scene: StartAgainScreen, name: "StartAgainScreen" },
             { scene: Template.S1_IntroPart1, name: "S1_IntroPart1" },
             { scene: Template.S2_IntroPart2, name: "S2_IntroPart2" },
             { scene: Template.S3_SceneWind1, name: "S3_SceneWind1" },
