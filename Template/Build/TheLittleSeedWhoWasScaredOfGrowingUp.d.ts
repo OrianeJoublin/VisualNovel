@@ -238,8 +238,9 @@ declare namespace Template {
         s2: string;
         s3_1: string;
         s3_2: string;
-        s3_3_witchChoices: string;
+        s3_3_withChoices: string;
         s3_4_iInsult: string;
+        s3_4_iInsult2: string;
         s3_4_iSayHelp: string;
         s4A_1: string;
         s4A_2: string;

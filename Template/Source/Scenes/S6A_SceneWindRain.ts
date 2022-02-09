@@ -28,8 +28,8 @@ namespace Template {
         await ƒS.Sound.play(sound.s6A, 1.5, false);
         await ƒS.Speech.tell(characters.narrator, text.narrator.T0000 + text.narrator.T0001, true, "S6AT1");
 
-        ƒS.Speech.clear();
         ƒS.Sound.fade(sound.s6A, 0, 0);
+        ƒS.Speech.clear();
         return S7A_SceneDogCityRain();
     }
 }

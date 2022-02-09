@@ -464,8 +464,9 @@ var Template;
         s2: "./VoiceOver/S2.wav",
         s3_1: "./VoiceOver/S3.1.wav",
         s3_2: "./VoiceOver/S3.2.wav",
-        s3_3_witchChoices: "./VoiceOver/S3.3_withChoices.wav",
+        s3_3_withChoices: "./VoiceOver/S3.3_withChoices.wav",
         s3_4_iInsult: "./VoiceOver/S3.4_iInsult.wav",
+        s3_4_iInsult2: "./VoiceOver/S3.4_iInsult2.wav",
         s3_4_iSayHelp: "./VoiceOver/S3.4_iSayHelp.wav",
         s4A_1: "./VoiceOver/S4A.1.wav",
         s4A_2: "./VoiceOver/S4A.2.wav",
@@ -1021,7 +1022,7 @@ var Template;
         console.log(Template.dataForSave.nameProtagonist);
         //let promiseName: Promise<string> = ƒS.Speech.getInput();
         Template.ƒS.Sound.fade(Template.sound.s3_2, 0, 0);
-        await Template.ƒS.Sound.play(Template.sound.s3_3_witchChoices, 1.5, false);
+        await Template.ƒS.Sound.play(Template.sound.s3_3_withChoices, 1.5, false);
         await Template.ƒS.Speech.tell(Template.characters.narrator, text.narrator.T0003 + Template.dataForSave.nameProtagonist + text.narrator.T0004, true, "S3T2");
         //dataForSave.nameProtagonist = await promiseName;
         //console.log(dataForSave.nameProtagonist);
@@ -1032,19 +1033,21 @@ var Template;
         let decisionS3Element = await Template.ƒS.Menu.getInput(decisionS3ElementOptions, "decisionClass");
         switch (decisionS3Element) {
             case decisionS3ElementOptions.iSayHelp:
-                Template.ƒS.Sound.fade(Template.sound.s3_3_witchChoices, 0, 0);
+                Template.ƒS.Sound.fade(Template.sound.s3_3_withChoices, 0, 0);
                 await Template.ƒS.Sound.play(Template.sound.s3_4_iSayHelp, 1.5, false);
                 await Template.ƒS.Speech.tell(Template.characters.narrator, text.narrator.TD101 + text.narrator.TD102, true, "S3T2");
                 Template.ƒS.Sound.fade(Template.sound.s3_4_iSayHelp, 0, 0);
                 Template.ƒS.Speech.clear();
                 return Template.S4A_SceneWindCity();
             case decisionS3ElementOptions.iInsult:
-                Template.ƒS.Sound.fade(Template.sound.s3_3_witchChoices, 0, 0);
+                Template.ƒS.Sound.fade(Template.sound.s3_3_withChoices, 0, 0);
                 await Template.ƒS.Sound.play(Template.sound.s3_4_iInsult, 1.5, false);
                 await Template.ƒS.Speech.tell(Template.characters.narrator, text.narrator.TD201 + text.narrator.TD202, true, "S3T2");
+                Template.ƒS.Sound.fade(Template.sound.s3_4_iInsult, 0, 0);
+                await Template.ƒS.Sound.play(Template.sound.s3_4_iInsult2, 1.5, false);
                 await Template.ƒS.Speech.tell(Template.characters.narrator, "A new gust of wind grabbed " + Template.dataForSave.nameProtagonist + text.narrator.TD203, true, "S3T2");
                 Template.ƒS.Sound.fade(Template.sound.wind1, 0, 2);
-                Template.ƒS.Sound.fade(Template.sound.s3_4_iInsult, 0, 0);
+                Template.ƒS.Sound.fade(Template.sound.s3_4_iInsult2, 0, 0);
                 Template.ƒS.Speech.clear();
                 return Template.S4B_SceneDogSit();
         }
@@ -1260,8 +1263,8 @@ var Template;
         //Text
         await Template.ƒS.Sound.play(Template.sound.s6A, 1.5, false);
         await Template.ƒS.Speech.tell(Template.characters.narrator, text.narrator.T0000 + text.narrator.T0001, true, "S6AT1");
-        Template.ƒS.Speech.clear();
         Template.ƒS.Sound.fade(Template.sound.s6A, 0, 0);
+        Template.ƒS.Speech.clear();
         return Template.S7A_SceneDogCityRain();
     }
     Template.S6A_SceneWindRain = S6A_SceneWindRain;
@@ -1312,6 +1315,7 @@ var Template;
         await Template.ƒS.Sound.play(Template.sound.s7A_5, 1.5, false);
         await Template.ƒS.Speech.tell(Template.characters.narrator, text.narrator.T0005 + text.narrator.T0006, true, "S7AT1");
         //Fade Out Sound + City quieter
+        Template.ƒS.Sound.fade(Template.sound.s7A_5, 0, 0);
         Template.ƒS.Sound.fade(Template.sound.wind1, 0, 3);
         Template.ƒS.Sound.fade(Template.sound.thunderStorm2, 0, 3);
         Template.ƒS.Sound.fade(Template.sound.rain3, 0, 3);

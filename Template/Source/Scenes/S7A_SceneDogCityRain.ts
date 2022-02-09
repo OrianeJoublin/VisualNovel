@@ -53,6 +53,7 @@ namespace Template {
         await ƒS.Speech.tell(characters.narrator, text.narrator.T0005 + text.narrator.T0006, true, "S7AT1");
 
         //Fade Out Sound + City quieter
+        ƒS.Sound.fade(sound.s7A_5, 0, 0);
         ƒS.Sound.fade(sound.wind1, 0, 3);
         ƒS.Sound.fade(sound.thunderStorm2, 0, 3);
         ƒS.Sound.fade(sound.rain3, 0, 3);
