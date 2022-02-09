@@ -23,8 +23,12 @@ namespace Template {
        // await ƒS.update(transitions.new.duration, transitions.new.alpha, transitions.new.edge);
 
         //Text
+        await ƒS.Sound.play(sound.s9A_1, 1.5, false);
         await ƒS.Speech.tell(characters.narrator, text.narrator.T0000 + text.narrator.T0001, true, "S9AT1");
+        ƒS.Sound.fade(sound.s9A_1, 0, 0);
+        await ƒS.Sound.play(sound.s9A_2, 1.5, false);
         await ƒS.Speech.tell(characters.narrator, text.narrator.T0002, true, "S9AT1");
+        ƒS.Sound.fade(sound.s9A_2, 0, 0);
         ƒS.Speech.clear();
 
         //New Background:  
@@ -34,7 +38,9 @@ namespace Template {
         // ƒS.update(transitions.new.duration, transitions.new.alpha, transitions.new.edge);
 
         //Text
+        await ƒS.Sound.play(sound.s9A_3, 1.5, false);
         await ƒS.Speech.tell(characters.narrator, text.narrator.T0003, true, "S9AT2");
+        ƒS.Sound.fade(sound.s9A_3, 0, 0);
         ƒS.Speech.clear();
 
         //New Background - Mable appears
@@ -50,7 +56,10 @@ namespace Template {
         ƒS.Sound.fade(sound.crow, 0, 6, true);
         
         //Text
+        await ƒS.Sound.play(sound.s9A_4, 1.5, false);
         await ƒS.Speech.tell(characters.narrator, text.narrator.T0004 + text.narrator.T0005, true, "S9AT3");
+        ƒS.Sound.fade(sound.s9A_4, 0, 0);
+        await ƒS.Sound.play(sound.s9A_5_withChoices, 1.5, false);
         await ƒS.Speech.tell(characters.narrator, text.narrator.T0006 + text.narrator.T0007, true, "S9AT3");
         
 
@@ -63,9 +72,11 @@ namespace Template {
 
         switch (decisionS9AElement) {
             case decisionS9AElementOptions.iJump:
+                ƒS.Sound.fade(sound.s9A_5_withChoices, 0, 0);
                 ƒS.Speech.clear();
                 return S10A_GoodEnding();
             case decisionS9AElementOptions.iDontJump:
+                ƒS.Sound.fade(sound.s9A_5_withChoices, 0, 0);
                 ƒS.Speech.clear();
                 return S10B_BadEnding2();
         };

@@ -36,7 +36,7 @@ namespace Template {
     //Text
     await ƒS.Speech.tell(null, null, true); //nur damit text erst nach erstem klick kommt wegen Novel Page 
     //VoiceOver
-    await ƒS.Sound.play(sound.s1, 1.5, false); 
+    await ƒS.Sound.play(sound.s1, 1.2, false); 
     await ƒS.Speech.tell(characters.narrator, text.narrator.T0000 + text.narrator.T0001 + text.narrator.T0002, true, "introduction");
 
 

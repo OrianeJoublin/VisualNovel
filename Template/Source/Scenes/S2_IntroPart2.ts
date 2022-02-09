@@ -20,7 +20,10 @@ namespace Template {
         //await ƒS.update(transitions.black.duration, transitions.black.alpha, transitions.black.edge); 
 
         //Text
+        await ƒS.Sound.play(sound.s2, 1.2, false); 
         await ƒS.Speech.tell(characters.narrator, text.narrator.T0000 + text.narrator.T0001 + text.narrator.T0002, true, "introduction");
+       
         ƒS.Speech.clear();
+        ƒS.Sound.fade(sound.s2, 0, 0);
     }
 }

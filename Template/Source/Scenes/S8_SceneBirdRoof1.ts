@@ -23,8 +23,13 @@ namespace Template {
         ƒS.Sound.fade(sound.wakeUp, 0.4, 2, true);
 
         //Text
+        await ƒS.Sound.play(sound.s8_1, 1.5, false);
         await ƒS.Speech.tell(characters.narrator, text.narrator.T0000 + text.narrator.T0001, true, "S8T1");
+        ƒS.Sound.fade(sound.s8_1, 0, 0);
+        await ƒS.Sound.play(sound.s8_2, 1.5, false);
         await ƒS.Speech.tell(characters.narrator, text.narrator.T0002 + text.narrator.T0003, true, "S8T1");
+        ƒS.Sound.fade(sound.s8_2, 0, 0);
+        await ƒS.Sound.play(sound.s8_3_withChoices, 1.5, false);
         await ƒS.Speech.tell(characters.narrator, text.narrator.T0004, true, "S8T1");
 
         let decisionS8ElementOptions = {
@@ -37,8 +42,10 @@ namespace Template {
         switch (decisionS8Element) {
             case decisionS8ElementOptions.iTrust:
                 ƒS.Speech.clear();
+                ƒS.Sound.fade(sound.s8_3_withChoices, 0, 0);
                 return S9A_SceneBirdRoof2();
             case decisionS8ElementOptions.iDontTrust:
+                ƒS.Sound.fade(sound.s8_3_withChoices, 0, 0);
                 ƒS.Speech.clear();
                 return S9B_BadEnding1();
         };

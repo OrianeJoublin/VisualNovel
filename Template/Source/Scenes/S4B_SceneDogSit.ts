@@ -22,8 +22,13 @@ namespace Template {
         //await ƒS.update(transitions.new.duration, transitions.new.alpha, transitions.new.edge); 
 
         //Text
+        await ƒS.Sound.play(sound.s4B_1, 1.5, false); 
         await ƒS.Speech.tell(characters.narrator, text.narrator.T0000 + text.narrator.T0001, true, "S4BT1");
+        ƒS.Sound.fade(sound.s4B_1, 0, 0);
+        await ƒS.Sound.play(sound.s4B_2, 1.5, false); 
         await ƒS.Speech.tell(characters.narrator, text.narrator.T0002 + text.narrator.T0003, true, "S4BT1");
+        ƒS.Sound.fade(sound.s4B_2, 0, 0);
+        await ƒS.Sound.play(sound.s4B_3_withChoices, 1.5, false); 
         await ƒS.Speech.tell(characters.narrator, text.narrator.T0004 + "<p>" + dataForSave.nameProtagonist + " said: </p>", true, "S4BT1");
 
         let decisionS4BElementOptions = {
@@ -35,10 +40,13 @@ namespace Template {
 
         switch (decisionS4BElement) {
             case decisionS4BElementOptions.iSayNo:
+                ƒS.Sound.fade(sound.s4B_3_withChoices, 0, 0);
+                await ƒS.Sound.play(sound.s4B_4_iSayNo, 1.5, false); 
                 await ƒS.Speech.tell(characters.narrator, text.narrator.TD101 + text.narrator.TD102, true, "S4BT1");
                 ƒS.Speech.clear();
                 return S5B_SceneWindCity();
             case decisionS4BElementOptions.iSayYes:
+                ƒS.Sound.fade(sound.s4B_3_withChoices, 0, 0);
                 ƒS.Speech.clear();
                 return S5C_SceneDogRun();
         };

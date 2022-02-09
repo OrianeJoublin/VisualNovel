@@ -10,7 +10,7 @@ namespace Template {
                 T0002: "<p> “I will drop you both to the ground <br> Destiny always comes round. <br> But first I’ll make a confession <br> For you gave me a lesson. </p>",
                 T0003: "<p> You taught me that a detour <br> Can make you more mature! <br> So farewell my friend <br> I swear this is not the end!” </p>",
                 T0004: "<p> Many seasons came around <br> And out of the ground <br> Just at the spot <br> Where the seed had dropped <br> Had grown a mighty tree. </p>",
-                T0005: "<p> By its side was Mable chasing a flea. <br> The wind tickled its leaves <br> While Ralph told the seeds. <br> Don’t be scared of falling. <br> It’s just the beginning. </p>",
+                T0005: "<p> By its side was Mable chasing a flea. <br> The wind tickled its leaves <br> While Ralph told the seeds. <br> “Don’t be scared of falling. <br> It’s just the beginning.” </p>",
                 TGood: "Good Ending"
             }
         };
@@ -24,9 +24,15 @@ namespace Template {
         ƒS.Sound.fade(sound.wakeUp, 0.4, 2, true);
 
         //Text
+        await ƒS.Sound.play(sound.s10A_1, 1.5, false);
         await ƒS.Speech.tell(characters.narrator, text.narrator.T0000, true, "S10AT1");
+        ƒS.Sound.fade(sound.s10A_1, 0, 0);
+        await ƒS.Sound.play(sound.s10A_2, 1.5, false);
         await ƒS.Speech.tell(characters.narrator, text.narrator.T0001, true, "S10AT1");
+        ƒS.Sound.fade(sound.s10A_2, 0, 0);
+        await ƒS.Sound.play(sound.s10A_3, 1.5, false);
         await ƒS.Speech.tell(characters.narrator, text.narrator.T0002 + text.narrator.T0003, true, "S10AT1");
+        ƒS.Sound.fade(sound.s10A_3, 0, 0);
         ƒS.Sound.fade(sound.wind1, 0, 2, true);
         ƒS.Speech.clear();
 
@@ -40,9 +46,13 @@ namespace Template {
         ƒS.Sound.fade(sound.springWeather, 0.2, 2, true);
 
         //Text
+        await ƒS.Sound.play(sound.s10A_4, 1.5, false);
         await ƒS.Speech.tell(characters.narrator, text.narrator.T0004, true, "S10AT2");
+        ƒS.Sound.fade(sound.s10A_4, 0, 0);
+        await ƒS.Sound.play(sound.s10A_5, 1.5, false);
         await ƒS.Speech.tell(characters.narrator, text.narrator.T0005, true, "S10AT2");
 
+        ƒS.Sound.fade(sound.s10A_4, 0, 0);
         ƒS.Speech.clear();
         ƒS.Sound.fade(sound.wind1, 0, 4, true);
         ƒS.Sound.fade(sound.wakeUp, 0, 4, true);
@@ -55,8 +65,12 @@ namespace Template {
         ƒS.update(1);
         ƒS.Sound.play(sound.pageFlip, 0.4, false); 
         //await ƒS.update(transitions.new.duration, transitions.new.alpha, transitions.new.edge);
+        
+        await ƒS.Sound.play(sound.goodEnding, 1.5, false);
         await ƒS.Speech.tell(characters.narrator, text.narrator.TGood, true, "Ending");
-        return S1_IntroPart1(); //for now, better would be to return to the start screen
+        ƒS.Sound.fade(sound.goodEnding, 0, 0);
+        return EndOfNovel();
+        //return S1_IntroPart1(); //for now, better would be to return to the start screen
         
     }
 }

@@ -21,12 +21,16 @@ namespace Template {
         await ƒS.Character.animate(characters.Dog, characters.Dog.pose.walk, dogEnter());
 
         //Text
+        await ƒS.Sound.play(sound.s5C_1, 1.5, false);
         await ƒS.Speech.tell(characters.narrator, text.narrator.T0000 + text.narrator.T0001, true, "S5CT1");
+        ƒS.Sound.fade(sound.s5C_1, 0, 0);
+        await ƒS.Sound.play(sound.s5C_2, 1.5, false);
         await ƒS.Speech.tell(characters.narrator, text.narrator.T0002 + text.narrator.T0003, true, "S5CT1");
 
         await ƒS.Character.animate(characters.Dog, characters.Dog.pose.walk, dogExit());
 
         ƒS.Speech.clear();
+        ƒS.Sound.fade(sound.s5C_2, 0, 0);
         return S7C_SceneDogCity();
     }
 }

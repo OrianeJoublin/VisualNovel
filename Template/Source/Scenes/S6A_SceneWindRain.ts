@@ -5,8 +5,8 @@ namespace Template {
 
         ƒS.Sound.fade(sound.wakeUp, 0.1, 3, true);
         ƒS.Sound.fade(sound.wind1, 0.2, 0, true);
-        ƒS.Sound.fade(sound.thunderStorm2, 1, 2, true);
-        ƒS.Sound.fade(sound.rain3, 1, 2, true);
+        ƒS.Sound.fade(sound.thunderStorm2, 0.2, 2, true);
+        ƒS.Sound.fade(sound.rain3, 0.2, 2, true);
         
 
         let text = { // Charaktere Texte
@@ -25,9 +25,11 @@ namespace Template {
         ƒS.Character.animate(characters.Rain, characters.Rain.pose.neutral, Rain());
 
         //Text
+        await ƒS.Sound.play(sound.s6A, 1.5, false);
         await ƒS.Speech.tell(characters.narrator, text.narrator.T0000 + text.narrator.T0001, true, "S6AT1");
 
         ƒS.Speech.clear();
+        ƒS.Sound.fade(sound.s6A, 0, 0);
         return S7A_SceneDogCityRain();
     }
 }

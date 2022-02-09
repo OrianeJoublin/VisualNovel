@@ -19,7 +19,7 @@ namespace Template {
         };
 
         //Sound
-        ƒS.Sound.fade(sound.wind1, 0.2, 2, true);
+        ƒS.Sound.fade(sound.wind1, 0.1, 2, true);
         ƒS.Sound.play(sound.pageFlip, 0.4, false);
 
         // Background and characters appear:
@@ -32,16 +32,21 @@ namespace Template {
         //await ƒS.Inventory.open();
 
         //Narrator Speech
+        await ƒS.Sound.play(sound.s3_1, 1.5, false); 
         await ƒS.Speech.tell(characters.narrator, text.narrator.T0000 + text.narrator.T0001, true, "S3T1");
+        ƒS.Sound.fade(sound.s3_1, 0, 0);
+        await ƒS.Sound.play(sound.s3_2, 1.5, false); 
         await ƒS.Speech.tell(characters.narrator, text.narrator.T0002 + "Choose a name: ", false, "S3T2");
-
+    
         //Input Feld (Müsste aber eigentlich innerhalb des Texts erscheinen)
         dataForSave.nameProtagonist = await ƒS.Speech.getInput();
         console.log(dataForSave.nameProtagonist);
         //let promiseName: Promise<string> = ƒS.Speech.getInput();
 
+        ƒS.Sound.fade(sound.s3_2, 0, 0);
+        await ƒS.Sound.play(sound.s3_3_witchChoices, 1.5, false); 
         await ƒS.Speech.tell(characters.narrator, text.narrator.T0003 + dataForSave.nameProtagonist + text.narrator.T0004, true, "S3T2");
-
+        
         //dataForSave.nameProtagonist = await promiseName;
         //console.log(dataForSave.nameProtagonist);
 
@@ -54,13 +59,19 @@ namespace Template {
 
         switch (decisionS3Element) {
             case decisionS3ElementOptions.iSayHelp:
+                ƒS.Sound.fade(sound.s3_3_witchChoices, 0, 0);
+                await ƒS.Sound.play(sound.s3_4_iSayHelp, 1.5, false); 
                 await ƒS.Speech.tell(characters.narrator, text.narrator.TD101 + text.narrator.TD102, true, "S3T2");
+                ƒS.Sound.fade(sound.s3_4_iSayHelp, 0, 0);
                 ƒS.Speech.clear();
                 return S4A_SceneWindCity();
             case decisionS3ElementOptions.iInsult:
-                await ƒS.Speech.tell(characters.narrator, text.narrator.TD201 + text.narrator.TD202, true, "S3T2");
+                ƒS.Sound.fade(sound.s3_3_witchChoices, 0, 0);
+                await ƒS.Sound.play(sound.s3_4_iInsult, 1.5, false);
+                await ƒS.Speech.tell(characters.narrator, text.narrator.TD201 + text.narrator.TD202, true, "S3T2"); 
                 await ƒS.Speech.tell(characters.narrator, "A new gust of wind grabbed " + dataForSave.nameProtagonist + text.narrator.TD203, true, "S3T2");
                 ƒS.Sound.fade(sound.wind1, 0, 2);
+                ƒS.Sound.fade(sound.s3_4_iInsult, 0, 0);
                 ƒS.Speech.clear();
                 return S4B_SceneDogSit();
         };

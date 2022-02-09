@@ -28,7 +28,7 @@ namespace Template {
       //{ scene: S5C_SceneDogRun, name: "S5C_SceneDogRun" },
       //{ scene: S6A_SceneWindRain, name: "S6A_SceneWindRain" },
       //{ scene: S7A_SceneDogCityRain, name: "S7A_SceneDogCityRain" },
-      { scene: S10A_GoodEnding, name: "S10A_GoodEnding" }
+      //{ scene: S10A_GoodEnding, name: "S10A_GoodEnding" }
       
       
 

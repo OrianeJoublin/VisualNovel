@@ -19,8 +19,13 @@ namespace Template {
         //await ƒS.update(transitions.new.duration, transitions.new.alpha, transitions.new.edge); 
 
         //Text
+        await ƒS.Sound.play(sound.s4A_1, 1.5, false); 
         await ƒS.Speech.tell(characters.narrator, text.narrator.T0000, true, "S3T1");
+        ƒS.Sound.fade(sound.s4A_1, 0, 0);
+        await ƒS.Sound.play(sound.s4A_2, 1.5, false); 
         await ƒS.Speech.tell(characters.narrator, dataForSave.nameProtagonist + text.narrator.T0001, true, "S3T1");
+        ƒS.Sound.fade(sound.s4A_2, 0, 0);
+        await ƒS.Sound.play(sound.s4A_3_withChoices, 1.5, false); 
         await ƒS.Speech.tell(characters.narrator, dataForSave.nameProtagonist + " answered, slightly on edge:", true, "S3T1");
 
         let decisionS4AElementOptions = {
@@ -32,14 +37,20 @@ namespace Template {
 
         switch (decisionS4AElement) {
             case decisionS4AElementOptions.iBeNice:
+                ƒS.Sound.fade(sound.s4A_3_withChoices, 0, 0);
+                await ƒS.Sound.play(sound.S4A_4_iBeNice, 1.5, false); 
                 await ƒS.Speech.tell(characters.narrator, text.narrator.TD101, true, "S3T1");
                 break;
             case decisionS4AElementOptions.iBeAngry:
+                ƒS.Sound.fade(sound.s4A_3_withChoices, 0, 0);
+                await ƒS.Sound.play(sound.S4A_4_iBeAngry, 1.5, false); 
                 await ƒS.Speech.tell(characters.narrator, text.narrator.TD201, true, "S3T1");
                 break;
         };
 
         ƒS.Speech.clear();
+        ƒS.Sound.fade(sound.S4A_4_iBeAngry, 0, 0);
+        ƒS.Sound.fade(sound.S4A_4_iBeNice, 0, 0);
         return S6A_SceneWindRain();
     }
 }
