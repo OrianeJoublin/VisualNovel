@@ -7,6 +7,10 @@ namespace Template {
             name: "1 Tree without seeds",
             background: "./Backgrounds/1TreeWithoutSeeds.png"
         },
+        TreeWithoutSeeds2: {
+            name: "1 Tree without seeds (small)",
+            background: "./Backgrounds/1TreeWithoutSeeds2.png"
+        },
         SeedGrippingBranch: {
             name: "2 Seed Gripping Branch",
             background: "./Backgrounds/2SeedGrippingBranch.png"
@@ -83,6 +87,14 @@ namespace Template {
             name: "Black",
             background: "./Backgrounds/black.png"
         },
+        FinalGood: {
+            name: "FinalGood",
+            background: "./Backgrounds/FinalGoodEnding.png"
+        },
+        FinalBad: {
+            name: "FinalBad",
+            background: "./Backgrounds/FinalBadEnding.png"
+        }
     }
 
 

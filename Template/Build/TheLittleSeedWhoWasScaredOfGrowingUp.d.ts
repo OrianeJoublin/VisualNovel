@@ -104,6 +104,10 @@ declare namespace Template {
             name: string;
             background: string;
         };
+        TreeWithoutSeeds2: {
+            name: string;
+            background: string;
+        };
         SeedGrippingBranch: {
             name: string;
             background: string;
@@ -180,6 +184,14 @@ declare namespace Template {
             name: string;
             background: string;
         };
+        FinalGood: {
+            name: string;
+            background: string;
+        };
+        FinalBad: {
+            name: string;
+            background: string;
+        };
     };
 }
 declare namespace Template {
@@ -221,6 +233,8 @@ declare namespace Template {
         dogBark1: string;
         springWeather: string;
         springBirds: string;
+        pageFlip: string;
+        s1: string;
     };
 }
 declare namespace Template {
@@ -259,9 +273,6 @@ declare namespace Template {
     function NovelPages(): ƒS.SceneReturn;
 }
 declare namespace Template {
-    function StartPage(): ƒS.SceneReturn;
-}
-declare namespace Template {
     function S10A_GoodEnding(): ƒS.SceneReturn;
 }
 declare namespace Template {
@@ -269,6 +280,9 @@ declare namespace Template {
 }
 declare namespace Template {
     function StartAgainScreen(): ƒS.SceneReturn;
+}
+declare namespace Template {
+    function EndOfNovel(): ƒS.SceneReturn;
 }
 declare namespace Template {
     function S1_IntroPart1(): ƒS.SceneReturn;

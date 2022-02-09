@@ -23,7 +23,7 @@ html, body {
 scene {
   width: 1920px;
   height: 1080px;
-  /* width: 1200px;
+  /* width: 1280px;
   height: 720px; */
   display: inline-block;
   position: absolute !important;
@@ -66,7 +66,7 @@ speech content {
   border-radius: 5px;
   border-width: 5px;
   border-color: black;
-  /*background-image: none;*/
+  background-image: url("./Backgrounds/WhitePage.png");
 }
 
 .decisionClass button{
@@ -79,22 +79,8 @@ speech content {
   border-width: 2px; 
   margin: 10px;
   border-color: rgba(27, 19, 53, 0.849);
-  /*border-top: none;
-  border-right: none;
-  border-bottom: none; */
 }
 
-/* #iSayHelp {
-position: fixed;
-  top: 60%;
-  left: 5%;
-}
-
-#iInsult {
-  position: fixed;
-    top: 60%;
-    left: 30%;
-  } */
 
 .decisionClass button:hover{
   background-color: rgb(206, 216, 245);
@@ -179,3 +165,25 @@ dialog.text {
   background-image: url("Images/NovelPageBGs/old_paper.jpg");
 }
 
+.finalDecision{
+  padding: 0px;
+  background-color: rgb(255, 255, 255);
+  border-style: solid;
+  border-radius: 5px;
+  border-width: 0px;
+  background-image: none;
+  background-color: rgba(160, 21, 21, 0);
+  top: 2%
+}
+
+.finalDecision button{
+  font-size: 22px;
+  font-family: 'Gill Sans MT', sans-serif;;
+  height: 60px;
+  width: 200px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 5px;
+  border-width: 2px; 
+  margin: 10px;
+  border-color: rgba(27, 19, 53, 0.849);
+}

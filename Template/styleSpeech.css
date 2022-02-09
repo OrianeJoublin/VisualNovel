@@ -90,7 +90,7 @@ speech.S6AT1 {
 speech.S7AT1 {
   /*bottom: 40vw;
   left: 110vh;*/
-  top: 5%;
+  top: 10%;
   left: -25%;
 }
 
@@ -171,6 +171,13 @@ speech.S10BT3 {
 
 /*Scene 11*/
 speech.S11 {
-  top: 30%;
+  top: 20%;
   left: 0%;
+}
+
+/*Scene 11*/
+speech.Ending {
+  top: 40%;
+  left: 0%;
+  font-size: 250%;
 }

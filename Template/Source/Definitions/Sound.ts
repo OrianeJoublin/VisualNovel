@@ -21,8 +21,12 @@ namespace Template {
         thunderStorm1: ".SoundEffects/zapsplat_nature_thunderstorm_approaching_distant_rumbles_rain_then_rain_heavier_at_2m50s_57911.mp3",
         thunderStorm2: "./SoundEffects/zapsplat_nature_rain_thunderstorm_close_rain_drips_yard_57904.mp3",
         dogBark1: "./SoundEffects/zapsplat_animals_dog_labrador_bark_slight_distance_echo_neighbourhood_11751.mp3",
-        springWeather: "./spring-weather-1.wav",
-        springBirds: "./Blastwave_FX_NatureBirdsCrickets_BW.1500"
+        springWeather: "./SoundEffects/spring-weather-1.wav",
+        springBirds: "./SoundEffects/Blastwave_FX_NatureBirdsCrickets_BW.1500.mp3",
+        pageFlip: "./SoundEffects/page-flip-02.mp3",
+
+        //voice over
+        s1: "./VoiceOver/S1.wav",
     };
 
 

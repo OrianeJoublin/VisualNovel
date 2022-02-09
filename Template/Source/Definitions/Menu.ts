@@ -34,12 +34,12 @@ namespace Template {
 
     export function showCredits(): void {
         ƒS.Text.setClass("credits");
-        ƒS.Text.print("<p> CREDITS </p> <p> Story by Oriane Joublin <br> Backgrounds and Characters by Oriane Joublin <br> Art by Oriane Joublin <br> Programming by Oriane Joublin </p> <p> MUSIC </p> <p> Adventure by Alexander Nakarada <br> Forest Walk by Alexander Nakarada <br> Wake Up by Scandinavianz </p> <p> SOUNDS </p> Sound effects from soundjay.com <br> Additional sound effects from zapsplat.com </p> <p> Made with FUDGEStory </p> <p> WITH SPECIAL THANKS <br> to Carina Spangenberger, Riem Yasin, Jirka Dell'Oro and <br> Frank Joublin for their support in programming questions and <br> to Iris Schnabel and Emily Pacey for improving the rhymes.</p>");
+        ƒS.Text.print("<p> <b> CREDITS </b> </p> <p> Story by Oriane Joublin <br> Backgrounds and Characters by Oriane Joublin <br> Art by Oriane Joublin <br> Programming by Oriane Joublin </p> <p> <em> Music </em> </p> <p> Adventure by Alexander Nakarada <br> Forest Walk by Alexander Nakarada <br> Wake Up by Scandinavianz </p> <p> <em> Sounds </em> </p> Sound effects from soundjay.com <br> Additional sound effects from zapsplat.com </p> <p> <em> Special thanks </em> <br> <br> to Carina Spangenberger, Riem Yasin, Jirka Dell'Oro and <br> Frank Joublin for their support in programming questions and <br> to Iris Schnabel and Emily Pacey for improving the rhymes.</p> <p> <br> Made with FudgeStory. </p> ");
     };
 
     export function showShortcuts(): void {
         ƒS.Text.setClass("shortcuts");
-        ƒS.Text.print("SHORTCUTS Explanation HERE");
+        ƒS.Text.print("<p> <b> SHORTCUTS </b> </p> <p> Menü ein- und ausblenden: <em> m </em> <br> Vollbildmodus Windows ein- und ausschalten: <em> f11  </em> <br> Vollbildmodus Mac: <em> Ctrl - Cmd – F </em> </p>");
     };
 
     // true = offen; false = geschlossen

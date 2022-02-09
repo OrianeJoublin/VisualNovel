@@ -18,7 +18,9 @@ namespace Template {
 
         //Background with transition and characters appear:
         await ƒS.Location.show(locations.WindRain);
-        await ƒS.update(transitions.new.duration, transitions.new.alpha, transitions.new.edge);
+        ƒS.update(1);
+        ƒS.Sound.play(sound.pageFlip, 0.4, false); 
+        //await ƒS.update(transitions.new.duration, transitions.new.alpha, transitions.new.edge);
         ƒS.Character.show(characters.Crow, characters.Crow.pose.flight, ƒS.positionPercent (0,0)); 
         ƒS.Character.animate(characters.Rain, characters.Rain.pose.neutral, Rain());
 

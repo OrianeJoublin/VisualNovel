@@ -6,7 +6,7 @@ namespace Template {
         let text = { // Charaktere Texte
             narrator: {
                 T0000: "<p> With a sudden twirl <br>" + dataForSave.nameProtagonist + " crashed upon the muzzle of a girl <br> It was Mabel the dog <br> Who was sitting in the fog. </p>",
-                T0001: "The dog’s body trembled <br> Just as " + dataForSave.nameProtagonist + " had settled <br> With a loud “Jeeez” <br> Mable sneezed.",
+                T0001: "<p> The dog’s body trembled <br> Just as " + dataForSave.nameProtagonist + " had settled <br> With a loud “Jeeez” <br> Mable sneezed. <p> But the seed was lucky <br> It held on very tightly <br> Then, swiftly, step by step, <br> It climbed into the soft fur on Mable's back </p>",
                 T0002: "<p> “I almost died there”, <br> Said " + dataForSave.nameProtagonist + " with prodruding hair. <br> “I’m sorry”, the dog said, “you tickled my nose!” <br> “You’re Mable, right? The dog in the shadows?”</p>",
                 T0003: "Mable nodded and, taking the lead, <br> Asked “what is your name, little seed?” <br> " + dataForSave.nameProtagonist + " replied and told its tale of woe: <br> “I lost my home, everything I've ever known!”",
                 T0004: "The dog looked around at " + dataForSave.nameProtagonist + ", her new friend <br> And assured it: “this won't be the end!” <br> Say, will you let me help you, <br> Get to where you want to?”",
@@ -17,7 +17,9 @@ namespace Template {
 
         //Background with transition and characters appear:
         await ƒS.Location.show(locations.MeetMable);
-        await ƒS.update(transitions.new.duration, transitions.new.alpha, transitions.new.edge); 
+        ƒS.Sound.play(sound.pageFlip, 0.4, false);
+        ƒS.update(1);
+        //await ƒS.update(transitions.new.duration, transitions.new.alpha, transitions.new.edge); 
 
         //Text
         await ƒS.Speech.tell(characters.narrator, text.narrator.T0000 + text.narrator.T0001, true, "S4BT1");
@@ -29,7 +31,7 @@ namespace Template {
             iSayNo: "No thanks!"
         };
 
-        let decisionS4BElement = await ƒS.Menu.getInput(decisionS4BElementOptions, "individualCSSClass");
+        let decisionS4BElement = await ƒS.Menu.getInput(decisionS4BElementOptions, "decisionClass");
 
         switch (decisionS4BElement) {
             case decisionS4BElementOptions.iSayNo:

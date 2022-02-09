@@ -15,11 +15,13 @@ namespace Template {
         };
 
         //Sound
+        ƒS.Sound.play(sound.pageFlip, 0.4, false); 
         ƒS.Sound.fade(sound.wind1, 0.2, 2, true);
 
         //Background with transition and characters appear:
         await ƒS.Location.show(locations.WindtoCity);
-        await ƒS.update(transitions.new.duration, transitions.new.alpha, transitions.new.edge);
+        ƒS.update(1);
+        //await ƒS.update(transitions.new.duration, transitions.new.alpha, transitions.new.edge);
 
         //Text
         await ƒS.Speech.tell(characters.narrator, text.narrator.T0000 + text.narrator.T0001, true, "S5BT1");
@@ -30,7 +32,7 @@ namespace Template {
             iSayNotSorry: "Not sorry"
         };
 
-        let decisionS4BElement = await ƒS.Menu.getInput(decisionS4BElementOptions, "individualCSSClass");
+        let decisionS4BElement = await ƒS.Menu.getInput(decisionS4BElementOptions, "decisionClass");
 
         switch (decisionS4BElement) {
             case decisionS4BElementOptions.iSaySorry:

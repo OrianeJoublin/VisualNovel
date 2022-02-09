@@ -15,11 +15,13 @@ namespace Template {
             }
         };
         //City Sound
+        ƒS.Sound.play(sound.pageFlip, 0.4, false); 
         ƒS.Sound.fade(sound.city, 0.3, 2, true);
 
         //Background with transition and characters appear:
         await ƒS.Location.show(locations.CityWithMable);
-        await ƒS.update(transitions.new.duration, transitions.new.alpha, transitions.new.edge);
+        ƒS.update(1);
+        //await ƒS.update(transitions.new.duration, transitions.new.alpha, transitions.new.edge);
         //await ƒS.Character.show(characters.Crow, characters.Crow.pose.flight, ƒS.positionPercent (0,70));
         //await ƒS.Character.animate(characters.Rain, characters.Rain.pose.neutral, Rain());
 

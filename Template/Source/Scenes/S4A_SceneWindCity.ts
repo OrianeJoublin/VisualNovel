@@ -14,7 +14,9 @@ namespace Template {
 
         //Background with transition and characters appear:
         await ƒS.Location.show(locations.WindtoCity);
-        await ƒS.update(transitions.new.duration, transitions.new.alpha, transitions.new.edge); 
+        ƒS.Sound.play(sound.pageFlip, 0.4, false); 
+        ƒS.update(1);
+        //await ƒS.update(transitions.new.duration, transitions.new.alpha, transitions.new.edge); 
 
         //Text
         await ƒS.Speech.tell(characters.narrator, text.narrator.T0000, true, "S3T1");
@@ -26,7 +28,7 @@ namespace Template {
             iBeAngry: "Get angry"
         };
 
-        let decisionS4AElement = await ƒS.Menu.getInput(decisionS4AElementOptions, "individualCSSClass");
+        let decisionS4AElement = await ƒS.Menu.getInput(decisionS4AElementOptions, "decisionClass");
 
         switch (decisionS4AElement) {
             case decisionS4AElementOptions.iBeNice:

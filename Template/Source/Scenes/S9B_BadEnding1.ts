@@ -16,7 +16,9 @@ namespace Template {
 
         //Background with transition and characters appear:
         await ƒS.Location.show(locations.AntGetsEaten);
-        await ƒS.update(transitions.new.duration, transitions.new.alpha, transitions.new.edge);
+        ƒS.Sound.play(sound.pageFlip, 0.4, false); 
+        ƒS.update(1);
+        //await ƒS.update(transitions.new.duration, transitions.new.alpha, transitions.new.edge);
 
         //Text
         await ƒS.Speech.tell(characters.narrator, text.narrator.T0000, true, "S9BT1");
@@ -25,7 +27,9 @@ namespace Template {
 
         //New Background Seed Alone in Rain
         await ƒS.Location.show(locations.SeedAlone);
-        await ƒS.update(transitions.new.duration, transitions.new.alpha, transitions.new.edge);
+        ƒS.Sound.play(sound.pageFlip, 0.4, false); 
+        ƒS.update(1);
+        //await ƒS.update(transitions.new.duration, transitions.new.alpha, transitions.new.edge);
 
         //Animation Rain and Sound
         await ƒS.Character.animate(characters.Rain, characters.Rain.pose.neutral, Rain());
@@ -42,15 +46,15 @@ namespace Template {
 
         //New Background Bad Ending
         await ƒS.Location.show(locations.BadEnding);
-        await ƒS.update(transitions.new.duration, transitions.new.alpha, transitions.new.edge);
+        ƒS.Sound.play(sound.pageFlip, 0.4, false); 
+        ƒS.update(1);
+        //await ƒS.update(transitions.new.duration, transitions.new.alpha, transitions.new.edge);
 
         // Text
         await ƒS.Speech.tell(characters.narrator, text.narrator.T0005, true, "S9BT3");
+        
         ƒS.Speech.clear();
+        return StartAgainScreen();
 
-        //Return Start or Credits? + Novel Page: Do you want to start over?
-        
-
-        
     }
 }

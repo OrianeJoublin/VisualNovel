@@ -18,7 +18,9 @@ namespace Template {
 
         //Background with transition and characters appear:
         await ƒS.Location.show(locations.AntAndSeedHide);
-        await ƒS.update(transitions.new.duration, transitions.new.alpha, transitions.new.edge);
+        ƒS.Sound.play(sound.pageFlip, 0.4, false); 
+        ƒS.update(1);
+       // await ƒS.update(transitions.new.duration, transitions.new.alpha, transitions.new.edge);
 
         //Text
         await ƒS.Speech.tell(characters.narrator, text.narrator.T0000 + text.narrator.T0001, true, "S9AT1");
@@ -27,7 +29,9 @@ namespace Template {
 
         //New Background:  
         await ƒS.Location.show(locations.AntGetsEaten);
-        await ƒS.update(transitions.new.duration, transitions.new.alpha, transitions.new.edge);
+        ƒS.Sound.play(sound.pageFlip, 0.4, false); 
+        ƒS.update(1);
+        // ƒS.update(transitions.new.duration, transitions.new.alpha, transitions.new.edge);
 
         //Text
         await ƒS.Speech.tell(characters.narrator, text.narrator.T0003, true, "S9AT2");
@@ -35,7 +39,9 @@ namespace Template {
 
         //New Background - Mable appears
         await ƒS.Location.show(locations.MableJoins);
-        await ƒS.update(transitions.new.duration, transitions.new.alpha, transitions.new.edge);
+        ƒS.Sound.play(sound.pageFlip, 0.4, false); 
+        ƒS.update(1);
+        //await ƒS.update(transitions.new.duration, transitions.new.alpha, transitions.new.edge);
 
         //Sound
         ƒS.Sound.fade(sound.dogBark1, 0.6, 2, true);
@@ -53,7 +59,7 @@ namespace Template {
             iDontJump: "Don't jump"
         };
 
-        let decisionS9AElement = await ƒS.Menu.getInput(decisionS9AElementOptions, "individualCSSClass");
+        let decisionS9AElement = await ƒS.Menu.getInput(decisionS9AElementOptions, "decisionClass");
 
         switch (decisionS9AElement) {
             case decisionS9AElementOptions.iJump:

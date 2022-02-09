@@ -15,8 +15,11 @@ namespace Template {
 
         //Background with transition and characters appear:
         await ƒS.Location.show(locations.ArriveRoofTop);
-        await ƒS.update(transitions.new.duration, transitions.new.alpha, transitions.new.edge); 
-         //Musik
+        ƒS.Sound.play(sound.pageFlip, 0.4, false); 
+        ƒS.update(1);
+        //await ƒS.update(transitions.new.duration, transitions.new.alpha, transitions.new.edge); 
+        
+        //Musik
         ƒS.Sound.fade(sound.wakeUp, 0.4, 2, true);
 
         //Text
@@ -29,7 +32,7 @@ namespace Template {
             iDontTrust: "Don't trust"
         };
 
-        let decisionS8Element = await ƒS.Menu.getInput(decisionS8ElementOptions, "individualCSSClass");
+        let decisionS8Element = await ƒS.Menu.getInput(decisionS8ElementOptions, "decisionClass");
 
         switch (decisionS8Element) {
             case decisionS8ElementOptions.iTrust:
