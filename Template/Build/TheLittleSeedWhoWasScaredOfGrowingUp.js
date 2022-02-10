@@ -499,6 +499,7 @@ var Template;
         s7A_5: "./VoiceOver/S7A.5.wav",
         s7C_1: "./VoiceOver/S7C.1.wav",
         s7C_2: "./VoiceOver/S7C.2.wav",
+        s7C_2_2: "./VoiceOver/S7C.2_2.wav",
         s7C_3: "./VoiceOver/S7C.3.wav",
         s8_1: "./VoiceOver/S8.1.wav",
         s8_2: "./VoiceOver/S8.2.wav",
@@ -1377,16 +1378,19 @@ var Template;
         //Text before bird
         await Template.ƒS.Sound.play(Template.sound.s7C_1, 1.7, false);
         await Template.ƒS.Speech.tell(Template.characters.narrator, text.narrator.T0000, true, "S7AT1");
-        // Text after bird
         Template.ƒS.Sound.fade(Template.sound.s7C_1, 0, 0);
         await Template.ƒS.Sound.play(Template.sound.s7C_2, 1.7, false);
-        await Template.ƒS.Speech.tell(Template.characters.narrator, text.narrator.T0001 + text.narrator.T0002, true, "S7AT1");
+        await Template.ƒS.Speech.tell(Template.characters.narrator, text.narrator.T0001, true, "S7AT1");
         //Bird flys in
         await Template.ƒS.Character.animate(Template.characters.Crow, Template.characters.Crow.pose.flight, Template.flyDown());
+        // Text after bird
+        Template.ƒS.Sound.fade(Template.sound.s7C_2, 0, 0);
+        await Template.ƒS.Sound.play(Template.sound.s7C_2_2, 1.7, false);
+        await Template.ƒS.Speech.tell(Template.characters.narrator, text.narrator.T0002, true, "S7AT1");
         //Barking
         Template.ƒS.Sound.fade(Template.sound.dogBark1, 1, 2, true);
         //Text while Barking
-        Template.ƒS.Sound.fade(Template.sound.s7C_2, 0, 0);
+        Template.ƒS.Sound.fade(Template.sound.s7C_2_2, 0, 0);
         await Template.ƒS.Sound.play(Template.sound.s7C_3, 1.7, false);
         await Template.ƒS.Speech.tell(Template.characters.narrator, text.narrator.T0003 + text.narrator.T0004, true, "S7AT1");
         //Fade Out SoundEffects

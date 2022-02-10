@@ -65,6 +65,7 @@ namespace Template {
         s7A_5: "./VoiceOver/S7A.5.wav",
         s7C_1: "./VoiceOver/S7C.1.wav",
         s7C_2: "./VoiceOver/S7C.2.wav",
+        s7C_2_2: "./VoiceOver/S7C.2_2.wav",
         s7C_3: "./VoiceOver/S7C.3.wav",
         s8_1: "./VoiceOver/S8.1.wav",
         s8_2: "./VoiceOver/S8.2.wav",

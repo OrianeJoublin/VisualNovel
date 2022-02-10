@@ -24,20 +24,23 @@ namespace Template {
         //Text before bird
         await ƒS.Sound.play(sound.s7C_1, 1.7, false);
         await ƒS.Speech.tell(characters.narrator, text.narrator.T0000, true, "S7AT1");
-
-        // Text after bird
         ƒS.Sound.fade(sound.s7C_1, 0, 0);
         await ƒS.Sound.play(sound.s7C_2, 1.7, false);
-        await ƒS.Speech.tell(characters.narrator, text.narrator.T0001 + text.narrator.T0002, true, "S7AT1");
+        await ƒS.Speech.tell(characters.narrator, text.narrator.T0001, true, "S7AT1");
 
         //Bird flys in
         await ƒS.Character.animate(characters.Crow, characters.Crow.pose.flight, flyDown());
+
+        // Text after bird
+        ƒS.Sound.fade(sound.s7C_2, 0, 0);
+        await ƒS.Sound.play(sound.s7C_2_2, 1.7, false);
+        await ƒS.Speech.tell(characters.narrator, text.narrator.T0002, true, "S7AT1");
 
         //Barking
         ƒS.Sound.fade(sound.dogBark1, 1, 2, true);
 
         //Text while Barking
-        ƒS.Sound.fade(sound.s7C_2, 0, 0);
+        ƒS.Sound.fade(sound.s7C_2_2, 0, 0);
         await ƒS.Sound.play(sound.s7C_3, 1.7, false);
         await ƒS.Speech.tell(characters.narrator, text.narrator.T0003 + text.narrator.T0004, true, "S7AT1");
 

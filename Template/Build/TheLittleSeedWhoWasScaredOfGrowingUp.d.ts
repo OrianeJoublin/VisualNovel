@@ -269,6 +269,7 @@ declare namespace Template {
         s7A_5: string;
         s7C_1: string;
         s7C_2: string;
+        s7C_2_2: string;
         s7C_3: string;
         s8_1: string;
         s8_2: string;
