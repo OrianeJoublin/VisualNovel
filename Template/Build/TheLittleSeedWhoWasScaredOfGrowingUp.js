@@ -362,7 +362,52 @@ var Template;
     };
     function showCredits() {
         Template.ƒS.Text.setClass("credits");
-        Template.ƒS.Text.print("<p> <b> CREDITS </b> </p> <p> Story by Oriane Joublin <br> Backgrounds and Characters by Oriane Joublin <br> Art by Oriane Joublin <br> Programming by Oriane Joublin </p> <p> <em> Music </em> </p> <p> Adventure by Alexander Nakarada <br> Forest Walk by Alexander Nakarada <br> Wake Up by Scandinavianz </p> <p> <em> Sounds </em> </p> Sound effects from soundjay.com <br> Additional sound effects from zapsplat.com </p> <p> <em> Special thanks </em> <br> <br> to Carina Spangenberger, Riem Yasin, Jirka Dell'Oro and <br> Frank Joublin for their support in programming questions and <br> to Iris Schnabel and Emily Pacey for improving the rhymes.</p> <p> <br> Made with FudgeStory. </p> ");
+        let credits = "<h1>CREDITS</h1>\
+      <table>\
+        <tr>\
+          <td>Story</td>\
+          <td>Oriane Joublin</td>\
+        </tr>\
+        <tr>\
+          <td>Art</td>\
+          <td>Oriane Joublin</td>\
+        </tr>\
+        <tr>\
+          <td>Programming</td>\
+          <td>Oriane Joublin</td>\
+        </tr>\
+        <h3>Music</h3>\
+        <tr>\
+          <td>Adventure</td>\
+          <td>Alexander Nakarada</td>\
+        </tr>\
+        <tr>\
+        <td>Forest Walk</td>\
+        <td>Alexander Nakarada</td>\
+        </tr>\
+        <tr>\
+        <td>Wake Up</td>\
+        <td>Scandinavianz</td>\
+        </tr>\
+        <h3>SFX</h3>\
+        <tr>\
+          <td>Sound Effects</td>\
+          <td>soundjay.com</td>\
+        </tr>\
+        <tr>\
+        <td>Additional sound effects </td>\
+        <td>zapsplat.com</td>\
+        </tr>\
+        <tr>\
+        <td>Voice Over</td>\
+        <td>Oriane Joublin</td>\
+        </tr>\
+      </table>\
+      <h3>Special Thanks</h3>\
+      <p> to Carina Spangenberger, Riem Yasin, Jirka Dell'Oro and <br> Frank Joublin for their support in programming questions and <br> to Iris Schnabel and Emily Pacey for improving the rhymes.</p>\
+      <p>Made with FUDGE Story\
+      ";
+        Template.ƒS.Text.print(credits);
     }
     Template.showCredits = showCredits;
     ;
