@@ -17,6 +17,7 @@ namespace Template {
         //City Sound
         ƒS.Sound.play(sound.pageFlip, 0.4, false); 
         ƒS.Sound.fade(sound.city, 0.1, 2, true);
+        ƒS.Sound.fade(sound.wind1, 0, 0, true);
 
         //Background with transition and characters appear:
         await ƒS.Location.show(locations.CityWithMable);
@@ -27,13 +28,13 @@ namespace Template {
 
 
         //Text before bird
-        await ƒS.Sound.play(sound.s7A_1, 1.5, false);
+        await ƒS.Sound.play(sound.s7A_1, 1.7, false);
         await ƒS.Speech.tell(characters.narrator, text.narrator.T0000 + text.narrator.T0001, true, "S7AT1");
         ƒS.Sound.fade(sound.s7A_1, 0, 0);
-        await ƒS.Sound.play(sound.s7A_2, 1.5, false);
+        await ƒS.Sound.play(sound.s7A_2, 1.7, false);
         await ƒS.Speech.tell(characters.narrator, text.narrator.T0002, true, "S7AT1");
         ƒS.Sound.fade(sound.s7A_2, 0, 0);
-        await ƒS.Sound.play(sound.s7A_3, 1.5, false);
+        await ƒS.Sound.play(sound.s7A_3, 1.7, false);
         await ƒS.Speech.tell(characters.narrator, text.narrator.T0003, true, "S7AT1");
 
         //Bird flys in (hier wird der Vogel zum Teil durchsichtig)
@@ -41,15 +42,15 @@ namespace Template {
 
         // Text after bird
         ƒS.Sound.fade(sound.s7A_3, 0, 0);
-        await ƒS.Sound.play(sound.s7A_4, 1.5, false);
+        await ƒS.Sound.play(sound.s7A_4, 1.7, false);
         await ƒS.Speech.tell(characters.narrator, text.narrator.T0004, true, "S7AT1");
        
         //Barking
-        ƒS.Sound.fade(sound.dogBark1, 1, 2, true);
+        ƒS.Sound.fade(sound.dogBark1, 0.8, 2, true);
 
         //Text while Barking
         ƒS.Sound.fade(sound.s7A_4, 0, 0);
-        await ƒS.Sound.play(sound.s7A_5, 1.5, false);
+        await ƒS.Sound.play(sound.s7A_5, 1.7, false);
         await ƒS.Speech.tell(characters.narrator, text.narrator.T0005 + text.narrator.T0006, true, "S7AT1");
 
         //Fade Out Sound + City quieter

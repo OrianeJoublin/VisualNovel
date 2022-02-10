@@ -17,7 +17,7 @@ namespace Template {
         //await ƒS.update(transitions.new.duration, transitions.new.alpha, transitions.new.edge);
 
         //Text
-        await ƒS.Sound.play(sound.startAgainScreen, 1.5, false);
+        await ƒS.Sound.play(sound.startAgainScreen, 1.7, false);
         await ƒS.Speech.tell(characters.narrator, text.narrator.T0000, true, "S11");
 
         let decisionS11ElementOptions = {
@@ -30,7 +30,7 @@ namespace Template {
         switch (decisionS11Element) {
             case decisionS11ElementOptions.iSayNo:
                 ƒS.Sound.fade(sound.startAgainScreen, 0, 0);
-                await ƒS.Sound.play(sound.badEnding, 1.5, false);   
+                await ƒS.Sound.play(sound.badEnding, 1.7, false);   
                 await ƒS.Speech.tell(characters.narrator, text.narrator.TBad, true, "Ending");
                 //ƒS.Speech.clear();
                 //return S1_IntroPart1(); //for now, better would be to return to the start screen

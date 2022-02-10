@@ -21,13 +21,13 @@ namespace Template {
         //await ƒS.update(transitions.new.duration, transitions.new.alpha, transitions.new.edge);
 
         //Text
-        await ƒS.Sound.play(sound.s10B_1, 1.5, false);
+        await ƒS.Sound.play(sound.s10B_1, 1.7, false);
         await ƒS.Speech.tell(characters.narrator, text.narrator.T0000, true, "S10BT1");
         ƒS.Sound.fade(sound.s10B_1, 0, 0);
-        await ƒS.Sound.play(sound.s10B_2, 1.5, false);
+        await ƒS.Sound.play(sound.s10B_2, 1.7, false);
         await ƒS.Speech.tell(characters.narrator, text.narrator.T0001, true, "S10BT1");
         ƒS.Sound.fade(sound.s10B_2, 0, 0);
-        await ƒS.Sound.play(sound.s10B_3, 1.5, false);
+        await ƒS.Sound.play(sound.s10B_3, 1.7, false);
         await ƒS.Speech.tell(characters.narrator, text.narrator.T0002, true, "S10BT1");
         ƒS.Sound.fade(sound.s10B_3, 0, 0);
         ƒS.Speech.clear();
@@ -41,10 +41,10 @@ namespace Template {
         //Animation Rain and Sound
         await ƒS.Character.animate(characters.Rain, characters.Rain.pose.neutral, Rain());
         ƒS.Sound.fade(sound.wakeUp, 0.15, 2, true);
-        ƒS.Sound.fade(sound.rain3, 1, 2, true);
+        ƒS.Sound.fade(sound.rain3, 0.4, 2, true);
 
         //Text
-        await ƒS.Sound.play(sound.s10B_4, 1.5, false);
+        await ƒS.Sound.play(sound.s10B_4, 1.7, false);
         await ƒS.Speech.tell(characters.narrator, text.narrator.T0003, true, "S10BT2");
 
         //Rain Animation and Sound Stop
@@ -60,7 +60,7 @@ namespace Template {
         //await ƒS.update(transitions.new.duration, transitions.new.alpha, transitions.new.edge);
 
         // Text
-        await ƒS.Sound.play(sound.s10B_5, 1.5, false);
+        await ƒS.Sound.play(sound.s10B_5, 1.7, false);
         await ƒS.Speech.tell(characters.narrator, text.narrator.T0004 + text.narrator.T0005, true, "S10BT3");
 
         ƒS.Sound.fade(sound.s10B_5, 0, 0);

@@ -12,7 +12,7 @@ namespace Template {
                 T0004: "<p> But all the seed heard <br> Was the boisterous barking <br> Of Mable the dog who was charging <br> Towards the little group <br> In a swoop. </p>",
                 T0005: "<p> In the blink of an eye <br> The crow leaped to the sky <br> And kicked Ralph, " + dataForSave.nameProtagonist + "'s new friend <br> Over the side of the roof to meet an early end. </p>",
                 T0006: "<p> “You can save him if you jump down!” <br> Spoke Mable with a frown. <br> “But if I jump, I’ll touch the ground.” <br> “You will find a way around!” </p>",
-                T0007: "<p> Annie smiled encouragingly. <br> " + dataForSave.nameProtagonist + " thought of its tree. </p>"
+                T0007: "<p> Anni smiled encouragingly. <br> " + dataForSave.nameProtagonist + " thought of its tree. </p>"
             }
         };
 
@@ -23,10 +23,10 @@ namespace Template {
        // await ƒS.update(transitions.new.duration, transitions.new.alpha, transitions.new.edge);
 
         //Text
-        await ƒS.Sound.play(sound.s9A_1, 1.5, false);
+        await ƒS.Sound.play(sound.s9A_1, 1.7, false);
         await ƒS.Speech.tell(characters.narrator, text.narrator.T0000 + text.narrator.T0001, true, "S9AT1");
         ƒS.Sound.fade(sound.s9A_1, 0, 0);
-        await ƒS.Sound.play(sound.s9A_2, 1.5, false);
+        await ƒS.Sound.play(sound.s9A_2, 1.7, false);
         await ƒS.Speech.tell(characters.narrator, text.narrator.T0002, true, "S9AT1");
         ƒS.Sound.fade(sound.s9A_2, 0, 0);
         ƒS.Speech.clear();
@@ -38,7 +38,7 @@ namespace Template {
         // ƒS.update(transitions.new.duration, transitions.new.alpha, transitions.new.edge);
 
         //Text
-        await ƒS.Sound.play(sound.s9A_3, 1.5, false);
+        await ƒS.Sound.play(sound.s9A_3, 1.7, false);
         await ƒS.Speech.tell(characters.narrator, text.narrator.T0003, true, "S9AT2");
         ƒS.Sound.fade(sound.s9A_3, 0, 0);
         ƒS.Speech.clear();
@@ -56,10 +56,10 @@ namespace Template {
         ƒS.Sound.fade(sound.crow, 0, 6, true);
         
         //Text
-        await ƒS.Sound.play(sound.s9A_4, 1.5, false);
+        await ƒS.Sound.play(sound.s9A_4, 1.7, false);
         await ƒS.Speech.tell(characters.narrator, text.narrator.T0004 + text.narrator.T0005, true, "S9AT3");
         ƒS.Sound.fade(sound.s9A_4, 0, 0);
-        await ƒS.Sound.play(sound.s9A_5_withChoices, 1.5, false);
+        await ƒS.Sound.play(sound.s9A_5, 1.7, false);
         await ƒS.Speech.tell(characters.narrator, text.narrator.T0006 + text.narrator.T0007, true, "S9AT3");
         
 
@@ -68,15 +68,19 @@ namespace Template {
             iDontJump: "Don't jump"
         };
 
+        ƒS.Sound.fade(sound.s9A_5, 0, 0);
+        await ƒS.Sound.play(sound.s9A_5_Choices, 1.7, false);
+        
+
         let decisionS9AElement = await ƒS.Menu.getInput(decisionS9AElementOptions, "decisionClass");
 
         switch (decisionS9AElement) {
             case decisionS9AElementOptions.iJump:
-                ƒS.Sound.fade(sound.s9A_5_withChoices, 0, 0);
+                ƒS.Sound.fade(sound.s9A_5_Choices, 0, 0);
                 ƒS.Speech.clear();
                 return S10A_GoodEnding();
             case decisionS9AElementOptions.iDontJump:
-                ƒS.Sound.fade(sound.s9A_5_withChoices, 0, 0);
+                ƒS.Sound.fade(sound.s9A_5_Choices, 0, 0);
                 ƒS.Speech.clear();
                 return S10B_BadEnding2();
         };

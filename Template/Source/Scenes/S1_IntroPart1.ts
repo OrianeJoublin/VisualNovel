@@ -11,7 +11,7 @@ namespace Template {
     };
 
     //Musik
-    ƒS.Sound.play(sound.wakeUp, 0.2, true);
+    ƒS.Sound.play(sound.wakeUp, 0.15, true);
 
     //Animation auch während Text möglich
     let animationDone: Promise<void> = ƒS.Character.animate(characters.ManySeeds, characters.ManySeeds.pose.neutral, SwayDown());
@@ -26,7 +26,7 @@ namespace Template {
     //Novel Page
 
     ƒS.Text.setClass("startScreen"); 
-    ƒS.Text.print("<p> Willkommen zu dieser Visual Novel! </p> <p> Um in den Szenen weiter zu kommen, <br> einfach auf den Bildschirm klicken. <br> Für ein besseres Erlebnis bitte wie <br> folgt in den Vollbildmodus wechseln: </p> <p> Windows: F11 <br> Mac: Ctrl - Cmd – F </p> <p> Dieselbe Tastenkombination dient <br> auch dazu, aus dem Vollbildmodus <br> auszusteigen. </p> <p> Viel Spaß! </p>");
+    ƒS.Text.print("<p> Willkommen zu dieser Visual Novel! </p> <p> Um in den Szenen weiter zu kommen, <br> einfach auf den Bildschirm klicken. <br> Für ein besseres Erlebnis bitte wie <br> folgt in den Vollbildmodus wechseln: </p> <p> Windows: F11 <br> Mac: Ctrl - Cmd – F </p> <p> Dieselbe Tastenkombination dient <br> auch dazu, den Vollbildmodus <br> zu verlassen. </p> <p> Viel Spaß! </p>");
    
     // Text pace
     ƒS.Speech.setTickerDelays(70, 500); //die 2 ist delay zwei sekunden warten, bevor bei paragraf weitergeht.
@@ -36,7 +36,7 @@ namespace Template {
     //Text
     await ƒS.Speech.tell(null, null, true); //nur damit text erst nach erstem klick kommt wegen Novel Page 
     //VoiceOver
-    await ƒS.Sound.play(sound.s1, 1.2, false); 
+    await ƒS.Sound.play(sound.s1, 1.6, false); 
     await ƒS.Speech.tell(characters.narrator, text.narrator.T0000 + text.narrator.T0001 + text.narrator.T0002, true, "introduction");
 
 
@@ -44,5 +44,7 @@ namespace Template {
     ƒS.Character.hide (characters.ManySeeds);
     ƒS.Speech.clear();
     ƒS.Sound.fade(sound.s1, 0, 0);
+
+    return S2_IntroPart2();
   }
 }

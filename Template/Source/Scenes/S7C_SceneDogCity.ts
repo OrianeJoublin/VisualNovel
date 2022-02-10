@@ -14,7 +14,7 @@ namespace Template {
         };
         //City Sound
         ƒS.Sound.play(sound.pageFlip, 0.4, false); 
-        ƒS.Sound.fade(sound.city, 0.3, 2, true);
+        ƒS.Sound.fade(sound.city, 0.18, 2, true);
 
         //Background with transition and characters appear:
         await ƒS.Location.show(locations.CityWithMable);
@@ -22,23 +22,23 @@ namespace Template {
         //await ƒS.update(transitions.new.duration, transitions.new.alpha, transitions.new.edge);
 
         //Text before bird
-        await ƒS.Sound.play(sound.s7C_1, 1.5, false);
+        await ƒS.Sound.play(sound.s7C_1, 1.7, false);
         await ƒS.Speech.tell(characters.narrator, text.narrator.T0000, true, "S7AT1");
-
-        //Bird flys in
-        await ƒS.Character.animate(characters.Crow, characters.Crow.pose.flight, flyDown());
 
         // Text after bird
         ƒS.Sound.fade(sound.s7C_1, 0, 0);
-        await ƒS.Sound.play(sound.s7C_2, 1.5, false);
+        await ƒS.Sound.play(sound.s7C_2, 1.7, false);
         await ƒS.Speech.tell(characters.narrator, text.narrator.T0001 + text.narrator.T0002, true, "S7AT1");
+
+        //Bird flys in
+        await ƒS.Character.animate(characters.Crow, characters.Crow.pose.flight, flyDown());
 
         //Barking
         ƒS.Sound.fade(sound.dogBark1, 1, 2, true);
 
         //Text while Barking
         ƒS.Sound.fade(sound.s7C_2, 0, 0);
-        await ƒS.Sound.play(sound.s7C_3, 1.5, false);
+        await ƒS.Sound.play(sound.s7C_3, 1.7, false);
         await ƒS.Speech.tell(characters.narrator, text.narrator.T0003 + text.narrator.T0004, true, "S7AT1");
 
         //Fade Out SoundEffects

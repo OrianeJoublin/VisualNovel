@@ -16,7 +16,7 @@ namespace Template {
 
         //Sound
         ƒS.Sound.play(sound.pageFlip, 0.4, false); 
-        ƒS.Sound.fade(sound.wind1, 0.2, 2, true);
+        ƒS.Sound.fade(sound.wind1, 0.1, 2, true);
 
         //Background with transition and characters appear:
         await ƒS.Location.show(locations.WindtoCity);
@@ -24,10 +24,10 @@ namespace Template {
         //await ƒS.update(transitions.new.duration, transitions.new.alpha, transitions.new.edge);
 
         //Text
-        await ƒS.Sound.play(sound.s5B_1, 1.5, false);
+        await ƒS.Sound.play(sound.s5B_1, 1.7, false);
         await ƒS.Speech.tell(characters.narrator, text.narrator.T0000 + text.narrator.T0001, true, "S5BT1");
         ƒS.Sound.fade(sound.s5B_1, 0, 0);
-        await ƒS.Sound.play(sound.s5B_2_withChoices, 1.5, false);
+        await ƒS.Sound.play(sound.s5B_2, 1.7, false);
         await ƒS.Speech.tell(characters.narrator, text.narrator.T0002 + text.narrator.T0003, true, "S5BT1");
 
         let decisionS4BElementOptions = {
@@ -35,21 +35,26 @@ namespace Template {
             iSayNotSorry: "Not sorry"
         };
 
+        ƒS.Sound.fade(sound.s5B_2, 0, 0);
+        await ƒS.Sound.play(sound.s5B_2_Choices, 1.7, false);
+
         let decisionS4BElement = await ƒS.Menu.getInput(decisionS4BElementOptions, "decisionClass");
 
         switch (decisionS4BElement) {
             case decisionS4BElementOptions.iSaySorry:
-                ƒS.Sound.fade(sound.s5B_2_withChoices, 0, 0);
-                await ƒS.Sound.play(sound.s5B_3_iSaySorry, 1.5, false);
+                ƒS.Sound.fade(sound.s5B_2_Choices, 0, 0);
+                await ƒS.Sound.play(sound.s5B_3_iSaySorry, 1.7, false);
                 await ƒS.Speech.tell(characters.narrator, text.narrator.TD101, true, "S5BT1");
                 ƒS.Sound.fade(sound.wind1, 0, 2);
+                ƒS.Sound.fade(sound.s5B_3_iSaySorry, 0, 0);
                 ƒS.Speech.clear();
                 return S6A_SceneWindRain();
             case decisionS4BElementOptions.iSayNotSorry:
-                ƒS.Sound.fade(sound.s5B_2_withChoices, 0, 0);
-                await ƒS.Sound.play(sound.s5B_3_iSayNotSorry, 1.5, false);
+                ƒS.Sound.fade(sound.s5B_2_Choices, 0, 0);
+                await ƒS.Sound.play(sound.s5B_3_iSayNotSorry, 1.7, false);
                 await ƒS.Speech.tell(characters.narrator, text.narrator.TD201, true, "S5BT1");
                 ƒS.Sound.fade(sound.wind1, 0, 2);
+                ƒS.Sound.fade(sound.s5B_3_iSayNotSorry, 0, 0);
                 ƒS.Speech.clear();
                 return S6A_SceneWindRain();
         };

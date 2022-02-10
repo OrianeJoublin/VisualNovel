@@ -19,13 +19,13 @@ namespace Template {
         //await ƒS.update(transitions.new.duration, transitions.new.alpha, transitions.new.edge); 
 
         //Text
-        await ƒS.Sound.play(sound.s4A_1, 1.5, false); 
+        await ƒS.Sound.play(sound.s4A_1, 1.7, false); 
         await ƒS.Speech.tell(characters.narrator, text.narrator.T0000, true, "S3T1");
         ƒS.Sound.fade(sound.s4A_1, 0, 0);
-        await ƒS.Sound.play(sound.s4A_2, 1.5, false); 
+        await ƒS.Sound.play(sound.s4A_2, 1.7, false); 
         await ƒS.Speech.tell(characters.narrator, dataForSave.nameProtagonist + text.narrator.T0001, true, "S3T1");
         ƒS.Sound.fade(sound.s4A_2, 0, 0);
-        await ƒS.Sound.play(sound.s4A_3_withChoices, 1.5, false); 
+        await ƒS.Sound.play(sound.s4A_3, 1.7, false); 
         await ƒS.Speech.tell(characters.narrator, dataForSave.nameProtagonist + " answered, slightly on edge:", true, "S3T1");
 
         let decisionS4AElementOptions = {
@@ -33,17 +33,20 @@ namespace Template {
             iBeAngry: "Get angry"
         };
 
+        ƒS.Sound.fade(sound.s4A_3, 0, 0);
+        await ƒS.Sound.play(sound.s4A_3_Choices, 1.7, false); 
+
         let decisionS4AElement = await ƒS.Menu.getInput(decisionS4AElementOptions, "decisionClass");
 
         switch (decisionS4AElement) {
             case decisionS4AElementOptions.iBeNice:
-                ƒS.Sound.fade(sound.s4A_3_withChoices, 0, 0);
-                await ƒS.Sound.play(sound.S4A_4_iBeNice, 1.5, false); 
+                ƒS.Sound.fade(sound.s4A_3_Choices, 0, 0);
+                await ƒS.Sound.play(sound.S4A_4_iBeNice, 1.7, false); 
                 await ƒS.Speech.tell(characters.narrator, text.narrator.TD101, true, "S3T1");
                 break;
             case decisionS4AElementOptions.iBeAngry:
-                ƒS.Sound.fade(sound.s4A_3_withChoices, 0, 0);
-                await ƒS.Sound.play(sound.S4A_4_iBeAngry, 1.5, false); 
+                ƒS.Sound.fade(sound.s4A_3_Choices, 0, 0);
+                await ƒS.Sound.play(sound.S4A_4_iBeAngry, 1.7, false); 
                 await ƒS.Speech.tell(characters.narrator, text.narrator.TD201, true, "S3T1");
                 break;
         };

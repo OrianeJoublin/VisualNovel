@@ -11,7 +11,7 @@ namespace Template {
                 T0003: "<p> “I’m ",
                 T0004: "”, the seed replied with of nod of its head. <br> It frowned a little and then said: </p>",
                 TD101: "<p> “Please, help me, I really don't want <br> To end on the ground!” </p>",
-                TD102: "<p> “If that is you wish, <br> I won’t drop you, I promise. <br> I’ll get you to town <br> Where you can look around.” </p>",
+                TD102: "<p> “If that is your wish, <br> I won’t drop you, I promise. <br> I’ll get you to town <br> Where you can look around.” </p>",
                 TD201: "<p> “You killed all my friends, you stupid wind!” </p>",
                 TD202: "Thunder growled as Anni got angry: <br> “Is that so? <br> Well here you go! <br> See what I did to them, <br> And then thank me later!”",
                 TD203: " by its stem <br> And with no restraint, <br> Anni thrust the seed down <br> Down down down <br> Towards the ground."
@@ -19,7 +19,7 @@ namespace Template {
         };
 
         //Sound
-        ƒS.Sound.fade(sound.wind1, 0.1, 2, true);
+        ƒS.Sound.fade(sound.wind1, 0.07, 2, true);
         ƒS.Sound.play(sound.pageFlip, 0.4, false);
 
         // Background and characters appear:
@@ -32,10 +32,10 @@ namespace Template {
         //await ƒS.Inventory.open();
 
         //Narrator Speech
-        await ƒS.Sound.play(sound.s3_1, 1.5, false); 
+        await ƒS.Sound.play(sound.s3_1, 1.6, false); 
         await ƒS.Speech.tell(characters.narrator, text.narrator.T0000 + text.narrator.T0001, true, "S3T1");
         ƒS.Sound.fade(sound.s3_1, 0, 0);
-        await ƒS.Sound.play(sound.s3_2, 1.5, false); 
+        await ƒS.Sound.play(sound.s3_2, 1.9, false); 
         await ƒS.Speech.tell(characters.narrator, text.narrator.T0002 + "Choose a name: ", false, "S3T2");
     
         //Input Feld (Müsste aber eigentlich innerhalb des Texts erscheinen)
@@ -44,7 +44,7 @@ namespace Template {
         //let promiseName: Promise<string> = ƒS.Speech.getInput();
 
         ƒS.Sound.fade(sound.s3_2, 0, 0);
-        await ƒS.Sound.play(sound.s3_3_withChoices, 1.5, false); 
+        await ƒS.Sound.play(sound.s3_3, 1.6, false); 
         await ƒS.Speech.tell(characters.narrator, text.narrator.T0003 + dataForSave.nameProtagonist + text.narrator.T0004, true, "S3T2");
         
         //dataForSave.nameProtagonist = await promiseName;
@@ -55,22 +55,25 @@ namespace Template {
             iInsult: "Insult"
         };
 
+        ƒS.Sound.fade(sound.s3_3, 0, 0);
+        await ƒS.Sound.play(sound.s3_3_Choices, 1.6, false); 
+
         let decisionS3Element = await ƒS.Menu.getInput(decisionS3ElementOptions, "decisionClass");
 
         switch (decisionS3Element) {
             case decisionS3ElementOptions.iSayHelp:
-                ƒS.Sound.fade(sound.s3_3_withChoices, 0, 0);
-                await ƒS.Sound.play(sound.s3_4_iSayHelp, 1.5, false); 
+                ƒS.Sound.fade(sound.s3_3_Choices, 0, 0);
+                await ƒS.Sound.play(sound.s3_4_iSayHelp, 1.6, false); 
                 await ƒS.Speech.tell(characters.narrator, text.narrator.TD101 + text.narrator.TD102, true, "S3T2");
                 ƒS.Sound.fade(sound.s3_4_iSayHelp, 0, 0);
                 ƒS.Speech.clear();
                 return S4A_SceneWindCity();
             case decisionS3ElementOptions.iInsult:
-                ƒS.Sound.fade(sound.s3_3_withChoices, 0, 0);
-                await ƒS.Sound.play(sound.s3_4_iInsult, 1.5, false);
+                ƒS.Sound.fade(sound.s3_3_Choices, 0, 0);
+                await ƒS.Sound.play(sound.s3_4_iInsult, 1.6, false);
                 await ƒS.Speech.tell(characters.narrator, text.narrator.TD201 + text.narrator.TD202, true, "S3T2");
                 ƒS.Sound.fade(sound.s3_4_iInsult, 0, 0);
-                await ƒS.Sound.play(sound.s3_4_iInsult2, 1.5, false);
+                await ƒS.Sound.play(sound.s3_4_iInsult2, 1.6, false);
                 await ƒS.Speech.tell(characters.narrator, "A new gust of wind grabbed " + dataForSave.nameProtagonist + text.narrator.TD203, true, "S3T2");
                 ƒS.Sound.fade(sound.wind1, 0, 2);
                 ƒS.Sound.fade(sound.s3_4_iInsult2, 0, 0);
