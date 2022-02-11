@@ -65,11 +65,11 @@ namespace Template {
         <td>Scandinavianz</td>\
         </tr>\
         <tr>\
-          <td>Sound Effects</td>\
+          <td>SFX</td>\
           <td>soundjay.com</td>\
         </tr>\
         <tr>\
-        <td>Additional sound effects </td>\
+        <td>Additional SFX </td>\
         <td>zapsplat.com</td>\
         </tr>\
         <tr>\

@@ -142,7 +142,8 @@ color:#DAB0B1;
 
 .credits td {
   text-align: left;
-  padding: 10px 60px;
+  padding: 10px 40px;
+  width: 185px;
 }
 
 .startScreen {
