@@ -2,7 +2,8 @@
 
 "The Little Seed Who Was Scared Of Growing Up" ist eine interaktive Geschichte für Kinder. 
 
-KLAPPENTEXT
+## Kurzbeschreibung (Englisch)
+Ever wondered what it felt like being a seed, seeing all your friends fall to the ground and never come back? This little seed is scared and lonely. As it is wrenched from its mother tree, it fights hard not to fall to the mysterious ground. On its adventure it gets to meet the wind, a dog and an ant. All of which will help it on its quest to safety – or will they? It's up to you what will happen: You decide what the little seed will do next.
 
 [Hier spielen](https://orianejoublin.github.io/VisualNovel/)
 
