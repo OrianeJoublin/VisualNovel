@@ -121,6 +121,28 @@ color:#DAB0B1;
   color: rgb(230, 241, 255);
   font-size: 20px;
   background-image: none;
+} 
+
+/* .credits {
+  position: absolute;
+  background-color: rgba(20, 22, 24, 1);;
+  color: #fafafa;
+  text-align: center;
+  border: none;
+  border-radius: 15px;
+  width: 50%;
+  height: 70%;
+  padding-top: 100px;
+}  */
+
+.credits table {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.credits td {
+  text-align: left;
+  padding: 10px 60px;
 }
 
 .startScreen {
@@ -134,6 +156,16 @@ color:#DAB0B1;
   background-image: none;
 }
 
+.startScreen table {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.startScreen td {
+  text-align: left;
+  padding: 10px 60px;
+}
+
 .shortcuts {
   text-align: center;
   font-family: 'EB Garamond', Georgia, 'Times New Roman', Times, serif;
@@ -143,6 +175,16 @@ color:#DAB0B1;
   color: rgb(230, 241, 255);
   font-size: 20px;
   background-image: none;
+}
+
+.shortcuts table {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.shortcuts td {
+  text-align: left;
+  padding: 10px 60px;
 }
 
 dialog.flip {

@@ -26,7 +26,24 @@ namespace Template {
     //Novel Page
 
     ƒS.Text.setClass("startScreen"); 
-    ƒS.Text.print("<p> Willkommen zu dieser Visual Novel! </p> <p> Um in den Szenen weiter zu kommen, <br> einfach auf den Bildschirm klicken. <br> Für ein besseres Erlebnis bitte wie <br> folgt in den Vollbildmodus wechseln: </p> <p> Windows: F11 <br> Mac: Ctrl - Cmd – F </p> <p> Dieselbe Tastenkombination dient <br> auch dazu, den Vollbildmodus <br> zu verlassen. </p> <p> Viel Spaß! </p>");
+    let startScreen =
+    "<h1>Welcome!</h1>\
+    <p> To continue with the novel click anywhere on the screen. <br>\
+    For a better experience change to full-screen mode as follows: <br>\
+    <table>\
+      <tr>\
+        <td>Windows</td>\
+        <td>f11</td>\
+      </tr>\
+      <tr>\
+        <td>Mac</td>\
+        <td>Ctrl - Cmd – F </td>\
+      </tr>\
+    </table>\
+    <p>Use the same keys to close the full-screen view.</p>\
+    <h3>Enjoy!</h3>\
+    ";
+    ƒS.Text.print(startScreen);
    
     // Text pace
     ƒS.Speech.setTickerDelays(70, 500); //die 2 ist delay zwei sekunden warten, bevor bei paragraf weitergeht.

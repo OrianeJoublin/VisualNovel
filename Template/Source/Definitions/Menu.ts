@@ -49,7 +49,9 @@ namespace Template {
           <td>Programming</td>\
           <td>Oriane Joublin</td>\
         </tr>\
-        <h3>Music</h3>\
+        </table>\
+        <h2>Music and Sound</h2>\
+        <table>\
         <tr>\
           <td>Adventure</td>\
           <td>Alexander Nakarada</td>\
@@ -62,7 +64,6 @@ namespace Template {
         <td>Wake Up</td>\
         <td>Scandinavianz</td>\
         </tr>\
-        <h3>SFX</h3>\
         <tr>\
           <td>Sound Effects</td>\
           <td>soundjay.com</td>\
@@ -76,16 +77,41 @@ namespace Template {
         <td>Oriane Joublin</td>\
         </tr>\
       </table>\
-      <h3>Special Thanks</h3>\
+      <h2>Special Thanks</h2>\
       <p> to Carina Spangenberger, Riem Yasin, Jirka Dell'Oro and <br> Frank Joublin for their support in programming questions and <br> to Iris Schnabel and Emily Pacey for improving the rhymes.</p>\
-      <p>Made with FUDGE Story\
+      <p><em>Made with FUDGE Story.</em></p>\
       ";
         ƒS.Text.print(credits);
     };
 
     export function showShortcuts(): void {
         ƒS.Text.setClass("shortcuts");
-        ƒS.Text.print("<p> <b> SHORTCUTS </b> </p> <p> Menü ein- und ausblenden: <em> m </em> <br> Vollbildmodus Windows ein- und ausschalten: <em> f11  </em> <br> Vollbildmodus Mac: <em> Ctrl - Cmd – F </em> </p>");
+        let shortcuts =
+      "<h1>SHORTCUTS</h1>\
+      <table>\
+        <tr>\
+          <td>Menu (open/ close)</td>\
+          <td>m</td>\
+        </tr>\
+        <tr>\
+          <td>Full-screen Windows</td>\
+          <td>f11</td>\
+        </tr>\
+        <tr>\
+          <td>Full-screen Mac</td>\
+          <td>Ctrl - Cmd – F </td>\
+        </tr>\
+        <tr>\
+          <td>Save</td>\
+          <td>f8</td>\
+        </tr>\
+        <tr>\
+          <td>Load</td>\
+          <td>f9</td>\
+        </tr>\
+      </table>\
+      ";
+        ƒS.Text.print(shortcuts);
     };
 
     // true = offen; false = geschlossen
