@@ -5,11 +5,11 @@ namespace Template {
 
         let text = {
             narrator: {
-                T0000: "<p> Finally, with a little hop <br> they landed on a roof top. <br> The bird let the seed go <br> " + dataForSave.nameProtagonist + " saw it was a crow. </p>",
+                T0000: "<p> Finally, with a little hop <br> They landed on a roof top. <br> The bird let the seed go <br> " + dataForSave.nameProtagonist + " saw it was a crow. </p>",
                 T0001: "<p> It leaped around and looked <br> At the seed it had hooked. <br> " + dataForSave.nameProtagonist + " froze in fear <br> As a whisper reached its ear: </p>",
                 T0002: "<p> “Psst! Come here, I know a place <br> For you to be safe!” <br> And under a tile <br> Stood an ant with a smile. </p>",
                 T0003: "<p> “Come here, be quick <br> Or you’ll be eaten with a flick <br> Of the crows head <br> And then you’d be dead!” </p>",
-                T0004: "<p> “You won’t eat me, right?”, <br> asked the seed in fright. <br> “I promise, I will not!” <br> Said the ant on the spot. </p>"
+                T0004: "<p> “You won’t eat me, right?”, <br> Asked the seed in fright. <br> “I promise, I will not!”, <br> Said the ant on the spot. </p>"
             }
         };
 

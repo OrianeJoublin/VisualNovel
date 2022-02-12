@@ -5,7 +5,7 @@ namespace Template {
 
         let text = {
             narrator: {
-                T0000: "<p> This cannot be the end that you wanted so badly. <br> So why don't you go back to the valley <br> and have another try <br> at helping the little seed fly? </p> <p> Take all the lessons you learned <br> and fight for the ending that you could have earned. </p>",
+                T0000: "<p> This cannot be the end that you wanted so badly. <br> So why don't you go back to the valley <br> And have another try <br> at helping the little seed fly? </p> <p> Take all the lessons you learned <br> And fight for the ending that you could have earned. </p>",
                 TBad: "Bad Ending"
             }
         };

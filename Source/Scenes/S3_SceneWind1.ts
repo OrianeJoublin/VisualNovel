@@ -5,8 +5,8 @@ namespace Template {
 
         let text = { // Charaktere Texte
             narrator: {
-                T0000: "<p> And there came a gust <br> The seed had no chance <br> Against the force of its thrust. <br> Like in a dance <br> It soared up in the air <br> Hating the affair. </p>",
-                T0001: "<p> The screams and the crying <br> of the seed feeling forlorn. <br> Where muffled by the whistling <br> sound of the storm.</p>",
+                T0000: "<p> And there came a gust. <br> The seed had no chance <br> Against the force of its thrust. <br> Like in a dance <br> It soared up in the air <br> Hating the affair. </p>",
+                T0001: "<p> The screams and the crying <br> Of the seed feeling forlorn. <br> Where muffled by the whistling <br> Sound of the storm.</p>",
                 T0002: "<p> “Don’t be scared”, repeated the wind, <br> And still she grinned. <br> “I’m Anni, what’s your name?”, she asked.</p>",
                 T0003: "<p> “I’m ",
                 T0004: "”, the seed replied with of nod of its head. <br> It frowned a little and then said: </p>",

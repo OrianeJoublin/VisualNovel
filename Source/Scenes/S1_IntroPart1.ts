@@ -5,8 +5,8 @@ namespace Template {
     let text = {
       narrator: {
         T0000: "<p> Somewhere very far away <br> On a little hill in May <br> Stood a miracle tree <br> Spreading its branches gleefully. </p>",
-        T0001: "<p> During this happy spring event. <br> All the tree's seeds flew around <br> For it was time they were sent <br> To grow on the ground. </p>",
-        T0002: "For days the wind blew <br> And all the seeds flew <br> Up in the air and down to the earth <br> Where to brand new trees <br> they would give birth."
+        T0001: "<p> During this happy spring event <br> All the tree's seeds flew around <br> For it was time they were sent <br> To grow on the ground. </p>",
+        T0002: "For days the wind blew <br> And all the seeds flew <br> Up in the air and down to the earth <br> Where to brand new trees <br> They would give birth."
       }
     };
 

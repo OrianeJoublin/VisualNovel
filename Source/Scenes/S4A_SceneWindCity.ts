@@ -6,7 +6,7 @@ namespace Template {
         let text = {
             narrator: {
                 T0000: "<p> And so the wind blew <br> And together they flew <br> To the next city <br> And arrived in a jiffy. </p>",
-                T0001: " was excited <br> It had never seen anything so far from its tree. <br> The wind felt its glee <br> And said reprovingly: <br> “I have to warn you, so let it be said <br> That if you keep your wish, <br> you’re destined to be sad!”",
+                T0001: " was excited. <br> It had never seen anything so far from its tree. <br> The wind felt its glee <br> And said reprovingly: <br> “I have to warn you, so let it be said <br> That if you keep your wish, <br> You’re destined to be sad!”",
                 TD101: "“I hope you are wrong <br> And we can move along <br> With your help I’m sure <br> I will find my own path.”",
                 TD201: "“Of course I can, you liar! <br> I will fly higher! <br> Than all those friends <br> Who left me behind.”"
             }

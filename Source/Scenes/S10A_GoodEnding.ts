@@ -5,12 +5,12 @@ namespace Template {
 
         let text = {
             narrator: {
-                T0000: "<p> " + dataForSave.nameProtagonist + " jumped with a scream <br> As if in a dream <br> Over the roof's edge <br> Its body stretched. </p>",
-                T0001: "<p> The seed soared through the air <br> Living its greatest nightmare <br> Down there was the ant <br> " + dataForSave.nameProtagonist + " stretched out its hand. <br> Anni, the wind picked them up lightly <br> Smiling widely. </p>",
-                T0002: "<p> “I will drop you both to the ground <br> Destiny always comes round. <br> But first I’ll make a confession <br> For you gave me a lesson. </p>",
+                T0000: "<p> " + dataForSave.nameProtagonist + " jumped with a scream <br> As if in a dream <br> Over the roof's edge. <br> Its body stretched. </p>",
+                T0001: "<p> The seed soared through the air <br> Living its greatest nightmare. <br> Down there was the ant <br> " + dataForSave.nameProtagonist + " stretched out its hand. <br> Anni the wind picked them up lightly <br> Smiling widely. </p>",
+                T0002: "<p> “I will drop you both to the ground, <br> Destiny always comes round. <br> But first I’ll make a confession <br> For you gave me a lesson. </p>",
                 T0003: "<p> You taught me that a detour <br> Can make you more mature! <br> So farewell my friend <br> I swear this is not the end!” </p>",
                 T0004: "<p> Many seasons came around <br> And out of the ground <br> Just at the spot <br> Where the seed had dropped <br> Had grown a mighty tree. </p>",
-                T0005: "<p> By its side was Mable chasing a flea. <br> The wind tickled its leaves <br> While Ralph told the seeds. <br> “Don’t be scared of falling. <br> It’s just the beginning.” </p>",
+                T0005: "<p> By its side was Mable, chasing a flea. <br> The wind tickled its leaves <br> While Ralph told the seeds. <br> “Don’t be scared of falling. <br> It’s just the beginning.” </p>",
                 TGood: "Good Ending"
             }
         };

@@ -10,7 +10,7 @@ namespace Template {
                 T0002: "<p> Together they travelled <br> As time unravelled <br> To the next city <br> Which was quite pretty <br> And so arrived dawn <br> as the morning yawned.</p>",
                 T0003: dataForSave.nameProtagonist + " finally responded <br> To the wind’s inquiery:",
                 TD101: "<p> “You’re right to be offended <br> And yes I am sorry. <br> Does that mean you will help me?” </p>",
-                TD201: "“I don’t want to be helped <br> and no I’m not sorry.”"
+                TD201: "“I don’t want to be helped <br> And no I’m not sorry.”"
             }
         };
 
