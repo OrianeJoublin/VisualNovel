@@ -6,34 +6,14 @@ var Template;
     console.log("FudgeStory template starting");
     Template.dataForSave = {
         nameProtagonist: "",
-        points: 0,
-        scoreSeed: 0, //für Meterbar eines bestimmten Charakters
     };
     window.addEventListener("load", start);
     function start(_event) {
         //Menü
         Template.gameMenu = Template.ƒS.Menu.create(Template.inGameMenu, Template.buttonFunctionalities, "gameMenu"); //hier CSS Klasse angeben
         let scenes = [
-            //Linear
-            // { scene: S3_SceneWind1, name: "S3_SceneWind1" },
-            // { scene: S7A_SceneDogCityRain, name: "S7A_SceneDogCityRain" },
-            //{ scene: NovelPages, name: "NovelPages" },
-            //{ scene: StartAgainScreen, name: "StartAgainScreen" },
             { scene: Template.S1_IntroPart1, name: "S1_IntroPart1" },
-            //{ scene: S2_IntroPart2, name: "S2_IntroPart2" },
-            //{ scene: S3_SceneWind1, name: "S3_SceneWind1" }, 
-            //{ scene: S5C_SceneDogRun, name: "S5C_SceneDogRun" },
-            //{ scene: S6A_SceneWindRain, name: "S6A_SceneWindRain" },
-            //{ scene: S7A_SceneDogCityRain, name: "S7A_SceneDogCityRain" },
-            //{ scene: S10A_GoodEnding, name: "S10A_GoodEnding" }
-            //{ id: "Einführung", scene: Scene, name: "Scene", next: "Ende"},  //man kann direkt die nächste szene hier definieren statt return in der Szene
-            //{ scene: Scene2, name: "Scene Two"},
-            //{ id: "Ende", scene: encodeURI, name: "The End"},
-            //{ id: "Einführung2", scene: Scene, name: "Scene" } //selbe Szene kann mehrere IDs haben
         ];
-        // Interface elemente abspeichern
-        let uiElement = document.querySelector("[type=interface]"); //Meterbar CSS
-        Template.dataForSave = Template.ƒS.Progress.setData(Template.dataForSave, uiElement);
         // start the sequence
         Template.ƒS.Progress.go(scenes);
     }
@@ -42,16 +22,6 @@ var Template;
 var Template;
 (function (Template) {
     //Animationen, die für alle Szenen gelten
-    function jirkaAnimation() {
-        return {
-            start: { translation: Template.ƒS.positions.bottomleft, rotation: -20, scaling: new Template.ƒS.Position(0.5, 1.5), color: Template.ƒS.Color.CSS("white", 0.5) },
-            end: { translation: Template.ƒS.positions.bottomright, rotation: 20, scaling: new Template.ƒS.Position(1.5, 0.5), color: Template.ƒS.Color.CSS("red") },
-            duration: 1,
-            playmode: Template.ƒS.ANIMATION_PLAYMODE.LOOP
-        };
-    }
-    Template.jirkaAnimation = jirkaAnimation;
-    ;
     function fromLefttoRight() {
         return {
             start: { translation: Template.ƒS.positions.bottomleft },
@@ -82,14 +52,6 @@ var Template;
     }
     Template.fromToplefttoTopcenter = fromToplefttoTopcenter;
     ;
-    //export function SwayDown(): ƒS.AnimationDefinition {
-    //return {
-    //start: { translation: ƒS.positionPercent(40, 45) },
-    //end: { translation: ƒS.positionPercent(50, 50) },
-    //duration: 30, // as long as you want
-    //playmode: ƒS.ANIMATION_PLAYMODE.LOOP
-    // }
-    // };
     function SwayDown() {
         return {
             start: { translation: Template.ƒS.positionPercent(40, 45) },
@@ -225,17 +187,6 @@ var Template;
 })(Template || (Template = {}));
 var Template;
 (function (Template) {
-    //Items, die man erhält und zum Inventar zugefügt werden
-    Template.items = {
-        pen: {
-            name: "Red Pen",
-            description: "A red pen",
-            image: "./Images/Items/redPen"
-        }
-    };
-})(Template || (Template = {}));
-var Template;
-(function (Template) {
     // Hintergründe
     Template.locations = {
         TreeWithoutSeeds: {
@@ -350,6 +301,7 @@ var Template;
         Template.ƒS.Sound.setMasterVolume(Template.volume);
     }
     Template.decrementSound = decrementSound;
+    // MENU
     Template.inGameMenu = {
         save: "Save",
         load: "Load",
@@ -508,7 +460,6 @@ var Template;
 (function (Template) {
     Template.sound = {
         // music 
-        //wakeUp: "./Music/WakeUp.mp3",
         wakeUp: "./Music/CombinedMusicMedium.wav",
         adventure: "./Music/Adventure.mp3",
         forestWalk: "./Music/ForestWalk.mp3",
@@ -536,7 +487,6 @@ var Template;
         s3_2: "./VoiceOver/S3.2.wav",
         s3_3: "./VoiceOver/S3.3.wav",
         s3_3_Choices: "./VoiceOver/S3.3_Choices.wav",
-        //s3_3_withChoices: "./VoiceOver/S3.3_withChoices.wav",
         s3_4_iInsult: "./VoiceOver/S3.4_iInsult.wav",
         s3_4_iInsult2: "./VoiceOver/S3.4_iInsult2.wav",
         s3_4_iSayHelp: "./VoiceOver/S3.4_iSayHelp.wav",
@@ -544,19 +494,16 @@ var Template;
         s4A_2: "./VoiceOver/S4A.2.wav",
         s4A_3: "./VoiceOver/S4A.3.wav",
         s4A_3_Choices: "./VoiceOver/S4A.3_Choices.wav",
-        //s4A_3_withChoices: "./VoiceOver/S4A.3_withChoices.wav",
         S4A_4_iBeAngry: "./VoiceOver/S4A.4_iBeAngry.wav",
         S4A_4_iBeNice: "./VoiceOver/S4A.4_iBeNice.wav",
         s4B_1: "./VoiceOver/S4B.1.wav",
         s4B_2: "./VoiceOver/S4B.2.wav",
         s4B_3: "./VoiceOver/S4B.3.wav",
         s4B_3_Choices: "./VoiceOver/S4B.3_Choices.wav",
-        //s4B_3_withChoices: "./VoiceOver/S4B.3_withChoices.wav",
         s4B_4_iSayNo: "./VoiceOver/S4B.4_iSayNo.wav",
         s5B_1: "./VoiceOver/S5B.1.wav",
         s5B_2: "./VoiceOver/S5B.2.wav",
         s5B_2_Choices: "./VoiceOver/S5B.2_Choices.wav",
-        //s5B_2_withChoices: "./VoiceOver/S5B.2_withChoices.wav",
         s5B_3_iSayNotSorry: "./VoiceOver/S5B.3_iSayNotSorry.wav",
         s5B_3_iSaySorry: "./VoiceOver/S5B.3_iSaySorry.wav",
         s5C_1: "./VoiceOver/S5C.1.wav",
@@ -575,14 +522,12 @@ var Template;
         s8_2: "./VoiceOver/S8.2.wav",
         s8_3: "./VoiceOver/S8.3.wav",
         s8_3_Choices: "./VoiceOver/S8.3_Choices.wav",
-        //s8_3_withChoices: "./VoiceOver/S8.3_withChoices.wav",
         s9A_1: "./VoiceOver/S9A.1.wav",
         s9A_2: "./VoiceOver/S9A.2.wav",
         s9A_3: "./VoiceOver/S9A.3.wav",
         s9A_4: "./VoiceOver/S9A.4.wav",
         s9A_5: "./VoiceOver/S9A.5.wav",
         s9A_5_Choices: "./VoiceOver/S9A.5_Choices.wav",
-        //s9A_5_withChoices: "./VoiceOver/S9A.5_withChoices.wav",
         s9B_1: "./VoiceOver/S9B.1.wav",
         s9B_2: "./VoiceOver/S9B.2.wav",
         s9B_3: "./VoiceOver/S9B.3.wav",
@@ -614,7 +559,7 @@ var Template;
         new: {
             duration: 1,
             alpha: "./Transitions/001.jpg",
-            edge: 1 // harte Transition
+            edge: 1
         },
         black: {
             duration: 1,
@@ -635,202 +580,6 @@ var Template;
 })(Template || (Template = {}));
 var Template;
 (function (Template) {
-    async function TestS1_IntroPart1() {
-        console.log("S1_IntroPart1 starting");
-        let text = {
-            narrator: {
-                T0000: "Somewhere far away <br> On a little hill in May <br> Stood a miracle tree <br> Spreading its branches gleefully",
-                T0001: ""
-            },
-            seed: {
-                T0000: "Hi",
-                T0001: ""
-            },
-            snowWhite: {
-                T0000: "Oh but our guest doesn't have any yet! Would you like some tea?",
-                T0001: "Here you go!",
-                T0002: "Because when the tea gets cold, the sun comes out. Do you want to wait for it or rather drink the tea?",
-                T0003: "Right? But the sun only comes out for a few seconds and then leaves us again."
-            },
-            whiteRabbit: {
-                T0000: "I wonder what time the tea will be cold.",
-                T0001: "Fine, then lets start the timer and count the seconds.",
-                T0002: "So, let's go home then, alright?"
-            },
-            alice: {
-                T0000: "Yes, please!",
-                T0001: "No, thanks.",
-                T0002: "Why are you waiting for the tea to be cold?",
-                T0003: "I'll wait.",
-                T0004: "I'm not waiting for the tea to be cold, no way!",
-                T0005: "That's so pretty!",
-                T0006: "Actually, I'd like some tea now, if that's okay?"
-            }
-        };
-        //Musik
-        //ƒS.Sound.play(sound.backgroundTheme, 0.1, true);
-        Template.ƒS.Sound.fade(Template.sound.adventure, 0.2, 2, true); // true = gelooped
-        //Delay
-        let signalDelay = Template.ƒS.Progress.defineSignal([() => Template.ƒS.Progress.delay(1)]);
-        //Text während Animation
-        let animationDone = Template.ƒS.Character.animate(Template.characters.ManySeeds, Template.characters.ManySeeds.pose.neutral, Template.Sway());
-        // Background and characters appear:
-        await Template.ƒS.Location.show(Template.locations.TreeWithoutSeeds);
-        //await ƒS.Location.show(locations.Teatime);
-        await Template.ƒS.update(Template.transitions.clock.duration, Template.transitions.clock.alpha, Template.transitions.clock.edge); // es gibt die Möglichkeit, transition Attribute zu kombinieren (also von anderen Transitions)
-        animationDone;
-        //await ƒS.Character.show(characters.snowWhite, characters.snowWhite.pose.neutral, ƒS.positions.centerleft); // oder positionPercent, wo ich x und y Koordinaten eingeben kann
-        //await ƒS.update(1); // transition Länge (hier eine Sekunde)
-        //await ƒS.Character.show(characters.whiteRabbit, characters.whiteRabbit.pose.neutral, ƒS.positionPercent (70,80)); // oder positionPercent, wo ich x und y Koordinaten eingeben kann
-        //await ƒS.update(1); // transition Länge (hier eine Sekunde)
-        //await ƒS.Character.show(characters.alice, characters.alice.pose.neutral, ƒS.positions.bottomright); // oder positionPercent, wo ich x und y Koordinaten eingeben kann
-        //await ƒS.update(1); // transition Länge (hier eine Sekunde)
-        //await ƒS.Character.show(characters.ManySeeds, characters.ManySeeds.pose.neutral,ƒS.positions.center)
-        //await ƒS.Character.animate(characters.ManySeeds, characters.ManySeeds.pose.neutral, Sway());
-        //await ƒS.Character.animate (characters.ManySeeds, characters.ManySeeds.pose.neutral, Sway());
-        //await ƒS.Character.animate (characters.alice, characters.alice.pose.neutral, jirkaAnimation());
-        //await ƒS.Character.animate (characters.whiteRabbit, characters.whiteRabbit.pose.neutral, fromLefttoRight ()); // animation
-        await Template.ƒS.Character.animate(Template.characters.Rain, Template.characters.Rain.pose.neutral, Template.Rain());
-        //Input Feld
-        Template.dataForSave.nameProtagonist = await Template.ƒS.Speech.getInput();
-        console.log(Template.dataForSave.nameProtagonist);
-        //Inventar
-        //ƒS.Inventory.add(items.pen);
-        //await ƒS.Inventory.open();
-        //await ƒS.Speech.tell(chara)
-        await Template.ƒS.Speech.tell(Template.characters.narrator, text.narrator.T0000, true, "introduction");
-        await Template.ƒS.Speech.tell(Template.characters.whiteRabbit, text.whiteRabbit.T0000 + " " + Template.dataForSave.nameProtagonist + " restlicher Text."); // wartet auf Nutzereingabe, für Text
-        await Template.ƒS.Speech.tell(Template.characters.snowWhite, text.snowWhite.T0000);
-        await signalDelay();
-        await Template.ƒS.Speech.tell(Template.dataForSave.nameProtagonist, "Quatsch", true, "protagonist"); //letztes = css Klasse
-        //await ƒS.Speech.tell(characters.snowWhite, "Hi2."); // für Auswahlmöglichkeiten
-        //await ƒS.Character.hide(characters.seed);
-        // Text pace
-        Template.ƒS.Speech.setTickerDelays(20, 2); //die 2 ist delay zwei sekunden warten, bevor bei paragraf weitergeht. <p> </p> paragraph innerhalb der anführungszeichen von text oder <br> für neue Zeile
-        let firstDialogueElementOptions = {
-            // iSayOk: "Okay.", // immer mit i anfangen weil perspektive des Spielers
-            iSayYes: "Yes, please!",
-            iSayNo: "No thanks."
-        };
-        let firstDialogueElement = await Template.ƒS.Menu.getInput(firstDialogueElementOptions, "individualCSSClass"); // Gestaltungsklassen mit CSS vergeben
-        switch (firstDialogueElement) { //switch case springt zum jeweiligen case und breaked es/ springt raus
-            // case firstDialogueElementOptions.iSayOk:
-            //await ƒS.Speech.tell(characters.seed, "Hi2.");
-            //break;
-            case firstDialogueElementOptions.iSayYes:
-                await Template.ƒS.Character.animate(Template.characters.teaCup, Template.characters.teaCup.pose.neutral, Template.fromToptoCenter());
-                //await ƒS.Character.show(characters.teaCup, characters.teaCup.pose.neutral, ƒS.positions.center); //angenommen anderere charkter wäre deklariert dann was anderes als seed
-                await Template.ƒS.Speech.tell(Template.characters.snowWhite, text.snowWhite.T0001);
-                await Template.ƒS.Speech.tell(Template.characters.whiteRabbit, text.whiteRabbit.T0001);
-                await Template.ƒS.Speech.tell(Template.characters.alice, text.alice.T0002);
-                await Template.ƒS.Speech.tell(Template.characters.snowWhite, text.snowWhite.T0002);
-                break; //man kann aber auch in einer case eine case haben
-            //man könnte auch hier return "szene"; machen
-            case firstDialogueElementOptions.iSayNo:
-                //dataForSave.points += 10; //wenn Spieler so und so viele Punkte gesammelt hat, kommt x Szene
-                await Template.ƒS.Speech.tell(Template.characters.whiteRabbit, text.whiteRabbit.T0001);
-                await Template.ƒS.Speech.tell(Template.characters.alice, text.alice.T0002);
-                await Template.ƒS.Speech.tell(Template.characters.snowWhite, text.snowWhite.T0002);
-                break;
-        }
-        ;
-        let secondDialogueElementOptions = {
-            iSayWait: "I'll wait",
-            iSayNotWait: "I'm not waiting for the tea to be cold, no way!"
-        };
-        let secondDialogueElement = await Template.ƒS.Menu.getInput(secondDialogueElementOptions, "individualCSSClass");
-        switch (secondDialogueElement) {
-            case secondDialogueElementOptions.iSayWait:
-                await Template.ƒS.Character.animate(Template.characters.sun, Template.characters.sun.pose.neutral, Template.fromToplefttoTopcenter());
-                //await ƒS.Character.show(characters.sun, characters.sun.pose.neutral, ƒS.positions.center); 
-                await Template.ƒS.Speech.tell(Template.characters.alice, text.alice.T0005);
-                await Template.ƒS.Speech.tell(Template.characters.snowWhite, text.snowWhite.T0003);
-                await Template.ƒS.Speech.tell(Template.characters.whiteRabbit, text.whiteRabbit.T0002);
-                break;
-            case secondDialogueElementOptions.iSayNotWait:
-                await Template.ƒS.Speech.tell(Template.characters.whiteRabbit, text.whiteRabbit.T0002);
-                break;
-        }
-        ;
-        //Musik Ausblenden
-        Template.ƒS.Sound.fade(Template.sound.adventure, 0, 2);
-        //if (dataForSave.points === 100) { //hier drei = weil noch number und string vertreten
-        // return End(); //--> zB. wenn so viele Punkte erreicht, dann die szene, das wäre aber kein Punkteverteilungssystem (nur wenn Zieler gezielt im Konzept Punkte sammelt)
-        // }
-        //return "Ende"; (um auf ende zu gehen)
-        //oder
-        // return End(); 
-    }
-    Template.TestS1_IntroPart1 = TestS1_IntroPart1;
-})(Template || (Template = {}));
-var Template;
-(function (Template) {
-    async function NovelPages() {
-        console.log("Novel Pages");
-        let text = {
-            Narrator: {
-                T0000: "",
-                T0001: ""
-            },
-            Protagonist: {
-                T0000: "",
-                T0001: ""
-            },
-            narrator: {
-                T0000: "Novel pages können ganz unterschiedlich verwendet werden.",
-                T0001: "Hier konntest du ein Beispiel sehen, bei dem man die Seiten, wie in einem Buch, umblättert."
-            }
-        };
-        // document.getElementsByName("scoreRyu").forEach(meterStuff => meterStuff.hidden = true);
-        // document.getElementsByName("scoreForRyu").forEach(meterStuff => meterStuff.hidden = true);
-        // gameMenu.close();
-        // menu = false;
-        Template.ƒS.Speech.hide();
-        await Template.ƒS.Location.show(Template.locations.AntFalls);
-        // await ƒS.update(transition.clock.duration, transition.clock.alpha, transition.clock.edge);
-        await Template.ƒS.Character.show(Template.characters.Crow, Template.characters.Crow.pose.flight, Template.ƒS.positionPercent(30, 100));
-        await Template.ƒS.update(1);
-        // await ƒS.Speech.tell(characters.Ryu, text.Ryu.T0000);
-        // if (!dataForSave.started) {
-        Template.ƒS.Text.addClass("contract");
-        Template.ƒS.Speech.hide();
-        let pages = ["<strong>Überschrift:</strong>blabla<br></br> \
-          <br>Seite 1</br>", "<strong>Überschrift</strong>\
-          <br>Seite 2</br>", "<strong>Überschrift</strong> \
-          <br>test text test</br> text test text <br>test text test</br> text<br></br> Seite 3", "Seite 4", "Seite 5", "Seite 6", "Seite 7", "Seite 8"];
-        let current = 0;
-        let flip = { back: "Back", next: "Next", done: "Close" };
-        let choice;
-        Template.ƒS.Text.addClass("flip");
-        do {
-            Template.ƒS.Text.print(pages[current]);
-            choice = await Template.ƒS.Menu.getInput(flip, "flip");
-            switch (choice) {
-                case flip.back:
-                    current = Math.max(0, current - 1);
-                    break;
-                case flip.next:
-                    current = Math.min(pages.length - 1, current + 1);
-                    break;
-                // case flip.back: current = Math.max(0, current - 1); break;
-                // case flip.next: current = Math.min(2, current + 1); break;
-            }
-        } while (choice != flip.done);
-        Template.ƒS.Text.close();
-        // }
-        // Delay reinmachen + testen
-        await Template.ƒS.Speech.tell(Template.characters.narrator, text.Narrator.T0000);
-        await Template.ƒS.Speech.tell(Template.characters.narrator, text.Narrator.T0001);
-        Template.ƒS.Text.print("Lies mich.");
-        Template.ƒS.Text.setClass("text");
-        await Template.ƒS.Speech.tell(Template.characters.narrator, "Probier' es doch einmal selbst aus.");
-        await Template.ƒS.Character.hide(Template.characters.Crow);
-        await Template.ƒS.update(1);
-    }
-    Template.NovelPages = NovelPages;
-})(Template || (Template = {}));
-var Template;
-(function (Template) {
     async function S10A_GoodEnding() {
         console.log("S10A_GoodEnding starting");
         let text = {
@@ -848,7 +597,6 @@ var Template;
         await Template.ƒS.Location.show(Template.locations.SeedSavesAnt);
         Template.ƒS.Sound.play(Template.sound.pageFlip, 0.4, false);
         Template.ƒS.update(1);
-        //await ƒS.update(transitions.new.duration, transitions.new.alpha, transitions.new.edge);
         Template.ƒS.Sound.fade(Template.sound.wind1, 0.08, 2, true);
         Template.ƒS.Sound.fade(Template.sound.wakeUp, 0.18, 2, true);
         //Text
@@ -867,7 +615,6 @@ var Template;
         await Template.ƒS.Location.show(Template.locations.GoodEnding);
         Template.ƒS.Sound.play(Template.sound.pageFlip, 0.4, false);
         Template.ƒS.update(1);
-        //await ƒS.update(transitions.new.duration, transitions.new.alpha, transitions.new.edge);
         Template.ƒS.Sound.fade(Template.sound.wind2, 0.03, 2, true);
         Template.ƒS.Sound.fade(Template.sound.springBirds, 0.4, 2, true);
         Template.ƒS.Sound.fade(Template.sound.springWeather, 0.18, 2, true);
@@ -888,12 +635,10 @@ var Template;
         await Template.ƒS.Location.show(Template.locations.FinalGood);
         Template.ƒS.update(1);
         Template.ƒS.Sound.play(Template.sound.pageFlip, 0.4, false);
-        //await ƒS.update(transitions.new.duration, transitions.new.alpha, transitions.new.edge);
         await Template.ƒS.Sound.play(Template.sound.goodEnding, 1.7, false);
         await Template.ƒS.Speech.tell(Template.characters.narrator, text.narrator.TGood, true, "Ending");
         Template.ƒS.Sound.fade(Template.sound.goodEnding, 0, 0);
         return Template.EndOfNovel();
-        //return S1_IntroPart1(); //for now, better would be to return to the start screen
     }
     Template.S10A_GoodEnding = S10A_GoodEnding;
 })(Template || (Template = {}));
@@ -915,7 +660,6 @@ var Template;
         await Template.ƒS.Location.show(Template.locations.AntFalls);
         Template.ƒS.update(1);
         Template.ƒS.Sound.play(Template.sound.pageFlip, 0.4, false);
-        //await ƒS.update(transitions.new.duration, transitions.new.alpha, transitions.new.edge);
         //Text
         await Template.ƒS.Sound.play(Template.sound.s10B_1, 1.7, false);
         await Template.ƒS.Speech.tell(Template.characters.narrator, text.narrator.T0000, true, "S10BT1");
@@ -931,7 +675,6 @@ var Template;
         await Template.ƒS.Location.show(Template.locations.SeedAlone);
         Template.ƒS.update(1);
         Template.ƒS.Sound.play(Template.sound.pageFlip, 0.4, false);
-        //await ƒS.update(transitions.new.duration, transitions.new.alpha, transitions.new.edge);
         //Animation Rain and Sound
         await Template.ƒS.Character.animate(Template.characters.Rain, Template.characters.Rain.pose.neutral, Template.Rain());
         Template.ƒS.Sound.fade(Template.sound.wakeUp, 0.15, 2, true);
@@ -948,8 +691,7 @@ var Template;
         await Template.ƒS.Location.show(Template.locations.BadEnding);
         Template.ƒS.update(1);
         Template.ƒS.Sound.play(Template.sound.pageFlip, 0.4, false);
-        //await ƒS.update(transitions.new.duration, transitions.new.alpha, transitions.new.edge);
-        // Text
+        //Text
         await Template.ƒS.Sound.play(Template.sound.s10B_5, 1.7, false);
         await Template.ƒS.Speech.tell(Template.characters.narrator, text.narrator.T0004 + text.narrator.T0005, true, "S10BT3");
         Template.ƒS.Sound.fade(Template.sound.s10B_5, 0, 0);
@@ -972,7 +714,6 @@ var Template;
         await Template.ƒS.Location.show(Template.locations.FinalBad);
         Template.ƒS.Sound.play(Template.sound.pageFlip, 0.4, false);
         Template.ƒS.update(1);
-        //await ƒS.update(transitions.new.duration, transitions.new.alpha, transitions.new.edge);
         //Text
         await Template.ƒS.Sound.play(Template.sound.startAgainScreen, 1.7, false);
         await Template.ƒS.Speech.tell(Template.characters.narrator, text.narrator.T0000, true, "S11");
@@ -986,8 +727,6 @@ var Template;
                 Template.ƒS.Sound.fade(Template.sound.startAgainScreen, 0, 0);
                 await Template.ƒS.Sound.play(Template.sound.badEnding, 1.7, false);
                 await Template.ƒS.Speech.tell(Template.characters.narrator, text.narrator.TBad, true, "Ending");
-                //ƒS.Speech.clear();
-                //return S1_IntroPart1(); //for now, better would be to return to the start screen
                 return Template.EndOfNovel();
             case decisionS11ElementOptions.iSayYes:
                 Template.ƒS.Sound.fade(Template.sound.startAgainScreen, 0, 0);
@@ -1016,13 +755,12 @@ var Template;
         };
         //Musik
         Template.ƒS.Sound.play(Template.sound.wakeUp, 0.15, true);
-        //Animation auch während Text möglich
+        //Animation
         let animationDone = Template.ƒS.Character.animate(Template.characters.ManySeeds, Template.characters.ManySeeds.pose.neutral, Template.SwayDown());
-        // Background, transitions and characters appear:
+        // Background, transitions and characters appear
         await Template.ƒS.Location.show(Template.locations.TreeWithoutSeeds);
         Template.ƒS.update(1);
         Template.ƒS.Sound.play(Template.sound.pageFlip, 0.4, false);
-        //ƒS.update(transitions.Page.duration, transitions.Page.alpha, transitions.Page.edge);
         animationDone;
         //Novel Page
         Template.ƒS.Text.setClass("startScreen");
@@ -1044,7 +782,7 @@ var Template;
     ";
         Template.ƒS.Text.print(startScreen);
         // Text pace
-        Template.ƒS.Speech.setTickerDelays(70, 500); //die 2 ist delay zwei sekunden warten, bevor bei paragraf weitergeht.
+        Template.ƒS.Speech.setTickerDelays(70, 500);
         //Text
         await Template.ƒS.Speech.tell(null, null, true); //nur damit text erst nach erstem klick kommt wegen Novel Page 
         //VoiceOver
@@ -1069,12 +807,11 @@ var Template;
                 T0002: "Then spoke the wind <br> as she sheepishly grinned: <br> “Don’t be so scared little one, <br> The journey might be fun!” </p>"
             }
         };
-        //sound
+        //Sound
         Template.ƒS.Sound.play(Template.sound.pageFlip, 0.4, false);
         //Background with transition and characters appear:
         await Template.ƒS.Location.show(Template.locations.SeedGrippingBranch);
         Template.ƒS.update(1);
-        //await ƒS.update(transitions.black.duration, transitions.black.alpha, transitions.black.edge); 
         //Text
         await Template.ƒS.Sound.play(Template.sound.s2, 1.6, false);
         await Template.ƒS.Speech.tell(Template.characters.narrator, text.narrator.T0000 + text.narrator.T0001 + text.narrator.T0002, true, "introduction");
@@ -1174,7 +911,6 @@ var Template;
         await Template.ƒS.Location.show(Template.locations.WindtoCity);
         Template.ƒS.Sound.play(Template.sound.pageFlip, 0.4, false);
         Template.ƒS.update(1);
-        //await ƒS.update(transitions.new.duration, transitions.new.alpha, transitions.new.edge); 
         //Text
         await Template.ƒS.Sound.play(Template.sound.s4A_1, 1.7, false);
         await Template.ƒS.Speech.tell(Template.characters.narrator, text.narrator.T0000, true, "S3T1");
@@ -1223,14 +959,13 @@ var Template;
                 T0003: "Mable nodded and, taking the lead, <br> Asked “what is your name, little seed?” <br> " + Template.dataForSave.nameProtagonist + " replied and told its tale of woe: <br> “I lost my home, everything I've ever known!”",
                 T0004: "The dog looked around at " + Template.dataForSave.nameProtagonist + ", her new friend <br> And assured it: “This won't be the end! <br> Say, will you let me help you, <br> Get to where you want to?”",
                 TD101: "<p> “No thanks, I don’t need another friend <br> Who will leave me in the end.” </p>",
-                TD102: Template.dataForSave.nameProtagonist + " said goodbye <br> And jumped into the sky <br> Leaving Mable behind <br> Even though she’d been kind.",
+                TD102: Template.dataForSave.nameProtagonist + " said goodbye <br> And jumped into the sky <br> Leaving Mable behind <br> Even though she’d been kind."
             }
         };
         //Background with transition and characters appear:
         await Template.ƒS.Location.show(Template.locations.MeetMable);
         Template.ƒS.Sound.play(Template.sound.pageFlip, 0.4, false);
         Template.ƒS.update(1);
-        //await ƒS.update(transitions.new.duration, transitions.new.alpha, transitions.new.edge); 
         //Text
         await Template.ƒS.Sound.play(Template.sound.s4B_1, 1.7, false);
         await Template.ƒS.Speech.tell(Template.characters.narrator, text.narrator.T0000 + text.narrator.T0001, true, "S4BT1");
@@ -1275,7 +1010,7 @@ var Template;
                 T0002: "<p> Together they travelled <br> As time unravelled <br> To the next city <br> Which was quite pretty <br> And so arrived dawn <br> as the morning yawned.</p>",
                 T0003: Template.dataForSave.nameProtagonist + " finally responded <br> To the wind’s inquiery:",
                 TD101: "<p> “You’re right to be offended <br> And yes I am sorry. <br> Does that mean you will help me?” </p>",
-                TD201: "“I don’t want to be helped <br> and no I’m not sorry.”",
+                TD201: "“I don’t want to be helped <br> and no I’m not sorry.”"
             }
         };
         //Sound
@@ -1284,7 +1019,6 @@ var Template;
         //Background with transition and characters appear:
         await Template.ƒS.Location.show(Template.locations.WindtoCity);
         Template.ƒS.update(1);
-        //await ƒS.update(transitions.new.duration, transitions.new.alpha, transitions.new.edge);
         //Text
         await Template.ƒS.Sound.play(Template.sound.s5B_1, 1.7, false);
         await Template.ƒS.Speech.tell(Template.characters.narrator, text.narrator.T0000 + text.narrator.T0001, true, "S5BT1");
@@ -1329,14 +1063,13 @@ var Template;
                 T0000: "<p> “Of course I will!”, <br> And jumping with skill <br> Mable carried the seed <br> At top speed <br> Down the hill, down, <br> Towards the next town. </p>",
                 T0001: "“I’m hungry, you see. <br> But if you stay with me,” <br> Said Mable, so brave. <br> “I’ll make sure you stay safe!”",
                 T0002: "<p> Together they travelled <br> As time unravelled <br> To the next city <br> Which was quite pretty <br> And so arrived dawn <br> as the morning yawned.</p>",
-                T0003: "The city was loud <br> Though there was no crowd <br> For at this time of day <br> In bed most people lay.",
+                T0003: "The city was loud <br> Though there was no crowd <br> For at this time of day <br> In bed most people lay."
             }
         };
         //Background with transition and characters appear:
         await Template.ƒS.Location.show(Template.locations.WithMabletoCity);
         Template.ƒS.Sound.play(Template.sound.pageFlip, 0.4, false);
         Template.ƒS.update(1);
-        //await ƒS.update(transitions.new.duration, transitions.new.alpha, transitions.new.edge);
         await Template.ƒS.Character.animate(Template.characters.Dog, Template.characters.Dog.pose.walk, Template.dogEnter());
         //Text
         await Template.ƒS.Sound.play(Template.sound.s5C_1, 1.7, false);
@@ -1355,21 +1088,22 @@ var Template;
 (function (Template) {
     async function S6A_SceneWindRain() {
         console.log("S6A_SceneWindRain starting");
+        //sound
         Template.ƒS.Sound.fade(Template.sound.wakeUp, 0.1, 3, true);
         Template.ƒS.Sound.fade(Template.sound.wind1, 0.05, 0, true);
         Template.ƒS.Sound.fade(Template.sound.thunderStorm2, 0.2, 0, true);
         Template.ƒS.Sound.fade(Template.sound.rain3, 0.3, 2, true);
+        //text variables
         let text = {
             narrator: {
                 T0000: "<p> No sooner had it spoken <br> Than the sky had broken. <br> Through heavy clouds poured the rain, <br> " + Template.dataForSave.nameProtagonist + " cried in pain <br> As a huge drop caught it <br> And the sky was all lit. <br> The thunder growled <br> And the wind howled: </p>",
                 T0001: "“I can’t carry you, I’m sorry! <br> You’re too wet and too heavy. <br> I hope you little seed <br> Find the end that you seek.”"
             }
         };
-        //Background with transition and characters appear:
+        //Background with transition and characters appear
         await Template.ƒS.Location.show(Template.locations.WindRain);
         Template.ƒS.update(1);
         Template.ƒS.Sound.play(Template.sound.pageFlip, 0.4, false);
-        //await ƒS.update(transitions.new.duration, transitions.new.alpha, transitions.new.edge);
         Template.ƒS.Character.show(Template.characters.Crow, Template.characters.Crow.pose.flight, Template.ƒS.positionPercent(0, 0));
         Template.ƒS.Character.animate(Template.characters.Rain, Template.characters.Rain.pose.neutral, Template.Rain());
         //Text
@@ -1403,9 +1137,6 @@ var Template;
         //Background with transition and characters appear:
         await Template.ƒS.Location.show(Template.locations.CityWithMable);
         Template.ƒS.update(1);
-        //await ƒS.update(transitions.new.duration, transitions.new.alpha, transitions.new.edge);
-        //await ƒS.Character.show(characters.Crow, characters.Crow.pose.flight, ƒS.positionPercent (0,70));
-        //await ƒS.Character.animate(characters.Rain, characters.Rain.pose.neutral, Rain());
         //Text before bird
         await Template.ƒS.Sound.play(Template.sound.s7A_1, 1.7, false);
         await Template.ƒS.Speech.tell(Template.characters.narrator, text.narrator.T0000 + text.narrator.T0001, true, "S7AT1");
@@ -1415,7 +1146,7 @@ var Template;
         Template.ƒS.Sound.fade(Template.sound.s7A_2, 0, 0);
         await Template.ƒS.Sound.play(Template.sound.s7A_3, 1.7, false);
         await Template.ƒS.Speech.tell(Template.characters.narrator, text.narrator.T0003, true, "S7AT1");
-        //Bird flys in (hier wird der Vogel zum Teil durchsichtig)
+        //Bird flys in )
         await Template.ƒS.Character.animate(Template.characters.Crow, Template.characters.Crow.pose.flight, Template.flyDown());
         // Text after bird
         Template.ƒS.Sound.fade(Template.sound.s7A_3, 0, 0);
@@ -1460,7 +1191,6 @@ var Template;
         //Background with transition and characters appear:
         await Template.ƒS.Location.show(Template.locations.CityWithMable);
         Template.ƒS.update(1);
-        //await ƒS.update(transitions.new.duration, transitions.new.alpha, transitions.new.edge);
         //Text before bird
         await Template.ƒS.Sound.play(Template.sound.s7C_1, 1.7, false);
         await Template.ƒS.Speech.tell(Template.characters.narrator, text.narrator.T0000, true, "S7AT1");
@@ -1506,7 +1236,6 @@ var Template;
         await Template.ƒS.Location.show(Template.locations.ArriveRoofTop);
         Template.ƒS.Sound.play(Template.sound.pageFlip, 0.4, false);
         Template.ƒS.update(1);
-        //await ƒS.update(transitions.new.duration, transitions.new.alpha, transitions.new.edge); 
         //Musik
         Template.ƒS.Sound.fade(Template.sound.wakeUp, 0.2, 2, true);
         //Text
@@ -1559,7 +1288,6 @@ var Template;
         await Template.ƒS.Location.show(Template.locations.AntAndSeedHide);
         Template.ƒS.Sound.play(Template.sound.pageFlip, 0.4, false);
         Template.ƒS.update(1);
-        // await ƒS.update(transitions.new.duration, transitions.new.alpha, transitions.new.edge);
         //Text
         await Template.ƒS.Sound.play(Template.sound.s9A_1, 1.7, false);
         await Template.ƒS.Speech.tell(Template.characters.narrator, text.narrator.T0000 + text.narrator.T0001, true, "S9AT1");
@@ -1572,7 +1300,6 @@ var Template;
         await Template.ƒS.Location.show(Template.locations.AntGetsEaten);
         Template.ƒS.Sound.play(Template.sound.pageFlip, 0.4, false);
         Template.ƒS.update(1);
-        // ƒS.update(transitions.new.duration, transitions.new.alpha, transitions.new.edge);
         //Text
         await Template.ƒS.Sound.play(Template.sound.s9A_3, 1.7, false);
         await Template.ƒS.Speech.tell(Template.characters.narrator, text.narrator.T0003, true, "S9AT2");
@@ -1582,7 +1309,6 @@ var Template;
         await Template.ƒS.Location.show(Template.locations.MableJoins);
         Template.ƒS.Sound.play(Template.sound.pageFlip, 0.4, false);
         Template.ƒS.update(1);
-        //await ƒS.update(transitions.new.duration, transitions.new.alpha, transitions.new.edge);
         //Sound
         Template.ƒS.Sound.fade(Template.sound.dogBark1, 0.6, 2, true);
         Template.ƒS.Sound.fade(Template.sound.crow, 0.5, 2, true);
@@ -1633,7 +1359,6 @@ var Template;
         await Template.ƒS.Location.show(Template.locations.AntGetsEaten);
         Template.ƒS.Sound.play(Template.sound.pageFlip, 0.4, false);
         Template.ƒS.update(1);
-        //await ƒS.update(transitions.new.duration, transitions.new.alpha, transitions.new.edge);
         //Text
         await Template.ƒS.Sound.play(Template.sound.s9B_1, 1.7, false);
         await Template.ƒS.Speech.tell(Template.characters.narrator, text.narrator.T0000, true, "S9BT1");
@@ -1646,7 +1371,6 @@ var Template;
         await Template.ƒS.Location.show(Template.locations.SeedAlone);
         Template.ƒS.Sound.play(Template.sound.pageFlip, 0.4, false);
         Template.ƒS.update(1);
-        //await ƒS.update(transitions.new.duration, transitions.new.alpha, transitions.new.edge);
         //Animation Rain and Sound
         await Template.ƒS.Character.animate(Template.characters.Rain, Template.characters.Rain.pose.neutral, Template.Rain());
         Template.ƒS.Sound.fade(Template.sound.wakeUp, 0.15, 2, true);
@@ -1663,7 +1387,6 @@ var Template;
         await Template.ƒS.Location.show(Template.locations.BadEnding);
         Template.ƒS.Sound.play(Template.sound.pageFlip, 0.4, false);
         Template.ƒS.update(1);
-        //await ƒS.update(transitions.new.duration, transitions.new.alpha, transitions.new.edge);
         // Text
         await Template.ƒS.Sound.play(Template.sound.s9B_4, 1.7, false);
         await Template.ƒS.Speech.tell(Template.characters.narrator, text.narrator.T0005, true, "S9BT3");

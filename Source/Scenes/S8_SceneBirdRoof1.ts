@@ -3,7 +3,7 @@ namespace Template {
     export async function S8_SceneBirdRoof1(): ƒS.SceneReturn {
         console.log("S8_SceneBirdRoof1 starting");
 
-        let text = { // Charaktere Texte
+        let text = {
             narrator: {
                 T0000: "<p> Finally, with a little hop <br> they landed on a roof top. <br> The bird let the seed go <br> " + dataForSave.nameProtagonist + " saw it was a crow. </p>",
                 T0001: "<p> It leaped around and looked <br> At the seed it had hooked. <br> " + dataForSave.nameProtagonist + " froze in fear <br> As a whisper reached its ear: </p>",
@@ -15,10 +15,9 @@ namespace Template {
 
         //Background with transition and characters appear:
         await ƒS.Location.show(locations.ArriveRoofTop);
-        ƒS.Sound.play(sound.pageFlip, 0.4, false); 
+        ƒS.Sound.play(sound.pageFlip, 0.4, false);
         ƒS.update(1);
-        //await ƒS.update(transitions.new.duration, transitions.new.alpha, transitions.new.edge); 
-        
+
         //Musik
         ƒS.Sound.fade(sound.wakeUp, 0.2, 2, true);
 

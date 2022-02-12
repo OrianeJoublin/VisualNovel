@@ -4,7 +4,7 @@ namespace Template {
 
     export let characters = {
         narrator: {
-            name: "Narrator" 
+            name: "Narrator"
         },
         alice: {
             name: "Alice",
@@ -71,9 +71,6 @@ namespace Template {
                 flight: "./Characters/Crow.png",
             }
         }
-        
+
     };
-
-
-
 }

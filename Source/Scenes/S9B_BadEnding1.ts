@@ -3,7 +3,7 @@ namespace Template {
     export async function S9B_BadEnding1(): ƒS.SceneReturn {
         console.log("S9B_BadEnding1 starting");
 
-        let text = { // Charaktere Texte
+        let text = {
             narrator: {
                 T0000: "<p> “Thank you”, whispered the seed <br> and within a beat <br> it ran to the ant's hiding place <br> and pushed the ant into the bird’s space. </p>",
                 T0001: "<p> Safe and sound " + dataForSave.nameProtagonist + " stood hidden <br> while the screaming ant got bitten. <br> The crow chewed it up with a very loud crunch. <br> as the seed broke down in a hunch. </p>",
@@ -16,9 +16,8 @@ namespace Template {
 
         //Background with transition and characters appear:
         await ƒS.Location.show(locations.AntGetsEaten);
-        ƒS.Sound.play(sound.pageFlip, 0.4, false); 
+        ƒS.Sound.play(sound.pageFlip, 0.4, false);
         ƒS.update(1);
-        //await ƒS.update(transitions.new.duration, transitions.new.alpha, transitions.new.edge);
 
         //Text
         await ƒS.Sound.play(sound.s9B_1, 1.7, false);
@@ -31,9 +30,8 @@ namespace Template {
 
         //New Background Seed Alone in Rain
         await ƒS.Location.show(locations.SeedAlone);
-        ƒS.Sound.play(sound.pageFlip, 0.4, false); 
+        ƒS.Sound.play(sound.pageFlip, 0.4, false);
         ƒS.update(1);
-        //await ƒS.update(transitions.new.duration, transitions.new.alpha, transitions.new.edge);
 
         //Animation Rain and Sound
         await ƒS.Character.animate(characters.Rain, characters.Rain.pose.neutral, Rain());
@@ -46,24 +44,21 @@ namespace Template {
 
         //Rain Animation and Sound Stop
         ƒS.Sound.fade(sound.rain3, 0, 4, true);
-        ƒS.Character.hide (characters.Rain);
+        ƒS.Character.hide(characters.Rain);
         ƒS.Sound.fade(sound.s9B_3, 0, 0);
         ƒS.Speech.clear();
 
         //New Background Bad Ending
         await ƒS.Location.show(locations.BadEnding);
-        ƒS.Sound.play(sound.pageFlip, 0.4, false); 
+        ƒS.Sound.play(sound.pageFlip, 0.4, false);
         ƒS.update(1);
-        //await ƒS.update(transitions.new.duration, transitions.new.alpha, transitions.new.edge);
 
         // Text
-        
         await ƒS.Sound.play(sound.s9B_4, 1.7, false);
         await ƒS.Speech.tell(characters.narrator, text.narrator.T0005, true, "S9BT3");
-        
+
         ƒS.Speech.clear();
         ƒS.Sound.fade(sound.s9B_4, 0, 0);
         return StartAgainScreen();
-
     }
 }

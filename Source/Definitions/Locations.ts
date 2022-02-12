@@ -96,7 +96,4 @@ namespace Template {
             background: "./Backgrounds/FinalBadEnding.png"
         }
     }
-
-
-
 }

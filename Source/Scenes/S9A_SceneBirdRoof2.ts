@@ -3,7 +3,7 @@ namespace Template {
     export async function S9A_SceneBirdRoof2(): ƒS.SceneReturn {
         console.log("S9A_SceneBirdRoof2 starting");
 
-        let text = { // Charaktere Texte
+        let text = {
             narrator: {
                 T0000: "<p> “Thank you”, whispered the seed <br> and within a beat <br> next to the ant behind a rock <br> it hid in shock. </p>",
                 T0001: "<p> The crow caught by surprise <br> Stuck its beak between the tiles to get her prize. <br>" + dataForSave.nameProtagonist + " whispered: “Thank you for saving my life!” <br> “No worries, I’m Ralph.” </p>",
@@ -18,9 +18,8 @@ namespace Template {
 
         //Background with transition and characters appear:
         await ƒS.Location.show(locations.AntAndSeedHide);
-        ƒS.Sound.play(sound.pageFlip, 0.4, false); 
+        ƒS.Sound.play(sound.pageFlip, 0.4, false);
         ƒS.update(1);
-       // await ƒS.update(transitions.new.duration, transitions.new.alpha, transitions.new.edge);
 
         //Text
         await ƒS.Sound.play(sound.s9A_1, 1.7, false);
@@ -33,9 +32,8 @@ namespace Template {
 
         //New Background:  
         await ƒS.Location.show(locations.AntGetsEaten);
-        ƒS.Sound.play(sound.pageFlip, 0.4, false); 
+        ƒS.Sound.play(sound.pageFlip, 0.4, false);
         ƒS.update(1);
-        // ƒS.update(transitions.new.duration, transitions.new.alpha, transitions.new.edge);
 
         //Text
         await ƒS.Sound.play(sound.s9A_3, 1.7, false);
@@ -45,23 +43,22 @@ namespace Template {
 
         //New Background - Mable appears
         await ƒS.Location.show(locations.MableJoins);
-        ƒS.Sound.play(sound.pageFlip, 0.4, false); 
+        ƒS.Sound.play(sound.pageFlip, 0.4, false);
         ƒS.update(1);
-        //await ƒS.update(transitions.new.duration, transitions.new.alpha, transitions.new.edge);
 
         //Sound
         ƒS.Sound.fade(sound.dogBark1, 0.6, 2, true);
         ƒS.Sound.fade(sound.crow, 0.5, 2, true);
         ƒS.Sound.fade(sound.dogBark1, 0, 6, true);
         ƒS.Sound.fade(sound.crow, 0, 6, true);
-        
+
         //Text
         await ƒS.Sound.play(sound.s9A_4, 1.7, false);
         await ƒS.Speech.tell(characters.narrator, text.narrator.T0004 + text.narrator.T0005, true, "S9AT3");
         ƒS.Sound.fade(sound.s9A_4, 0, 0);
         await ƒS.Sound.play(sound.s9A_5, 1.7, false);
         await ƒS.Speech.tell(characters.narrator, text.narrator.T0006 + text.narrator.T0007, true, "S9AT3");
-        
+
 
         let decisionS9AElementOptions = {
             iJump: "Jump",
@@ -70,7 +67,7 @@ namespace Template {
 
         ƒS.Sound.fade(sound.s9A_5, 0, 0);
         await ƒS.Sound.play(sound.s9A_5_Choices, 1.7, false);
-        
+
 
         let decisionS9AElement = await ƒS.Menu.getInput(decisionS9AElementOptions, "decisionClass");
 

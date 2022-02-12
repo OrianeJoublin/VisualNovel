@@ -2,15 +2,6 @@ namespace Template {
 
     //Animationen, die für alle Szenen gelten
 
-    export function jirkaAnimation(): ƒS.AnimationDefinition {
-        return {
-            start: { translation: ƒS.positions.bottomleft, rotation: -20, scaling: new ƒS.Position(0.5, 1.5), color: ƒS.Color.CSS("white", 0.5) },
-            end: { translation: ƒS.positions.bottomright, rotation: 20, scaling: new ƒS.Position(1.5, 0.5), color: ƒS.Color.CSS("red") },
-            duration: 1,
-            playmode: ƒS.ANIMATION_PLAYMODE.LOOP
-        }
-    };
-
     export function fromLefttoRight(): ƒS.AnimationDefinition {
         return {
             start: { translation: ƒS.positions.bottomleft },
@@ -38,15 +29,6 @@ namespace Template {
         }
     };
 
-    //export function SwayDown(): ƒS.AnimationDefinition {
-        //return {
-            //start: { translation: ƒS.positionPercent(40, 45) },
-            //end: { translation: ƒS.positionPercent(50, 50) },
-            //duration: 30, // as long as you want
-            //playmode: ƒS.ANIMATION_PLAYMODE.LOOP
-       // }
-   // };
-
     export function SwayDown(): ƒS.AnimationDefinition {
         return {
             start: { translation: ƒS.positionPercent(40, 45) },
@@ -67,8 +49,8 @@ namespace Template {
 
     export function dogEnter(): ƒS.AnimationDefinition {
         return {
-            start: { translation: ƒS.positionPercent(10,50) },
-            end: { translation: ƒS.positionPercent(50,50) },
+            start: { translation: ƒS.positionPercent(10, 50) },
+            end: { translation: ƒS.positionPercent(50, 50) },
             duration: 2, // as long as you want
             playmode: ƒS.ANIMATION_PLAYMODE.PLAYONCE
         }
@@ -76,8 +58,8 @@ namespace Template {
 
     export function dogExit(): ƒS.AnimationDefinition {
         return {
-            start: { translation: ƒS.positionPercent(50,50) },
-            end: { translation: ƒS.positionPercent(180,50) },
+            start: { translation: ƒS.positionPercent(50, 50) },
+            end: { translation: ƒS.positionPercent(180, 50) },
             duration: 4, // as long as you want
             playmode: ƒS.ANIMATION_PLAYMODE.PLAYONCE
         }
@@ -94,12 +76,10 @@ namespace Template {
 
     export function flyDown(): ƒS.AnimationDefinition {
         return {
-            start: { translation: ƒS.positionPercent(10,30) },
-            end: { translation: ƒS.positionPercent(50,50) },
+            start: { translation: ƒS.positionPercent(10, 30) },
+            end: { translation: ƒS.positionPercent(50, 50) },
             duration: 2, // as long as you want
             playmode: ƒS.ANIMATION_PLAYMODE.PLAYONCE
         }
     };
-
-
 }

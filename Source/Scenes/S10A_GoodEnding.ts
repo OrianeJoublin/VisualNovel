@@ -3,7 +3,7 @@ namespace Template {
     export async function S10A_GoodEnding(): ƒS.SceneReturn {
         console.log("S10A_GoodEnding starting");
 
-        let text = { // Charaktere Texte
+        let text = {
             narrator: {
                 T0000: "<p> " + dataForSave.nameProtagonist + " jumped with a scream <br> As if in a dream <br> Over the roof's edge <br> Its body stretched. </p>",
                 T0001: "<p> The seed soared through the air <br> Living its greatest nightmare <br> Down there was the ant <br> " + dataForSave.nameProtagonist + " stretched out its hand. <br> Anni, the wind picked them up lightly <br> Smiling widely. </p>",
@@ -17,9 +17,8 @@ namespace Template {
 
         //Background with transition and characters appear:
         await ƒS.Location.show(locations.SeedSavesAnt);
-        ƒS.Sound.play(sound.pageFlip, 0.4, false); 
+        ƒS.Sound.play(sound.pageFlip, 0.4, false);
         ƒS.update(1);
-        //await ƒS.update(transitions.new.duration, transitions.new.alpha, transitions.new.edge);
         ƒS.Sound.fade(sound.wind1, 0.08, 2, true);
         ƒS.Sound.fade(sound.wakeUp, 0.18, 2, true);
 
@@ -38,9 +37,8 @@ namespace Template {
 
         //New Background Healthy Tree
         await ƒS.Location.show(locations.GoodEnding);
-        ƒS.Sound.play(sound.pageFlip, 0.4, false); 
+        ƒS.Sound.play(sound.pageFlip, 0.4, false);
         ƒS.update(1);
-        //await ƒS.update(transitions.new.duration, transitions.new.alpha, transitions.new.edge);
         ƒS.Sound.fade(sound.wind2, 0.03, 2, true);
         ƒS.Sound.fade(sound.springBirds, 0.4, 2, true);
         ƒS.Sound.fade(sound.springWeather, 0.18, 2, true);
@@ -63,14 +61,11 @@ namespace Template {
         //New Background Good Ending
         await ƒS.Location.show(locations.FinalGood);
         ƒS.update(1);
-        ƒS.Sound.play(sound.pageFlip, 0.4, false); 
-        //await ƒS.update(transitions.new.duration, transitions.new.alpha, transitions.new.edge);
-        
+        ƒS.Sound.play(sound.pageFlip, 0.4, false);
+
         await ƒS.Sound.play(sound.goodEnding, 1.7, false);
         await ƒS.Speech.tell(characters.narrator, text.narrator.TGood, true, "Ending");
         ƒS.Sound.fade(sound.goodEnding, 0, 0);
         return EndOfNovel();
-        //return S1_IntroPart1(); //for now, better would be to return to the start screen
-        
     }
 }

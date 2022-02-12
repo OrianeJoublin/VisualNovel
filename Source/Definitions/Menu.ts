@@ -1,6 +1,6 @@
 namespace Template {
 
-      //  MENU - Audio functions
+  //  MENU - Audio functions
 
   export let volume: number = 1.0;
 
@@ -18,23 +18,25 @@ namespace Template {
     ƒS.Sound.setMasterVolume(volume);
   }
 
-    export let inGameMenu = {
-        save: "Save",
-        load: "Load",
-        //close: "Close"
-        credits: "Credits",
-        // open: "Open"
-        shortcuts: "Shortcuts",
-        turnUpVolume: "+",
-        turnDownVolume: "-"
-    };
+  // MENU
+
+  export let inGameMenu = {
+    save: "Save",
+    load: "Load",
+    //close: "Close"
+    credits: "Credits",
+    // open: "Open"
+    shortcuts: "Shortcuts",
+    turnUpVolume: "+",
+    turnDownVolume: "-"
+  };
 
 
-    export let gameMenu: ƒS.Menu;
+  export let gameMenu: ƒS.Menu;
 
-    export function showCredits(): void {
-        ƒS.Text.setClass("credits");
-        let credits =
+  export function showCredits(): void {
+    ƒS.Text.setClass("credits");
+    let credits =
       "<h1>CREDITS</h1>\
       <table>\
         <tr>\
@@ -81,12 +83,12 @@ namespace Template {
       <p> to Carina Spangenberger, Riem Yasin, Jirka Dell'Oro and <br> Frank Joublin for their support in programming questions and <br> to Iris Schnabel and Emily Pacey for improving the rhymes.</p>\
       <p><em>Made with FUDGE Story.</em></p>\
       ";
-        ƒS.Text.print(credits);
-    };
+    ƒS.Text.print(credits);
+  };
 
-    export function showShortcuts(): void {
-        ƒS.Text.setClass("shortcuts");
-        let shortcuts =
+  export function showShortcuts(): void {
+    ƒS.Text.setClass("shortcuts");
+    let shortcuts =
       "<h1>SHORTCUTS</h1>\
       <table>\
         <tr>\
@@ -111,71 +113,71 @@ namespace Template {
         </tr>\
       </table>\
       ";
-        ƒS.Text.print(shortcuts);
-    };
+    ƒS.Text.print(shortcuts);
+  };
 
-    // true = offen; false = geschlossen
-    export let menu: boolean = true;
+  // true = offen; false = geschlossen
+  export let menu: boolean = true;
 
-    export async function buttonFunctionalities(_option: string): Promise<void> {
-        console.log(_option);
-        switch (_option) {
-            case inGameMenu.save:
-                await ƒS.Progress.save();
-                break;
-            case inGameMenu.load:
-                await ƒS.Progress.load();
-                break;
-            case inGameMenu.credits:
-                showCredits();
-                break;
-            case inGameMenu.shortcuts:
-                showShortcuts();
-                break;
-            case inGameMenu.turnUpVolume:
-                incrementSound();
-                break;
-            case inGameMenu.turnDownVolume:
-                decrementSound();
-                break;
-            //case inGameMenu.close:
-            //gameMenu.close();
-            //menu = false;
-            //break;
-            //case inGameMenu.open:
-            //gameMenu.open();
-            //menu = true;
-            //break;
-        }
+  export async function buttonFunctionalities(_option: string): Promise<void> {
+    console.log(_option);
+    switch (_option) {
+      case inGameMenu.save:
+        await ƒS.Progress.save();
+        break;
+      case inGameMenu.load:
+        await ƒS.Progress.load();
+        break;
+      case inGameMenu.credits:
+        showCredits();
+        break;
+      case inGameMenu.shortcuts:
+        showShortcuts();
+        break;
+      case inGameMenu.turnUpVolume:
+        incrementSound();
+        break;
+      case inGameMenu.turnDownVolume:
+        decrementSound();
+        break;
+      //case inGameMenu.close:
+      //gameMenu.close();
+      //menu = false;
+      //break;
+      //case inGameMenu.open:
+      //gameMenu.open();
+      //menu = true;
+      //break;
     }
+  }
 
 
-    // Shortcuts
-    document.addEventListener("keydown", hndKeyPress);
-    export async function hndKeyPress(_event: KeyboardEvent): Promise<void> {
-        switch (_event.code) {
-            case ƒ.KEYBOARD_CODE.F8:
-                console.log("Save");
-                await ƒS.Progress.save();
-                break;
-            case ƒ.KEYBOARD_CODE.F9:
-                console.log("Load");
-                await ƒS.Progress.load();
-                break;
-            case ƒ.KEYBOARD_CODE.M:
-                if (menu) {
-                    console.log("Schließen");
-                    gameMenu.close();
-                    menu = false;
-                }
-                else {
-                    console.log("Öffnen");
-                    gameMenu.open();
-                    menu = true;
-                }
-                break;
+  // Shortcuts
+  document.addEventListener("keydown", hndKeyPress);
+  export async function hndKeyPress(_event: KeyboardEvent): Promise<void> {
+    switch (_event.code) {
+      case ƒ.KEYBOARD_CODE.F8:
+        console.log("Save");
+        await ƒS.Progress.save();
+        break;
+      case ƒ.KEYBOARD_CODE.F9:
+        console.log("Load");
+        await ƒS.Progress.load();
+        break;
+      case ƒ.KEYBOARD_CODE.M:
+        if (menu) {
+          console.log("Schließen");
+          gameMenu.close();
+          menu = false;
         }
+        else {
+          console.log("Öffnen");
+          gameMenu.open();
+          menu = true;
+        }
+        break;
     }
+  }
 
 
 }

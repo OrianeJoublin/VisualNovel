@@ -32,21 +32,21 @@ namespace Template {
         //await ƒS.Inventory.open();
 
         //Narrator Speech
-        await ƒS.Sound.play(sound.s3_1, 1.6, false); 
+        await ƒS.Sound.play(sound.s3_1, 1.6, false);
         await ƒS.Speech.tell(characters.narrator, text.narrator.T0000 + text.narrator.T0001, true, "S3T1");
         ƒS.Sound.fade(sound.s3_1, 0, 0);
-        await ƒS.Sound.play(sound.s3_2, 1.9, false); 
+        await ƒS.Sound.play(sound.s3_2, 1.9, false);
         await ƒS.Speech.tell(characters.narrator, text.narrator.T0002 + "Choose a name: ", false, "S3T2");
-    
+
         //Input Feld (Müsste aber eigentlich innerhalb des Texts erscheinen)
         dataForSave.nameProtagonist = await ƒS.Speech.getInput();
         console.log(dataForSave.nameProtagonist);
         //let promiseName: Promise<string> = ƒS.Speech.getInput();
 
         ƒS.Sound.fade(sound.s3_2, 0, 0);
-        await ƒS.Sound.play(sound.s3_3, 1.6, false); 
+        await ƒS.Sound.play(sound.s3_3, 1.6, false);
         await ƒS.Speech.tell(characters.narrator, text.narrator.T0003 + dataForSave.nameProtagonist + text.narrator.T0004, true, "S3T2");
-        
+
         //dataForSave.nameProtagonist = await promiseName;
         //console.log(dataForSave.nameProtagonist);
 
@@ -56,14 +56,14 @@ namespace Template {
         };
 
         ƒS.Sound.fade(sound.s3_3, 0, 0);
-        await ƒS.Sound.play(sound.s3_3_Choices, 1.6, false); 
+        await ƒS.Sound.play(sound.s3_3_Choices, 1.6, false);
 
         let decisionS3Element = await ƒS.Menu.getInput(decisionS3ElementOptions, "decisionClass");
 
         switch (decisionS3Element) {
             case decisionS3ElementOptions.iSayHelp:
                 ƒS.Sound.fade(sound.s3_3_Choices, 0, 0);
-                await ƒS.Sound.play(sound.s3_4_iSayHelp, 1.6, false); 
+                await ƒS.Sound.play(sound.s3_4_iSayHelp, 1.6, false);
                 await ƒS.Speech.tell(characters.narrator, text.narrator.TD101 + text.narrator.TD102, true, "S3T2");
                 ƒS.Sound.fade(sound.s3_4_iSayHelp, 0, 0);
                 ƒS.Speech.clear();

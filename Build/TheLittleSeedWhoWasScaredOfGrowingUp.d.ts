@@ -3,12 +3,9 @@ declare namespace Template {
     export import ƒS = FudgeStory;
     let dataForSave: {
         nameProtagonist: string;
-        points: number;
-        scoreSeed: number;
     };
 }
 declare namespace Template {
-    function jirkaAnimation(): ƒS.AnimationDefinition;
     function fromLefttoRight(): ƒS.AnimationDefinition;
     function fromToptoCenter(): ƒS.AnimationDefinition;
     function fromToplefttoTopcenter(): ƒS.AnimationDefinition;
@@ -86,15 +83,6 @@ declare namespace Template {
             pose: {
                 flight: string;
             };
-        };
-    };
-}
-declare namespace Template {
-    let items: {
-        pen: {
-            name: string;
-            description: string;
-            image: string;
         };
     };
 }
@@ -328,12 +316,6 @@ declare namespace Template {
             edge: number;
         };
     };
-}
-declare namespace Template {
-    function TestS1_IntroPart1(): ƒS.SceneReturn;
-}
-declare namespace Template {
-    function NovelPages(): ƒS.SceneReturn;
 }
 declare namespace Template {
     function S10A_GoodEnding(): ƒS.SceneReturn;

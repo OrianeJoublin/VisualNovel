@@ -3,63 +3,40 @@ speech {
   position: absolute;
   text-align: center;
   display: block;
-  /*bottom: 0px;*/
   color: rgb(231, 241, 255);
   background-color: rgba(11, 14, 19, 0);
-  /*width: 50vw;
-  height: 10vh;*/
   width: 100%;
   height: 100%;
-  /*font-size: 120%;*/
 }
 
 /*Introduction*/
 speech.introduction {
-  /* bottom: 36vw;
-  left: 115vh; */
   top: 20%;
   left: 30%;
 }
 
 /*Scene 3, Text 1*/
 speech.S3T1 {
-  /*top: 300px;
-  left: 50px;*/
   top: 20%;
   left: -25%;
-  
-  /*bottom: 36vw;
-  left: 10vh; */
 }
 
 /*Scene 3, Text 2*/
 speech.S3T2 {
-  /*top: 300px;
-  left: 50px;*/
   top: 30%;
   left: -25%;
   display: inline-block;
-  
-  /*bottom: 36vw;
-  left: 10vh; */
 }
 
 /*Scene 3, Text 3*/
 speech.S3T3 {
-  /*top: 300px;
-  left: 50px;*/
   top: 30%;
   left: -25%;
   display: inline;
-  
-  /*bottom: 36vw;
-  left: 10vh; */
 }
 
 /*Scene 4B, Text 1*/
 speech.S4BT1 {
-  /* bottom: 25vw;
-  left: -10vh; */
   top: 20%;
   left: -30%;
 }
@@ -72,24 +49,18 @@ speech.S5BT1 {
 
 /*Scene 5C, Text 1*/
 speech.S5CT1 {
-  /* bottom: 22vw;
-  left: 90vh; */
   top: 40%;
   left: 20%;
 }
 
 /*Scene 6A, Text 1*/
 speech.S6AT1 {
-  /* bottom: 30vw;
-  left: 100vh; */
   top: 20%;
   left: 25%;
 }
 
 /*Scene 7A, Text 1*/
 speech.S7AT1 {
-  /*bottom: 40vw;
-  left: 110vh;*/
   top: 10%;
   left: -25%;
 }
@@ -152,9 +123,6 @@ speech.S10AT2 {
 speech.S10BT1 {
   top: 75%;
   left: -35%;
-  /* oder: */
-  /*top: 20%;
-  left: 25%;*/
 }
 
 /*Scene 10B, Text 2*/

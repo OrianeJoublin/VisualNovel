@@ -3,7 +3,7 @@ namespace Template {
     export async function S7C_SceneDogCity(): ƒS.SceneReturn {
         console.log("S7C_SceneDogCity starting");
 
-        let text = { // Charaktere Texte
+        let text = {
             narrator: {
                 T0000: "<p> Mable trotted to a bin <br> And she stuck her nose in <br> While " + dataForSave.nameProtagonist + " climbed on top <br> Of the bin and stopped.</p>",
                 T0001: "<p> “What are you eating?”, " + dataForSave.nameProtagonist + " said. <br> But the timing was rather bad <br> Before the dog could reply <br> A bird dived out of the sky. </p>",
@@ -13,13 +13,12 @@ namespace Template {
             }
         };
         //City Sound
-        ƒS.Sound.play(sound.pageFlip, 0.4, false); 
+        ƒS.Sound.play(sound.pageFlip, 0.4, false);
         ƒS.Sound.fade(sound.city, 0.18, 2, true);
 
         //Background with transition and characters appear:
         await ƒS.Location.show(locations.CityWithMable);
         ƒS.update(1);
-        //await ƒS.update(transitions.new.duration, transitions.new.alpha, transitions.new.edge);
 
         //Text before bird
         await ƒS.Sound.play(sound.s7C_1, 1.7, false);

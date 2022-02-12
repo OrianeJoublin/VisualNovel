@@ -2,7 +2,7 @@ namespace Template {
   export async function S1_IntroPart1(): ƒS.SceneReturn {
     console.log("S1_IntroPart1 starting");
 
-    let text = { // Charaktere Texte
+    let text = {
       narrator: {
         T0000: "<p> Somewhere very far away <br> On a little hill in May <br> Stood a miracle tree <br> Spreading its branches gleefully. </p>",
         T0001: "<p> During this happy spring event. <br> All the tree's seeds flew around <br> For it was time they were sent <br> To grow on the ground. </p>",
@@ -13,21 +13,19 @@ namespace Template {
     //Musik
     ƒS.Sound.play(sound.wakeUp, 0.15, true);
 
-    //Animation auch während Text möglich
+    //Animation
     let animationDone: Promise<void> = ƒS.Character.animate(characters.ManySeeds, characters.ManySeeds.pose.neutral, SwayDown());
 
-    // Background, transitions and characters appear:
+    // Background, transitions and characters appear
     await ƒS.Location.show(locations.TreeWithoutSeeds);
     ƒS.update(1);
-    ƒS.Sound.play(sound.pageFlip, 0.4, false); 
-    //ƒS.update(transitions.Page.duration, transitions.Page.alpha, transitions.Page.edge);
+    ƒS.Sound.play(sound.pageFlip, 0.4, false);
     animationDone;
-    
-    //Novel Page
 
-    ƒS.Text.setClass("startScreen"); 
+    //Novel Page
+    ƒS.Text.setClass("startScreen");
     let startScreen =
-    "<h1>Welcome!</h1>\
+      "<h1>Welcome!</h1>\
     <p> To continue with the novel click anywhere on the screen. <br>\
     For a better experience change to full-screen mode as follows: <br>\
     <table>\
@@ -44,21 +42,22 @@ namespace Template {
     <h3>Enjoy!</h3>\
     ";
     ƒS.Text.print(startScreen);
-   
-    // Text pace
-    ƒS.Speech.setTickerDelays(70, 500); //die 2 ist delay zwei sekunden warten, bevor bei paragraf weitergeht.
 
-    
+    // Text pace
+    ƒS.Speech.setTickerDelays(70, 500);
+
+
 
     //Text
     await ƒS.Speech.tell(null, null, true); //nur damit text erst nach erstem klick kommt wegen Novel Page 
+
     //VoiceOver
-    await ƒS.Sound.play(sound.s1, 1.6, false); 
+    await ƒS.Sound.play(sound.s1, 1.6, false);
     await ƒS.Speech.tell(characters.narrator, text.narrator.T0000 + text.narrator.T0001 + text.narrator.T0002, true, "introduction");
 
 
     // Animation endet
-    ƒS.Character.hide (characters.ManySeeds);
+    ƒS.Character.hide(characters.ManySeeds);
     ƒS.Speech.clear();
     ƒS.Sound.fade(sound.s1, 0, 0);
 

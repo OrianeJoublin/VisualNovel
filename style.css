@@ -8,23 +8,12 @@ html, body {
   font-family: 'EB Garamond', Georgia, 'Times New Roman', Times, serif;
   font-weight: normal;
   font-size: 130%; 
-  /*font-size: calc(10% * var(--w)); */
   color: rgb(240, 18, 103);
 } 
-
-/*
-:root {
-  --w: min(100vw,calc(1920/1080*100vh));
-  --h: min(calc(100vw*1080/1920,100vh));
-}*/
-
-/* strg k c*/
 
 scene {
   width: 1920px;
   height: 1080px;
-  /* width: 1280px;
-  height: 720px; */
   display: inline-block;
   position: absolute !important;
 }
@@ -36,13 +25,11 @@ canvas {
 
 
 /* SPLASH SCREEN BACKGROUND */
-
 dialog {
   background-image: url("./Backgrounds/Neutral.png");
 }
 
-/* Startseite Titel und eigentlich auch Hintergrund vom Kasten oder? */
-
+/* Startseite Titel*/
 div {
   background-color: #1c1c1c;
   color: black;
@@ -104,8 +91,6 @@ background-color: #0000;
 color: rgba(230, 241, 255);
 font-size: 70%;
 font-family: 'EB Garamond', Georgia, 'Times New Roman', Times, serif;
-/* left: 100%;
-bottom: 10px; */
 }
 
 .gameMenu button:hover{
@@ -122,18 +107,6 @@ color:#DAB0B1;
   font-size: 20px;
   background-image: none;
 } 
-
-/* .credits {
-  position: absolute;
-  background-color: rgba(20, 22, 24, 1);;
-  color: #fafafa;
-  text-align: center;
-  border: none;
-  border-radius: 15px;
-  width: 50%;
-  height: 70%;
-  padding-top: 100px;
-}  */
 
 .credits table {
   margin-left: auto;
