@@ -5,11 +5,11 @@ namespace Template {
 
         let text = {
             narrator: {
-                T0000: "<p> “Thank you”, whispered the seed <br> and within a beat <br> it ran to the ant's hiding place <br> and pushed the ant into the bird’s space. </p>",
-                T0001: "<p> Safe and sound " + dataForSave.nameProtagonist + " stood hidden <br> while the screaming ant got bitten. <br> The crow chewed it up with a very loud crunch. <br> as the seed broke down in a hunch. </p>",
-                T0002: "<p> Anni, the wind who had seen the whole affair <br> told the dog Mable in despair. </p>",
-                T0003: "<p> No one ever talked to " + dataForSave.nameProtagonist + " again <br> This had been the moment when <br> it could have shown some gratitude to all <br> who had helped it not to fall. </p>",
-                T0004: "<p> " + dataForSave.nameProtagonist + " had missed its chance, <br> now it sat down in trance. </p>",
+                T0000: "<p> “Thank you”, whispered the seed <br> And within a beat <br> It ran to the ant's hiding place <br> And pushed the ant into the bird’s space. </p>",
+                T0001: "<p> Safe and sound " + dataForSave.nameProtagonist + " stood hidden <br> While the screaming ant got bitten. <br> The crow chewed it up with a very loud crunch <br> As the seed broke down in a hunch. </p>",
+                T0002: "<p> Anni, the wind who had seen the whole affair <br> Told the dog Mable in despair. </p>",
+                T0003: "<p> No one ever talked to " + dataForSave.nameProtagonist + " again. <br> This had been the moment when <br> It could have shown some gratitude to all <br> Who had helped it not to fall. </p>",
+                T0004: "<p> " + dataForSave.nameProtagonist + " had missed its chance, <br> Now it sat down in trance. </p>",
                 T0005: "<p> On the roof that was to become its tomb <br> " + dataForSave.nameProtagonist + " would never bloom. </p>"
             }
         };
