@@ -584,12 +584,12 @@ var Template;
         console.log("S10A_GoodEnding starting");
         let text = {
             narrator: {
-                T0000: "<p> " + Template.dataForSave.nameProtagonist + " jumped with a scream <br> As if in a dream <br> Over the roof's edge <br> Its body stretched. </p>",
-                T0001: "<p> The seed soared through the air <br> Living its greatest nightmare <br> Down there was the ant <br> " + Template.dataForSave.nameProtagonist + " stretched out its hand. <br> Anni, the wind picked them up lightly <br> Smiling widely. </p>",
-                T0002: "<p> “I will drop you both to the ground <br> Destiny always comes round. <br> But first I’ll make a confession <br> For you gave me a lesson. </p>",
+                T0000: "<p> " + Template.dataForSave.nameProtagonist + " jumped with a scream <br> As if in a dream <br> Over the roof's edge. <br> Its body stretched. </p>",
+                T0001: "<p> The seed soared through the air <br> Living its greatest nightmare. <br> Down there was the ant <br> " + Template.dataForSave.nameProtagonist + " stretched out its hand. <br> Anni the wind picked them up lightly <br> Smiling widely. </p>",
+                T0002: "<p> “I will drop you both to the ground, <br> Destiny always comes round. <br> But first I’ll make a confession <br> For you gave me a lesson. </p>",
                 T0003: "<p> You taught me that a detour <br> Can make you more mature! <br> So farewell my friend <br> I swear this is not the end!” </p>",
                 T0004: "<p> Many seasons came around <br> And out of the ground <br> Just at the spot <br> Where the seed had dropped <br> Had grown a mighty tree. </p>",
-                T0005: "<p> By its side was Mable chasing a flea. <br> The wind tickled its leaves <br> While Ralph told the seeds. <br> “Don’t be scared of falling. <br> It’s just the beginning.” </p>",
+                T0005: "<p> By its side was Mable, chasing a flea. <br> The wind tickled its leaves <br> While Ralph told the seeds. <br> “Don’t be scared of falling. <br> It’s just the beginning.” </p>",
                 TGood: "Good Ending"
             }
         };
@@ -649,11 +649,11 @@ var Template;
         let text = {
             narrator: {
                 T0000: "<p> Too scared to face its greatest fear  <br>" + Template.dataForSave.nameProtagonist + " took a step back in tears. <br> “I can't save him, I just can't!” <br> The seed answered the demand. </p>",
-                T0001: "<p> Mable and " + Template.dataForSave.nameProtagonist + " watched in horror <br> as the ant fell and like water <br> splashed onto the ground <br> without a sound. </p>",
-                T0002: "<p> “I knew you were scared <br> I never thought you were selfish.” <br> Said Anni and glared <br> at " + Template.dataForSave.nameProtagonist + " without relish. </p>",
-                T0003: "<p> “Go back then to where you belong! <br> After all, my friends never stay for long. <br> I'll be here on my own.” <br> said " + Template.dataForSave.nameProtagonist + " with a moan. </p>",
-                T0004: "<p> No one ever talked to " + Template.dataForSave.nameProtagonist + " again <br> This had been the moment when <br> it could have shown some gratitude to all <br> who had helped it not to fall. </p>",
-                T0005: "<p> " + Template.dataForSave.nameProtagonist + " had missed its chance, <br> now it sat down in trance. <br> On the roof that was to become its tomb <br> " + Template.dataForSave.nameProtagonist + " would never bloom. </p>"
+                T0001: "<p> Mable and " + Template.dataForSave.nameProtagonist + " watched in horror <br> As the ant fell and like water <br> Splashed onto the ground <br> Without a sound. </p>",
+                T0002: "<p> “I knew you were scared <br> I never thought you were selfish”, <br> Said Anni and glared <br> At " + Template.dataForSave.nameProtagonist + " without relish. </p>",
+                T0003: "<p> “Go back then to where you belong! <br> After all, my friends never stay for long. <br> I'll be here on my own”, <br> Said " + Template.dataForSave.nameProtagonist + " with a moan. </p>",
+                T0004: "<p> No one ever talked to " + Template.dataForSave.nameProtagonist + " again. <br> This had been the moment when <br> It could have shown some gratitude to all <br> who had helped it not to fall. </p>",
+                T0005: "<p> " + Template.dataForSave.nameProtagonist + " had missed its chance, <br> Now it sat down in trance. <br> On the roof that was to become its tomb <br> " + Template.dataForSave.nameProtagonist + " would never bloom. </p>"
             }
         };
         //Background with transition and characters appear:
@@ -706,7 +706,7 @@ var Template;
         console.log("StartAgainScreen starting");
         let text = {
             narrator: {
-                T0000: "<p> This cannot be the end that you wanted so badly. <br> So why don't you go back to the valley <br> and have another try <br> at helping the little seed fly? </p> <p> Take all the lessons you learned <br> and fight for the ending that you could have earned. </p>",
+                T0000: "<p> This cannot be the end that you wanted so badly. <br> So why don't you go back to the valley <br> And have another try <br> at helping the little seed fly? </p> <p> Take all the lessons you learned <br> And fight for the ending that you could have earned. </p>",
                 TBad: "Bad Ending"
             }
         };
@@ -749,8 +749,8 @@ var Template;
         let text = {
             narrator: {
                 T0000: "<p> Somewhere very far away <br> On a little hill in May <br> Stood a miracle tree <br> Spreading its branches gleefully. </p>",
-                T0001: "<p> During this happy spring event. <br> All the tree's seeds flew around <br> For it was time they were sent <br> To grow on the ground. </p>",
-                T0002: "For days the wind blew <br> And all the seeds flew <br> Up in the air and down to the earth <br> Where to brand new trees <br> they would give birth."
+                T0001: "<p> During this happy spring event <br> All the tree's seeds flew around <br> For it was time they were sent <br> To grow on the ground. </p>",
+                T0002: "For days the wind blew <br> And all the seeds flew <br> Up in the air and down to the earth <br> Where to brand new trees <br> They would give birth."
             }
         };
         //Musik
@@ -802,9 +802,9 @@ var Template;
         console.log("S2_IntroPart2 starting");
         let text = {
             narrator: {
-                T0000: "<p> But one little seed hung on tightly <br> swearing quite impolitely <br> It was scared of falling to the ground <br> But no help could be found. </p>",
-                T0001: "<p> “Don’t go, my friends. <br> Don’t leave me alone!” <br> The seed cried on its own. </p>",
-                T0002: "Then spoke the wind <br> as she sheepishly grinned: <br> “Don’t be so scared little one, <br> The journey might be fun!” </p>"
+                T0000: "<p> But one little seed hung on tightly <br> Swearing quite impolitely. <br> It was scared of falling to the ground <br> But no help could be found. </p>",
+                T0001: "<p> “Don’t go, my friends. <br> Don’t leave me alone!”, <br> The seed cried on its own. </p>",
+                T0002: "Then spoke the wind <br> As she sheepishly grinned: <br> “Don’t be so scared little one, <br> The journey might be fun!” </p>"
             }
         };
         //Sound
@@ -827,8 +827,8 @@ var Template;
         console.log("S3_SceneWind1 starting");
         let text = {
             narrator: {
-                T0000: "<p> And there came a gust <br> The seed had no chance <br> Against the force of its thrust. <br> Like in a dance <br> It soared up in the air <br> Hating the affair. </p>",
-                T0001: "<p> The screams and the crying <br> of the seed feeling forlorn. <br> Where muffled by the whistling <br> sound of the storm.</p>",
+                T0000: "<p> And there came a gust. <br> The seed had no chance <br> Against the force of its thrust. <br> Like in a dance <br> It soared up in the air <br> Hating the affair. </p>",
+                T0001: "<p> The screams and the crying <br> Of the seed feeling forlorn. <br> Where muffled by the whistling <br> Sound of the storm.</p>",
                 T0002: "<p> “Don’t be scared”, repeated the wind, <br> And still she grinned. <br> “I’m Anni, what’s your name?”, she asked.</p>",
                 T0003: "<p> “I’m ",
                 T0004: "”, the seed replied with of nod of its head. <br> It frowned a little and then said: </p>",
@@ -902,7 +902,7 @@ var Template;
         let text = {
             narrator: {
                 T0000: "<p> And so the wind blew <br> And together they flew <br> To the next city <br> And arrived in a jiffy. </p>",
-                T0001: " was excited <br> It had never seen anything so far from its tree. <br> The wind felt its glee <br> And said reprovingly: <br> “I have to warn you, so let it be said <br> That if you keep your wish, <br> you’re destined to be sad!”",
+                T0001: " was excited. <br> It had never seen anything so far from its tree. <br> The wind felt its glee <br> And said reprovingly: <br> “I have to warn you, so let it be said <br> That if you keep your wish, <br> You’re destined to be sad!”",
                 TD101: "“I hope you are wrong <br> And we can move along <br> With your help I’m sure <br> I will find my own path.”",
                 TD201: "“Of course I can, you liar! <br> I will fly higher! <br> Than all those friends <br> Who left me behind.”"
             }
@@ -953,8 +953,8 @@ var Template;
         console.log("S4B_SceneDogSit starting");
         let text = {
             narrator: {
-                T0000: "<p> With a sudden twirl <br>" + Template.dataForSave.nameProtagonist + " crashed upon the muzzle of a girl <br> It was Mabel the dog <br> Who was sitting in the fog. </p>",
-                T0001: "<p> The dog’s body trembled <br> Just as " + Template.dataForSave.nameProtagonist + " had settled <br> With a loud “Jeeez” <br> Mable sneezed. <p> But the seed was lucky <br> It held on very tightly <br> Then, swiftly, step by step, <br> It climbed into the soft fur on Mable's back </p>",
+                T0000: "<p> With a sudden twirl <br>" + Template.dataForSave.nameProtagonist + " crashed upon the muzzle of a girl. <br> It was Mabel the dog <br> Who was sitting in the fog. </p>",
+                T0001: "<p> The dog’s body trembled <br> Just as " + Template.dataForSave.nameProtagonist + " had settled. <br> With a loud “Jeeez” <br> Mable sneezed. <p> But the seed was lucky, <br> It held on very tightly. <br> Then, swiftly, step by step, <br> It climbed into the soft fur on Mable's back. </p>",
                 T0002: "<p> “I almost died there”, <br> Said " + Template.dataForSave.nameProtagonist + " with prodruding hair. <br> “I’m sorry”, the dog said, “you tickled my nose!” <br> “You’re Mable, right? The dog in the shadows?”</p>",
                 T0003: "Mable nodded and, taking the lead, <br> Asked “what is your name, little seed?” <br> " + Template.dataForSave.nameProtagonist + " replied and told its tale of woe: <br> “I lost my home, everything I've ever known!”",
                 T0004: "The dog looked around at " + Template.dataForSave.nameProtagonist + ", her new friend <br> And assured it: “This won't be the end! <br> Say, will you let me help you, <br> Get to where you want to?”",
@@ -1010,7 +1010,7 @@ var Template;
                 T0002: "<p> Together they travelled <br> As time unravelled <br> To the next city <br> Which was quite pretty <br> And so arrived dawn <br> as the morning yawned.</p>",
                 T0003: Template.dataForSave.nameProtagonist + " finally responded <br> To the wind’s inquiery:",
                 TD101: "<p> “You’re right to be offended <br> And yes I am sorry. <br> Does that mean you will help me?” </p>",
-                TD201: "“I don’t want to be helped <br> and no I’m not sorry.”"
+                TD201: "“I don’t want to be helped <br> And no I’m not sorry.”"
             }
         };
         //Sound
@@ -1062,7 +1062,7 @@ var Template;
             narrator: {
                 T0000: "<p> “Of course I will!”, <br> And jumping with skill <br> Mable carried the seed <br> At top speed <br> Down the hill, down, <br> Towards the next town. </p>",
                 T0001: "“I’m hungry, you see. <br> But if you stay with me,” <br> Said Mable, so brave. <br> “I’ll make sure you stay safe!”",
-                T0002: "<p> Together they travelled <br> As time unravelled <br> To the next city <br> Which was quite pretty <br> And so arrived dawn <br> as the morning yawned.</p>",
+                T0002: "<p> Together they travelled <br> As time unravelled <br> To the next city <br> Which was quite pretty. <br> And so arrived dawn <br> as the morning yawned.</p>",
                 T0003: "The city was loud <br> Though there was no crowd <br> For at this time of day <br> In bed most people lay."
             }
         };
@@ -1096,7 +1096,7 @@ var Template;
         //text variables
         let text = {
             narrator: {
-                T0000: "<p> No sooner had it spoken <br> Than the sky had broken. <br> Through heavy clouds poured the rain, <br> " + Template.dataForSave.nameProtagonist + " cried in pain <br> As a huge drop caught it <br> And the sky was all lit. <br> The thunder growled <br> And the wind howled: </p>",
+                T0000: "<p> No sooner had it spoken <br> Than the sky had broken. <br> Through heavy clouds poured the rain. <br> " + Template.dataForSave.nameProtagonist + " cried in pain <br> As a huge drop caught it <br> And the sky was all lit. <br> The thunder growled <br> And the wind howled: </p>",
                 T0001: "“I can’t carry you, I’m sorry! <br> You’re too wet and too heavy. <br> I hope you little seed <br> Find the end that you seek.”"
             }
         };
@@ -1121,13 +1121,13 @@ var Template;
         console.log("S7A_SceneDogCityRain starting");
         let text = {
             narrator: {
-                T0000: "<p> And with nerve-wracking speed, <br> pulled to the ground was the poor little seed <br> Until it arrived, lost and shaken <br> on top of a bin smelling of bacon. </p>",
+                T0000: "<p> And with nerve-wracking speed, <br> pulled to the ground was the poor little seed <br> Until it arrived, lost and shaken <br> On top of a bin smelling of bacon. </p>",
                 T0001: "The city was loud <br> Though there was no crowd <br> For at this time of day <br> In bed most people lay.",
-                T0002: Template.dataForSave.nameProtagonist + " looked around <br> And was surprised that it found <br> On the pavement the dog Mable <br> who was chewing on a cable!",
-                T0003: "<p> “Hello Mable!”, " + Template.dataForSave.nameProtagonist + " said. <br> But the timing was bad <br> Before the dog could reply <br> A bird dived out of the sky. </p>",
+                T0002: Template.dataForSave.nameProtagonist + " looked around <br> And was surprised that it found <br> On the pavement the dog Mable <br> Who was chewing on a cable!",
+                T0003: "<p> “Hello Mable!”, " + Template.dataForSave.nameProtagonist + " said. <br> But the timing was bad. <br> Before the dog could reply <br> A bird dived out of the sky. </p>",
                 T0004: "<p> As its claws snapped <br> The seed almost wept. <br> Why was the world so unkind? <br> So different from the one it left behind. </p>",
                 T0005: "<p> And Mable barked and roared <br> But the bird had soared <br> Back into the air <br> Leaving behind the town square. </p>",
-                T0006: "<p> The air rushed by " + Template.dataForSave.nameProtagonist + "'s cheeks <br> and the little seed shrieked. <br> It fought hard against the claws <br> as the bird cawed. </p>"
+                T0006: "<p> The air rushed by " + Template.dataForSave.nameProtagonist + "'s cheeks <br> And the little seed shrieked. <br> It fought hard against the claws <br> As the bird cawed. </p>"
             }
         };
         //City Sound
@@ -1179,10 +1179,10 @@ var Template;
         let text = {
             narrator: {
                 T0000: "<p> Mable trotted to a bin <br> And she stuck her nose in <br> While " + Template.dataForSave.nameProtagonist + " climbed on top <br> Of the bin and stopped.</p>",
-                T0001: "<p> “What are you eating?”, " + Template.dataForSave.nameProtagonist + " said. <br> But the timing was rather bad <br> Before the dog could reply <br> A bird dived out of the sky. </p>",
+                T0001: "<p> “What are you eating?”, " + Template.dataForSave.nameProtagonist + " said. <br> But the timing was rather bad. <br> Before the dog could reply <br> A bird dived out of the sky. </p>",
                 T0002: "<p> As its claws snapped <br> The seed almost wept. <br> Why was the world so unkind? <br> So different from the one it left behind. </p>",
                 T0003: "<p> And Mable barked and roared <br> But the bird had soared <br> Back into the air <br> Leaving behind the town square. </p> ",
-                T0004: "The air rushed by " + Template.dataForSave.nameProtagonist + "'s cheeks <br> and the little seed shrieked. <br> It fought hard against the claws <br> as the bird cawed."
+                T0004: "The air rushed by " + Template.dataForSave.nameProtagonist + "'s cheeks <br> And the little seed shrieked. <br> It fought hard against the claws <br> As the bird cawed."
             }
         };
         //City Sound
@@ -1225,11 +1225,11 @@ var Template;
         console.log("S8_SceneBirdRoof1 starting");
         let text = {
             narrator: {
-                T0000: "<p> Finally, with a little hop <br> they landed on a roof top. <br> The bird let the seed go <br> " + Template.dataForSave.nameProtagonist + " saw it was a crow. </p>",
+                T0000: "<p> Finally, with a little hop <br> They landed on a roof top. <br> The bird let the seed go <br> " + Template.dataForSave.nameProtagonist + " saw it was a crow. </p>",
                 T0001: "<p> It leaped around and looked <br> At the seed it had hooked. <br> " + Template.dataForSave.nameProtagonist + " froze in fear <br> As a whisper reached its ear: </p>",
                 T0002: "<p> “Psst! Come here, I know a place <br> For you to be safe!” <br> And under a tile <br> Stood an ant with a smile. </p>",
                 T0003: "<p> “Come here, be quick <br> Or you’ll be eaten with a flick <br> Of the crows head <br> And then you’d be dead!” </p>",
-                T0004: "<p> “You won’t eat me, right?”, <br> asked the seed in fright. <br> “I promise, I will not!” <br> Said the ant on the spot. </p>"
+                T0004: "<p> “You won’t eat me, right?”, <br> Asked the seed in fright. <br> “I promise, I will not!”, <br> Said the ant on the spot. </p>"
             }
         };
         //Background with transition and characters appear:
@@ -1274,13 +1274,13 @@ var Template;
         console.log("S9A_SceneBirdRoof2 starting");
         let text = {
             narrator: {
-                T0000: "<p> “Thank you”, whispered the seed <br> and within a beat <br> next to the ant behind a rock <br> it hid in shock. </p>",
+                T0000: "<p> “Thank you”, whispered the seed <br> And within a beat <br> Next to the ant behind a rock <br> It hid in shock. </p>",
                 T0001: "<p> The crow caught by surprise <br> Stuck its beak between the tiles to get her prize. <br>" + Template.dataForSave.nameProtagonist + " whispered: “Thank you for saving my life!” <br> “No worries, I’m Ralph.” </p>",
-                T0002: "<p> “I’m " + Template.dataForSave.nameProtagonist + "”, said the seed <br> “I’m glad you freed <br> me from this crow!” <br> Then, with a stroke <br> The tile broke </p>",
-                T0003: "<p> “Here here, an ant!” <br> Grinned the bird. <br> “On my land!” </p>",
+                T0002: "<p> “I’m " + Template.dataForSave.nameProtagonist + "”, said the seed <br> “I’m glad you freed <br> Me from this crow!” <br> Then, with a stroke <br> The tile broke. </p>",
+                T0003: "<p> “Here here, an ant!”, <br> Grinned the bird. <br> “On my land!” </p>",
                 T0004: "<p> But all the seed heard <br> Was the boisterous barking <br> Of Mable the dog who was charging <br> Towards the little group <br> In a swoop. </p>",
                 T0005: "<p> In the blink of an eye <br> The crow leaped to the sky <br> And kicked Ralph, " + Template.dataForSave.nameProtagonist + "'s new friend <br> Over the side of the roof to meet an early end. </p>",
-                T0006: "<p> “You can save him if you jump down!” <br> Spoke Mable with a frown. <br> “But if I jump, I’ll touch the ground.” <br> “You will find a way around!” </p>",
+                T0006: "<p> “You can save him if you jump down!”, <br> Spoke Mable with a frown. <br> “But if I jump, I’ll touch the ground.” <br> “You will find a way around!” </p>",
                 T0007: "<p> Anni smiled encouragingly. <br> " + Template.dataForSave.nameProtagonist + " thought of its tree. </p>"
             }
         };
@@ -1347,11 +1347,11 @@ var Template;
         console.log("S9B_BadEnding1 starting");
         let text = {
             narrator: {
-                T0000: "<p> “Thank you”, whispered the seed <br> and within a beat <br> it ran to the ant's hiding place <br> and pushed the ant into the bird’s space. </p>",
-                T0001: "<p> Safe and sound " + Template.dataForSave.nameProtagonist + " stood hidden <br> while the screaming ant got bitten. <br> The crow chewed it up with a very loud crunch. <br> as the seed broke down in a hunch. </p>",
-                T0002: "<p> Anni, the wind who had seen the whole affair <br> told the dog Mable in despair. </p>",
-                T0003: "<p> No one ever talked to " + Template.dataForSave.nameProtagonist + " again <br> This had been the moment when <br> it could have shown some gratitude to all <br> who had helped it not to fall. </p>",
-                T0004: "<p> " + Template.dataForSave.nameProtagonist + " had missed its chance, <br> now it sat down in trance. </p>",
+                T0000: "<p> “Thank you”, whispered the seed <br> And within a beat <br> It ran to the ant's hiding place <br> And pushed the ant into the bird’s space. </p>",
+                T0001: "<p> Safe and sound " + Template.dataForSave.nameProtagonist + " stood hidden <br> While the screaming ant got bitten. <br> The crow chewed it up with a very loud crunch <br> As the seed broke down in a hunch. </p>",
+                T0002: "<p> Anni, the wind who had seen the whole affair <br> Told the dog Mable in despair. </p>",
+                T0003: "<p> No one ever talked to " + Template.dataForSave.nameProtagonist + " again. <br> This had been the moment when <br> It could have shown some gratitude to all <br> Who had helped it not to fall. </p>",
+                T0004: "<p> " + Template.dataForSave.nameProtagonist + " had missed its chance, <br> Now it sat down in trance. </p>",
                 T0005: "<p> On the roof that was to become its tomb <br> " + Template.dataForSave.nameProtagonist + " would never bloom. </p>"
             }
         };
